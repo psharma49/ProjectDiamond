@@ -1,0 +1,301 @@
+body, html, #root, .app, .container {
+  width: 100%;
+  height: 100%;
+}
+
+
+.container {
+  font-size: 28px;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+.loginForm {
+ box-sizing: border-box;
+ width: 100%;
+ max-width: 400px;
+ padding-left: 20px;
+ padding-right: 20px;
+}
+
+.inputField {
+ padding-top: 16px;
+}
+
+.input {
+ box-sizing: border-box;
+ outline: none;
+ border: solid 2px #f39120;
+ border-radius: 4px;
+ color: #292929;
+ width: 100%;
+ padding: 12px;
+ font-size: 14px;
+ background: rgba(255, 255, 255, 1);
+}
+
+.submitButton {
+ padding-top: 16px;
+}
+
+
+.btn {
+ width: 100%;
+ min-width: 280px;
+ color: #fffefe;
+ padding: 12px;
+ font-size: 14px;
+ font-weight: bold;
+ border: solid 2px #ffffff;
+ border-radius: 4px;
+ background: #e87722;
+ cursor: pointer;
+}
+
+.optummm{
+  position: relative;
+  bottom: 40px;
+  left: 65px;
+  align-items: center;
+}
+
+.Welcome{
+  position: relative;
+  right: 550px;
+  bottom: 250px;
+  font-size: 20px;
+}
+
+
+.logoutbutton{
+  background: #e87722;
+  color: #fffefe;
+  position: relative;
+  text-align: center;
+  left: 580px;
+  bottom: 270px;
+  width: 100%;
+  min-width: 70px;
+  width: 5%;
+  padding: 14px;
+  font-size: 10px;
+}
+
+
+
+
+.col{
+  position: relative;
+  top: 250px;
+  float:left;
+  width:20%;
+  padding:2px;
+  box-sizing:border-box;
+}
+
+.comm{
+  background: rgb(85, 86, 90);
+  color:rgb(255, 255, 255);
+  list-style-type:none;
+  border:1px solid #555;
+  margin:0;
+  padding:0;
+  transition:0.3s;
+}
+
+.comm:hover, .comm{
+  box-shadow: 0 10px 15px 0 rgb(219, 218, 214);
+}
+
+.comm .header{
+  background-color: rgb(255, 255, 255);;
+  color:rgb(232, 119, 34);
+  font-size:25px;
+}
+
+.comm .header.header-green{
+  background-color:rgb(255, 255, 254);
+}
+
+.comm li{
+  padding:15px;
+  border-bottom:1px solid #eee;
+  text-align:center;
+}
+
+.comm .MRKPI{
+  background-color:#f4f4f4;
+  font-size:20px;
+  color:#555;
+}
+  
+@media(max-width:500px){
+  .col{
+    width:100%;
+  }
+}
+
+
+
+.mark{
+  background: rgb(232, 119, 34);
+  color:rgb(255, 255, 255);
+  list-style-type:none;
+  border:1px solid #555;
+  margin:0;
+  padding:0;
+  transition:0.3s;
+}
+
+.mark:hover, .mark{
+  box-shadow: 0 10px 15px 0 rgb(219, 218, 214);
+}
+
+.mark .header{
+  background-color: rgb(255, 255, 255);;
+  color:rgb(232, 119, 34);
+  font-size:25px;
+}
+
+.mark .header.header-green{
+  background-color:rgb(255, 255, 254);
+}
+
+.mark li{
+  padding:15px;
+  border-bottom:1px solid #eee;
+  text-align:center;
+}
+
+.mark .MRKPI{
+  background-color:#f4f4f4;
+  font-size:20px;
+  color:#555;
+}
+
+
+
+.effi{
+  background: rgb(115, 150, 0);
+  color:rgb(255, 255, 255);
+  list-style-type:none;
+  border:1px solid #555;
+  margin:0;
+  padding:0;
+  transition:0.3s;
+}
+
+.effi:hover, .effi{
+  box-shadow: 0 10px 15px 0 rgb(219, 218, 214);
+}
+
+.effi .header{
+  background-color: rgb(255, 255, 255);;
+  color:rgb(232, 119, 34);
+  font-size:25px;
+}
+
+.effi .header.header-green{
+  background-color:rgb(255, 255, 254);
+}
+
+.effi li{
+  padding:15px;
+  border-bottom:1px solid #eee;
+  text-align:center;
+}
+
+.effi .MRKPI{
+  background-color:#f4f4f4;
+  font-size:20px;
+  color:#555;
+}
+
+
+
+
+.cust{
+  background: rgb(230, 170, 0);
+  color:rgb(255, 255, 255);
+  list-style-type:none;
+  border:1px solid #555;
+  margin:0;
+  padding:0;
+  transition:0.3s;
+}
+
+.cust:hover, .cust{
+  box-shadow: 0 10px 15px 0 rgb(219, 218, 214);
+}
+
+.cust .header{
+  background-color: rgb(255, 255, 255);;
+  color:rgb(232, 119, 34);
+  font-size:25px;
+}
+
+.cust .header.header-green{
+  background-color:rgb(255, 255, 254);
+}
+
+.cust li{
+  padding:15px;
+  border-bottom:1px solid #eee;
+  text-align:center;
+}
+
+.cust .MRKPI{
+  background-color:#f4f4f4;
+  font-size:20px;
+  color:#555;
+}
+
+
+
+
+.futu{
+  background: rgb(162, 43, 56);
+  color:rgb(255, 255, 255);
+  list-style-type:none;
+  border:1px solid #555;
+  margin:0;
+  padding:0;
+  transition:0.3s;
+}
+
+.futu:hover, .futu{
+  box-shadow: 0 10px 15px 0 rgb(219, 218, 214);
+}
+
+.futu .header{
+  background-color: rgb(255, 255, 255);;
+  color:rgb(232, 119, 34);
+  font-size:25px;
+}
+
+.futu .header.header-green{
+  background-color:rgb(255, 255, 254);
+}
+
+.futu li{
+  padding:15px;
+  border-bottom:1px solid #eee;
+  text-align:center;
+}
+
+.futu .MRKPI{
+  background-color:#f4f4f4;
+  font-size:20px;
+  color:#555;
+}
+
+
+
+
+
+
+
