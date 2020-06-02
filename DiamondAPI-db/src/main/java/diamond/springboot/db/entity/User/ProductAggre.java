@@ -4,18 +4,21 @@ import java.math.BigDecimal;
 
 public class ProductAggre {
 	
-	public ProductAggre() {
-		
-	}
-	public ProductAggre(String kpi_name, String kpi_subcategory_name, String unit_of_measurement, BigDecimal sum,
-			BigDecimal avg) {
+	public ProductAggre(String kpi_name, String kpi_subcategory_name, int priority, String unit_of_measurement,
+			BigDecimal sum, BigDecimal avg) {
 		super();
 		this.kpi_name = kpi_name;
 		this.kpi_subcategory_name = kpi_subcategory_name;
+		this.priority = priority;
 		this.unit_of_measurement = unit_of_measurement;
 		this.sum = sum;
 		this.avg = avg;
 	}
+
+	public ProductAggre() {
+		
+	}
+	
 	public String getKpi_name() {
 		return kpi_name;
 	}
@@ -48,6 +51,13 @@ public class ProductAggre {
 	}
 	private String kpi_name;
 	private String kpi_subcategory_name;
+	public int getPriority() {
+		return priority;
+	}
+	public void setPriority(int priority) {
+		this.priority = priority;
+	}
+	private int priority;
 	private String unit_of_measurement;
 	private BigDecimal sum;
 	private BigDecimal avg;
