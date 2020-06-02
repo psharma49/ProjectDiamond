@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import DataService from "./DataService";
 
-class PLDV2 extends Component {
+class ProductView2 extends Component {
   
     constructor(props) {
         super(props)
@@ -131,7 +131,7 @@ class PLDV2 extends Component {
               <strong>Future</strong>
             </li>
             {this.state.FinalDataForRep.map(item => 
-                 item.kpi_name==='Customer' && item.unit_of_measurement==='Percent' ?  (<li>{item.kpi_subcategory_name}-{item.avg}Hours/years </li>) : ''
+                 item.kpi_name==='Future' && item.unit_of_measurement==='Percent' ?  (<li>{item.kpi_subcategory_name}-{item.avg}Hours/years </li>) : ''
             )}
             {/* <li class="MRKPI">
               <strong>$ 15.99</strong> / Month
@@ -151,4 +151,4 @@ class PLDV2 extends Component {
     );
   }
 }
-export default PLDV2;
+export default ProductView2;

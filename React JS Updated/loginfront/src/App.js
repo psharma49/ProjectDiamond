@@ -4,8 +4,9 @@ import { observer } from "mobx-react";
 import LoginForm from "./LoginForm";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Link } from "react-router-dom";
 import UploadData from "./UploadData";
+import ProductView1 from "./ProductView1";
+import ProductView2 from "./ProductView2";
 
 class App extends React.Component {
   async componentDidMount() {
@@ -100,15 +101,26 @@ class App extends React.Component {
           </div>
         );
       }
-      else{
         return (
-          <div className="app">
-            <div className="container">
-              <LoginForm />
-            </div>
-          </div>
+              <Router>
+                <>
+                <Switch>
+                 <Route path="/" exact component = {LoginForm}/>
+                 <Route path="/login" exact component = {LoginForm}/>
+                 <Route exact path="/ProductView1" component={ProductView1}/>
+                 <Route exact path="/UploadData" component={UploadData}/>
+                 <Route exact path="/ProductView2" component={ProductView2}/>
+                </Switch>
+                </>
+              </Router>
+              
+          // <div className="app">
+          //   <div className="container">
+          //     <LoginForm />
+          //   </div>
+          // </div>
         );
-      }
+      
 
     }
   }

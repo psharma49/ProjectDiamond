@@ -4,7 +4,6 @@ import SubmitButton from "./SubmitButton";
 import UserStore from "./stores/UserStore";
 import UploadData from "./UploadData";
 
-
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
@@ -63,8 +62,7 @@ class LoginForm extends React.Component {
       if (result && result.success) {
         UserStore.isLoggedIn = true;
         UserStore.username = result.username;
-        // this.props.history.push('/UploadData');
-        
+        this.props.history.push("/UploadData");
       } else if (result && result.success === false) {
         this.resetForm();
         alert("Invalid username or password");
@@ -76,35 +74,38 @@ class LoginForm extends React.Component {
   }
   render() {
     return (
-      <div className="loginForm">
-        {/* //Actual UI for the a login form  */}
-        <div>
-          <img
-            className="optummm"
-            src={process.env.PUBLIC_URL + "/optummm.png"}
-            alt="optum"
-            width="200px"
-          />
+      <div className="app">
+        <div className="container">
+          <div className="loginForm">
+            {/* //Actual UI for the a login form  */}
+            <div>
+              <img
+                className="optummm"
+                src={process.env.PUBLIC_URL + "/optummm.png"}
+                alt="optum"
+                width="200px"
+              />
+            </div>
+            Log in
+            <InputField
+              type="text"
+              placeholder="Username"
+              value={this.state.username ? this.state.username : ""}
+              onChange={(val) => this.setInputValue("username", val)}
+            />
+            <InputField
+              type="Password"
+              placeholder="Password"
+              value={this.state.password ? this.state.password : ""}
+              onChange={(val) => this.setInputValue("password", val)}
+            />
+            <SubmitButton
+              text="Login"
+              disabled={this.state.buttonDisabled}
+              onClick={() => this.doLogin()}
+            />
+          </div>
         </div>
-        Log in
-        <InputField
-          type="text"
-          placeholder="Username"
-          value={this.state.username ? this.state.username : ""}
-          onChange={(val) => this.setInputValue("username", val)}
-        />
-        <InputField
-          type="Password"
-          placeholder="Password"
-          value={this.state.password ? this.state.password : ""}
-          onChange={(val) => this.setInputValue("password", val)}
-        />
-        <SubmitButton
-          text="Login"
-          disabled={this.state.buttonDisabled}
-          onClick={() => this.doLogin()}
-        />
-        
       </div>
     );
   }

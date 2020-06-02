@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import axios from "axios";
 import DataService from "./DataService";
 
-class PLDV extends Component {
+class ProductView1 extends Component {
   constructor(props) {
     super(props);
 
@@ -28,7 +27,7 @@ class PLDV extends Component {
     this.LOB = this.LOB.bind(this);
     this.Portfolio = this.Portfolio.bind(this);
     this.Product = this.Product.bind(this);
-    this.OnSubmit = this.OnSubmit.bind(this); 
+    this.OnSubmit = this.OnSubmit.bind(this);
   }
 
   CallYears() {
@@ -55,8 +54,8 @@ class PLDV extends Component {
       });
   }
 
-  Portfolio(selectedLOB) {
-    DataService.retrievePortfolioList(selectedLOB,selectedYear)
+  Portfolio(selectedLOB, selectedYear) {
+    DataService.retrievePortfolioList(selectedLOB, selectedYear)
       .then((response) => {
         console.log(response);
         this.setState({ Portfolios: response.data });
@@ -67,8 +66,8 @@ class PLDV extends Component {
       });
   }
 
-  Product(selectedPortfolio) {
-    DataService.retrieveProductList(selectedPortfolio,selectedYear)
+  Product(selectedPortfolio, selectedYear) {
+    DataService.retrieveProductList(selectedPortfolio, selectedYear)
       .then((response) => {
         console.log(response);
         this.setState({ Products: response.data });
@@ -79,22 +78,24 @@ class PLDV extends Component {
       });
   }
 
-//   OnSubmit(selectedLOB, selectedPortfolio, selectedProduct,selectedYear) {
-//     DataService.Onsubmitting(selectedLOB,selectedPortfolio,selectedProduct,selectedYear)
-//       .then((response) => {
-//         console.log(response);
-//         this.setState({ FinalDataForRep: response.data });
-//       })
-//       .catch((error) => {
-//         console.log(error);
-//         this.setState({ errorMsg: "Error retrieving Final Data" });
-//       });
-//       this.context.history.push('/PLDV2')
-//   }
+  //   OnSubmit(selectedLOB, selectedPortfolio, selectedProduct,selectedYear) {
+  //     DataService.Onsubmitting(selectedLOB,selectedPortfolio,selectedProduct,selectedYear)
+  //       .then((response) => {
+  //         console.log(response);
+  //         this.setState({ FinalDataForRep: response.data });
+  //       })
+  //       .catch((error) => {
+  //         console.log(error);
+  //         this.setState({ errorMsg: "Error retrieving Final Data" });
+  //       });
+  //       this.context.history.push('/PLDV2')
+  //   }
 
-OnSubmit(selectedLOB,selectedPortfolio,selectedProduct,selectedYear){
-    this.props.history.push(`PLDV2/${selectedLOB}/${selectedPortfolio}/${selectedProduct}/${selectedYear}`)       
-}
+  OnSubmit(selectedLOB, selectedPortfolio, selectedProduct, selectedYear) {
+    this.props.history.push(
+      `/ProductView2/${selectedLOB}/${selectedPortfolio}/${selectedProduct}/${selectedYear}`
+    );
+  }
   handleYearChange(e) {
     console.log(e.target.value);
     this.setState({
@@ -127,7 +128,7 @@ OnSubmit(selectedLOB,selectedPortfolio,selectedProduct,selectedYear){
   }
   render() {
     return (
-        <div className="dropdowns">
+      <div className="dropdowns">
           <div className="viewby">
             View By
             <select
@@ -137,21 +138,22 @@ OnSubmit(selectedLOB,selectedPortfolio,selectedProduct,selectedYear){
               onChange={this.handleYearChange}
             >
               <option selected disabled>
-                {" "}
-                Year{" "}
+                {"  "}
+                Year{"  "}
               </option>
               {this.state.years.map((item) => (
                 <option value={item.id}>{item.name}</option>
               ))}
             </select>
             <select
+              className="quarter"
               name="Select Quarter"
               value={this.state.value}
               onChange={this.handleQuarterChange}
             >
               <option selected disabled>
-                {" "}
-                Quarter{" "}
+                {"  "}
+                Quarter{"  "}
               </option>
               <option value="Quarter 1">Quarter 1</option>
               <option value="Quarter 2">Quarter 2</option>
@@ -163,13 +165,14 @@ OnSubmit(selectedLOB,selectedPortfolio,selectedProduct,selectedYear){
           <div className="LOBs">
             Select LOB
             <select
+              className="LOB"
               name="Select LOB"
               onClick={() => this.LOB(this.state.selectedYear)}
               onChange={this.handleLOBChange}
             >
               <option selected disabled>
-                {" "}
-                LOB{" "}
+                {"   "}
+                LOB{"    "}
               </option>
               {this.state.LOBs.map((item) => (
                 <option value={item.id}>{item.name}</option>
@@ -180,8 +183,11 @@ OnSubmit(selectedLOB,selectedPortfolio,selectedProduct,selectedYear){
           <div className="Portfolios">
             Select Portfolio
             <select
+              className="portfolio"
               name="Select Portfolio"
-              onClick={() => this.Portfolio(this.state.selectedLOB)}
+              onClick={() =>
+                this.Portfolio(this.state.selectedLOB, this.state.selectedYear)
+              }
               onChange={this.handlePortfolioChange}
             >
               <option selected disabled>
@@ -197,8 +203,14 @@ OnSubmit(selectedLOB,selectedPortfolio,selectedProduct,selectedYear){
           <div className="Products">
             Select Product
             <select
+              className="product"
               name="Select Products"
-              onClick={() => this.Product(this.state.selectedPortfolio)}
+              onClick={() =>
+                this.Product(
+                  this.state.selectedPortfolio,
+                  this.state.selectedYear
+                )
+              }
               onChange={this.handleProductChange}
             >
               <option selected disabled>
@@ -211,47 +223,46 @@ OnSubmit(selectedLOB,selectedPortfolio,selectedProduct,selectedYear){
             </select>
           </div>
 
-          <div className="Final submit">
+          <div className="Finalsubmit">
             <button
+              className="dashboardsubmit"
               name="Submit"
               onClick={() =>
                 this.OnSubmit(
                   this.state.selectedLOB,
                   this.state.selectedPortfolio,
                   this.state.selectedProduct,
-                  this.state.selectedYear,
+                  this.state.selectedYear
                 )
               }
             >
               Submit
             </button>
           </div>
-          <div className="Toggle View">
+          <div className="ToggleView">
             Toggle View
             <button
+              className="Aggr"
               name="Aggregate"
               onClick={() =>
-                 this.OnSubmit(
-                   this.state.selectedLOB,
-                   this.state.selectedPortfolio,
-                   this.state.selectedProduct,
-                   this.state.selectedYear
-                 )
+                this.OnSubmit(
+                  this.state.selectedLOB,
+                  this.state.selectedPortfolio,
+                  this.state.selectedProduct,
+                  this.state.selectedYear
+                )
               }
             >
               Aggregate
             </button>
-
-            <button
-              name="Feature Level"
-            >
-              Feature level
-            </button>
+            <button 
+            className="FeatureLevel"
+            name="Feature Level">Feature level</button>
           </div>
-        </div>
-      
+        
+      </div>
     );
   }
 }
 
-export default PLDV;
+export default ProductView1;

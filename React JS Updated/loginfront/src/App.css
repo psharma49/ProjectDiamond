@@ -1,8 +1,11 @@
-body, html, #root, .app, .container {
+body,
+html,
+#root,
+.app,
+.container {
   width: 100%;
   height: 100%;
 }
-
 
 .container {
   font-size: 28px;
@@ -15,63 +18,61 @@ body, html, #root, .app, .container {
 }
 
 .loginForm {
- box-sizing: border-box;
- width: 100%;
- max-width: 400px;
- padding-left: 20px;
- padding-right: 20px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 400px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .inputField {
- padding-top: 16px;
+  padding-top: 16px;
 }
 
 .input {
- box-sizing: border-box;
- outline: none;
- border: solid 2px #f39120;
- border-radius: 4px;
- color: #292929;
- width: 100%;
- padding: 12px;
- font-size: 14px;
- background: rgba(255, 255, 255, 1);
+  box-sizing: border-box;
+  outline: none;
+  border: solid 2px #f39120;
+  border-radius: 4px;
+  color: #292929;
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  background: rgba(255, 255, 255, 1);
 }
 
 .submitButton {
- padding-top: 16px;
+  padding-top: 16px;
 }
-
 
 .btn {
- width: 100%;
- min-width: 280px;
- color: #fffefe;
- padding: 12px;
- font-size: 14px;
- font-weight: bold;
- border: solid 2px #ffffff;
- border-radius: 4px;
- background: #e87722;
- cursor: pointer;
+  width: 100%;
+  min-width: 280px;
+  color: #fffefe;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: bold;
+  border: solid 2px #ffffff;
+  border-radius: 4px;
+  background: #e87722;
+  cursor: pointer;
 }
 
-.optummm{
+.optummm {
   position: relative;
   bottom: 40px;
-  left: 65px;
+  left: 45px;
   align-items: center;
 }
 
-.Welcome{
+.Welcome {
   position: relative;
   right: 550px;
   bottom: 250px;
   font-size: 20px;
 }
 
-
-.logoutbutton{
+.logoutbutton {
   background: #e87722;
   color: #fffefe;
   position: relative;
@@ -85,217 +86,307 @@ body, html, #root, .app, .container {
   font-size: 10px;
 }
 
-
-
-
-.col{
+.col {
   position: relative;
   top: 250px;
-  float:left;
-  width:20%;
-  padding:2px;
-  box-sizing:border-box;
+  float: left;
+  width: 20%;
+  padding: 2px;
+  box-sizing: border-box;
 }
 
-.comm{
+.comm {
   background: rgb(85, 86, 90);
-  color:rgb(255, 255, 255);
-  list-style-type:none;
-  border:1px solid #555;
-  margin:0;
-  padding:0;
-  transition:0.3s;
+  color: rgb(255, 255, 255);
+  list-style-type: none;
+  border: 1px solid #555;
+  margin: 0;
+  padding: 0;
+  transition: 0.3s;
 }
 
-.comm:hover, .comm{
+.comm:hover,
+.comm {
   box-shadow: 0 10px 15px 0 rgb(219, 218, 214);
 }
 
-.comm .header{
-  background-color: rgb(255, 255, 255);;
-  color:rgb(232, 119, 34);
-  font-size:25px;
+.comm .header {
+  background-color: rgb(255, 255, 255);
+  color: rgb(232, 119, 34);
+  font-size: 25px;
 }
 
-.comm .header.header-green{
-  background-color:rgb(255, 255, 254);
+.comm .header.header-green {
+  background-color: rgb(255, 255, 254);
 }
 
-.comm li{
-  padding:15px;
-  border-bottom:1px solid #eee;
-  text-align:center;
+.comm li {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  text-align: center;
 }
 
-.comm .MRKPI{
-  background-color:#f4f4f4;
-  font-size:20px;
-  color:#555;
+.comm .MRKPI {
+  background-color: #f4f4f4;
+  font-size: 20px;
+  color: #555;
 }
-  
-@media(max-width:500px){
-  .col{
-    width:100%;
+
+@media (max-width: 500px) {
+  .col {
+    width: 100%;
   }
 }
 
-
-
-.mark{
+.mark {
   background: rgb(232, 119, 34);
-  color:rgb(255, 255, 255);
-  list-style-type:none;
-  border:1px solid #555;
-  margin:0;
-  padding:0;
-  transition:0.3s;
+  color: rgb(255, 255, 255);
+  list-style-type: none;
+  border: 1px solid #555;
+  margin: 0;
+  padding: 0;
+  transition: 0.3s;
 }
 
-.mark:hover, .mark{
+.mark:hover,
+.mark {
   box-shadow: 0 10px 15px 0 rgb(219, 218, 214);
 }
 
-.mark .header{
-  background-color: rgb(255, 255, 255);;
-  color:rgb(232, 119, 34);
-  font-size:25px;
+.mark .header {
+  background-color: rgb(255, 255, 255);
+  color: rgb(232, 119, 34);
+  font-size: 25px;
 }
 
-.mark .header.header-green{
-  background-color:rgb(255, 255, 254);
+.mark .header.header-green {
+  background-color: rgb(255, 255, 254);
 }
 
-.mark li{
-  padding:15px;
-  border-bottom:1px solid #eee;
-  text-align:center;
+.mark li {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  text-align: center;
 }
 
-.mark .MRKPI{
-  background-color:#f4f4f4;
-  font-size:20px;
-  color:#555;
+.mark .MRKPI {
+  background-color: #f4f4f4;
+  font-size: 20px;
+  color: #555;
 }
 
-
-
-.effi{
+.effi {
   background: rgb(115, 150, 0);
-  color:rgb(255, 255, 255);
-  list-style-type:none;
-  border:1px solid #555;
-  margin:0;
-  padding:0;
-  transition:0.3s;
+  color: rgb(255, 255, 255);
+  list-style-type: none;
+  border: 1px solid #555;
+  margin: 0;
+  padding: 0;
+  transition: 0.3s;
 }
 
-.effi:hover, .effi{
+.effi:hover,
+.effi {
   box-shadow: 0 10px 15px 0 rgb(219, 218, 214);
 }
 
-.effi .header{
-  background-color: rgb(255, 255, 255);;
-  color:rgb(232, 119, 34);
-  font-size:25px;
+.effi .header {
+  background-color: rgb(255, 255, 255);
+  color: rgb(232, 119, 34);
+  font-size: 25px;
 }
 
-.effi .header.header-green{
-  background-color:rgb(255, 255, 254);
+.effi .header.header-green {
+  background-color: rgb(255, 255, 254);
 }
 
-.effi li{
-  padding:15px;
-  border-bottom:1px solid #eee;
-  text-align:center;
+.effi li {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  text-align: center;
 }
 
-.effi .MRKPI{
-  background-color:#f4f4f4;
-  font-size:20px;
-  color:#555;
+.effi .MRKPI {
+  background-color: #f4f4f4;
+  font-size: 20px;
+  color: #555;
 }
 
-
-
-
-.cust{
+.cust {
   background: rgb(230, 170, 0);
-  color:rgb(255, 255, 255);
-  list-style-type:none;
-  border:1px solid #555;
-  margin:0;
-  padding:0;
-  transition:0.3s;
+  color: rgb(255, 255, 255);
+  list-style-type: none;
+  border: 1px solid #555;
+  margin: 0;
+  padding: 0;
+  transition: 0.3s;
 }
 
-.cust:hover, .cust{
+.cust:hover,
+.cust {
   box-shadow: 0 10px 15px 0 rgb(219, 218, 214);
 }
 
-.cust .header{
-  background-color: rgb(255, 255, 255);;
-  color:rgb(232, 119, 34);
-  font-size:25px;
+.cust .header {
+  background-color: rgb(255, 255, 255);
+  color: rgb(232, 119, 34);
+  font-size: 25px;
 }
 
-.cust .header.header-green{
-  background-color:rgb(255, 255, 254);
+.cust .header.header-green {
+  background-color: rgb(255, 255, 254);
 }
 
-.cust li{
-  padding:15px;
-  border-bottom:1px solid #eee;
-  text-align:center;
+.cust li {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  text-align: center;
 }
 
-.cust .MRKPI{
-  background-color:#f4f4f4;
-  font-size:20px;
-  color:#555;
+.cust .MRKPI {
+  background-color: #f4f4f4;
+  font-size: 20px;
+  color: #555;
 }
 
-
-
-
-.futu{
+.futu {
   background: rgb(162, 43, 56);
-  color:rgb(255, 255, 255);
-  list-style-type:none;
-  border:1px solid #555;
-  margin:0;
-  padding:0;
-  transition:0.3s;
+  color: rgb(255, 255, 255);
+  list-style-type: none;
+  border: 1px solid #555;
+  margin: 0;
+  padding: 0;
+  transition: 0.3s;
 }
 
-.futu:hover, .futu{
+.futu:hover,
+.futu {
   box-shadow: 0 10px 15px 0 rgb(219, 218, 214);
 }
 
-.futu .header{
-  background-color: rgb(255, 255, 255);;
-  color:rgb(232, 119, 34);
-  font-size:25px;
+.futu .header {
+  background-color: rgb(255, 255, 255);
+  color: rgb(232, 119, 34);
+  font-size: 25px;
 }
 
-.futu .header.header-green{
-  background-color:rgb(255, 255, 254);
+.futu .header.header-green {
+  background-color: rgb(255, 255, 254);
 }
 
-.futu li{
-  padding:15px;
-  border-bottom:1px solid #eee;
-  text-align:center;
+.futu li {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  text-align: center;
 }
 
-.futu .MRKPI{
-  background-color:#f4f4f4;
-  font-size:20px;
-  color:#555;
+.futu .MRKPI {
+  background-color: #f4f4f4;
+  font-size: 20px;
+  color: #555;
 }
 
+.viewby {
+  position: relative;
+  left: 100px;
+  padding: 15px;
+  top: 20px;
+}
 
+.year {
+  position: relative;
+  width: 70px;
+  text-align-last: center;
+  left: -90px;
+  top: 30px;
+  color: white;
+  background-color: #e87722;
+}
 
+.quarter {
+  position: relative;
+  left: -65px;
+  top: 30px;
+  text-align-last: center;
+  color: white;
+  background-color: #e87722;
+}
 
+.LOBs {
+  position: relative;
+  left: 400px;
+  bottom: 14px;
+}
 
+.LOB {
+  position: relative;
+  top: 27px;
+  right: 85px;
+  text-align-last: center;
+  width: 100px;
+  color: white;
+  background-color: #e87722;
+}
 
+.Portfolios {
+  position: relative;
+  left: 650px;
+  bottom: 38px;
+}
+.portfolio {
+  position: relative;
+  top: 30px;
+  right: 102px;
+  width: 100px;
+  text-align-last: center;
+  color: white;
+  background-color: #e87722;
+}
+.Products {
+  position: relative;
+  left: 900px;
+  bottom: 60px;
+}
 
+.product {
+  position: relative;
+  top: 29px;
+  right: 102px;
+  width: 100px;
+  text-align-last: center;
+  color: white;
+  background-color: #e87722;
+}
+.dashboardsubmit {
+  position: relative;
+  left: 1100px;
+  bottom: 60px;
+  width: 80px;
+  color: white;
+  background-color: #e87722;
+  border-block-end-color: black;
+}
+
+.ToggleView {
+  position: relative;
+  top: 350px;
+  left: 580px;
+}
+.Aggr {
+  position: relative;
+  top: 30px;
+  right: 140px;
+  width: 90px;
+  color: white;
+  background-color: #e87722;
+  border-block-end-color: black;
+}
+.FeatureLevel {
+  position: relative;
+  right: 110px;
+  top: 30px;
+  width: 110px;
+  color: white;
+  background-color: #e87722;
+  border-block-end-color: black;
+}
