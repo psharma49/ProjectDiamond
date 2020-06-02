@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import DataService from "./DataService";
+import ProductView1 from "./ProductView1";
 
 class ProductView2 extends Component {
   
@@ -31,6 +32,7 @@ class ProductView2 extends Component {
     let FinalDataForRep = this.state.FinalDataForRep;
     return (
       <div>
+        <ProductView1/>;
         <div class="col">
           <ul class="comm">
             <li class="header">

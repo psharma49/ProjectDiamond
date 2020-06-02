@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import UploadData from "./UploadData";
 import ProductView1 from "./ProductView1";
 import ProductView2 from "./ProductView2";
+import HeaderComponent from "./HeaderComponent";
 
 class App extends React.Component {
   async componentDidMount() {
@@ -67,43 +68,47 @@ class App extends React.Component {
         </div>
       );
     } else {
-      if (UserStore.isLoggedIn) {
-        return (
-          <div className="app">
-            <div className="container">
-              {/* <Router> */}
-              <div className="Welcome">Welcome!</div>
-              <button className="logoutbutton" onClick={() => this.doLogout()}>
-                Log out
-              </button>
-              {/* <a href="http://localhost:3000/PLDV">Go to next view</a> */}
-              {/* <div>
-                <img
-                  className="optummm"
-                  src={process.env.PUBLIC_URL + "/optummm.png"}
-                  alt="optum"
-                  width="200px"
-                />
-                <div className="upload">
-                  <button className="btn">Upload KPI/Data</button>
-                </div>
-                <div className="dashboardbutton">
-                  <div>
-                    <button className="btn" onClick={() => this.OntoPDLV()}>
-                      Dashboard View
-                    </button>
-                  </div>
-                </div>
-              </div> */}
-              {/* <>
-                */}
-            </div>
-          </div>
-        );
-      }
+      //  if (UserStore.isLoggedIn) {
+      //    return (
+      //     //  <div className="app">
+      //     //    <div className="container">
+      //     //      {/* <Router> */}
+      //     //      <div className="Welcome">Welcome!</div>
+      //     //      <button className="logoutbutton" onClick={() => this.doLogout()}>
+      //     //        Log out
+      //     //      </button>
+      //     //      </div>
+      //     //      </div>
+      //        /* <a href="http://localhost:3000/PLDV">Go to next view</a> */
+      //         /* <div>
+      //     //       <img
+      //     //         className="optummm"
+      //     //         src={process.env.PUBLIC_URL + "/optummm.png"}
+      //     //         alt="optum"
+      //     //         width="200px"
+      //     //       />
+      //     //       <div className="upload">
+      //     //         <button className="btn">Upload KPI/Data</button>
+      //     //       </div>
+      //     //       <div className="dashboardbutton">
+      //     //         <div>
+      //     //           <button className="btn" onClick={() => this.OntoPDLV()}>
+      //     //             Dashboard View
+      //     //           </button>
+      //     //         </div>
+      //     //       </div>
+      //     //     </div> */
+      //     //     {/* <>
+      //     //       */}
+            
+      //   // );
+      // // }
+      //   //  );
+      //   // }
         return (
               <Router>
                 <>
+                <HeaderComponent/>
                 <Switch>
                  <Route path="/" exact component = {LoginForm}/>
                  <Route path="/login" exact component = {LoginForm}/>
