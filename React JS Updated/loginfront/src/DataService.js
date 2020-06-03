@@ -2,29 +2,29 @@ import axios from 'axios';
 
 class DataService {
 
-    retrievYearList(){
+    retrieveYearList(){
         //console.log('execute service')
-        return axios.get("http://localhost:8080//view_board/year");
+        return axios.get("http://localhost:8083/viewdash_board/year");
     }
 
-    retrieveLOBList(selectedYear){
-        return axios.get(`http://localhost:8080//view_board/${this.state.selectedYear}`);
+    retrieveLOBList(){
+        return axios.get(`http://localhost:8083/viewdash_board/lob/yearid`);
     }
 
-    retrievePortfolioList(selectedLOB,selectedYear){
+    retrievePortfolioList(selectedLOB){
         //console.log('execute service')
-        return axios.get(`http://localhost:8080//view_board/portfolio/${this.state.selectedLOB}/${this.state.selectedYear}`);
+        return axios.get(`http://localhost:8083/viewdash_board/portfolio/${selectedLOB}/yearid`);
     }
 
-    retrieveProductList(selectedPortfolio, selectedYear){
-        return axios.get(`http://localhost:8080//view_board/product/${this.state.selectedPortfolio}/${this.state.selectedYear}`)
+    retrieveProductList(selectedPortfolio){
+        return axios.get(`http://localhost:8083/viewdash_board/product/${selectedPortfolio}/yearid`)
     }
 
-    Onsubmitting(selectedLOB, selectedPortfolio, selectedProduct,selectedYear){
+    Onsubmitting(selectedLOB, selectedPortfolio, selectedProduct){
         return axios
-        .get(`http://localhost:8080//view_board/product_aggregate_view/${this.state.selectedLOB}/${this.state.selectedPortfolio}/${this.state.selectedProduct}/${this.state.selectedYear}`)
+        .get(`http://localhost:8083/viewdash_board/product_aggregate_view/${selectedLOB}/${selectedPortfolio}/${selectedProduct}/yearid`)
     }
 
 }
 
-export default new DataService()
+export default new DataService();

@@ -11,15 +11,16 @@ class ProductView2 extends Component {
              selectedLOB: this.props.match.params.selectedLOB,
              selectedPortfolio: this.props.match.params.selectedPortfolio,
              selectedProduct: this.props.match.params.selectedProduct,
-             selectedYear: this.props.match.params.selectedYear,
              FinalDataForRep: [],
         }
     }
-    componentDidMount(selectedLOB, selectedPortfolio, selectedProduct,selectedYear) {
-             DataService.Onsubmitting(selectedLOB,selectedPortfolio,selectedProduct,selectedYear)
+
+    componentDidMount() {
+             DataService.Onsubmitting(this.state.selectedLOB,this.state.selectedPortfolio,this.state.selectedProduct)
                .then((response) => {
-                 console.log(response);
+                //  console.log(response);
                  this.setState({ FinalDataForRep: response.data });
+                 console.log(this.state.FinalDataForRep);
                })
                .catch((error) => {
                  console.log(error);
@@ -28,8 +29,6 @@ class ProductView2 extends Component {
             }
 
   render() {
-
-    let FinalDataForRep = this.state.FinalDataForRep;
     return (
       <div>
         <ProductView1/>;

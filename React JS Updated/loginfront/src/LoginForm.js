@@ -44,7 +44,7 @@ class LoginForm extends React.Component {
 
     try {
       let res = await fetch(
-        `http://localhost:8080/users/${this.state.username}/${this.state.password}`,
+        `http://localhost:8083/users/${this.state.username}/${this.state.password}`,
         {
           method: "post",
           headers: {
@@ -59,11 +59,11 @@ class LoginForm extends React.Component {
       );
 
       let result = await res.json();
-      if (result && result.success) {
+      if (result!=null) {
         UserStore.isLoggedIn = true;
-        UserStore.username = result.username;
+        UserStore.username = result.user_id;
         this.props.history.push("/UploadData");
-      } else if (result && result.success === false) {
+      } else if (result.user_id.length===0) {
         this.resetForm();
         alert("Invalid username or password");
       }

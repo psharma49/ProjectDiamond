@@ -13,7 +13,7 @@ class App extends React.Component {
   async componentDidMount() {
     try {
       let res = await fetch(
-        `http://localhost:8080/users/${this.state.username}/${this.state.password}`,
+        `http://localhost:8083/users/${this.state.username}/${this.state.password}`,
         {
           method: "post",
           headers: {
@@ -25,7 +25,7 @@ class App extends React.Component {
 
       let results = await res.json();
 
-      if (results && results.success) {
+      if (results && results.user_id.length>0) {
         UserStore.loading = false;
         UserStore.isLoggedIn = true;
         UserStore.username = results.username;
@@ -51,7 +51,7 @@ class App extends React.Component {
 
       let results = await res.json();
 
-      if (results && results.success) {
+      if (results && results.user_id.length===0) {
         UserStore.isLoggedIn = false;
         UserStore.username = "";
       }
@@ -108,13 +108,13 @@ class App extends React.Component {
         return (
               <Router>
                 <>
-                <HeaderComponent/>
+          
                 <Switch>
-                 <Route path="/" exact component = {LoginForm}/>
+               <Route path="/" exact component = {LoginForm}/>
                  <Route path="/login" exact component = {LoginForm}/>
                  <Route exact path="/ProductView1" component={ProductView1}/>
                  <Route exact path="/UploadData" component={UploadData}/>
-                 <Route exact path="/ProductView2" component={ProductView2}/>
+                 <Route exact path="/ProductView2/:selectedLOB/:selectedPortfolio/:selectedProduct/yearid" component={ProductView2}/>
                 </Switch>
                 </>
               </Router>

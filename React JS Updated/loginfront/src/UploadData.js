@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import UserStore from "./stores/UserStore";
+import HeaderComponent from "./HeaderComponent";
 
 class UploadData extends Component {
   OntoProductView1() {
@@ -7,6 +8,7 @@ class UploadData extends Component {
   }
   render() {
     return (
+      <div><HeaderComponent/>
       <div className="app">
         <div className="container">
           <div>
@@ -26,6 +28,7 @@ class UploadData extends Component {
             </div>
           </div>
         </div>
+      </div>
       </div>
     );
   }
