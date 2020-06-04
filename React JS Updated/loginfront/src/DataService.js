@@ -26,11 +26,11 @@ class DataService {
     }
     OnFeatureViewButton(selectedLOB, selectedPortfolio, selectedProduct,selectedYear,selectedQuarter){
         return axios
-        .get(`http://localhost:8083/viewdash_board/product_feature_view/${selectedLOB}/${selectedPortfolio}/${selectedProduct}/${selectedYear}/${selectedQuarter}`)
+        .get(`http://localhost:8083/viewdash_board/product_featureq_view/${selectedLOB}/${selectedPortfolio}/${selectedProduct}/${selectedYear}/${selectedQuarter}`)
     }
     AvgTtvData(selectedLOB, selectedPortfolio, selectedProduct,selectedYear,selectedQuarter){
         return axios
-        .get(`http://localhost:8083/viewdash_board/product_avg_ttv_view/${selectedLOB}/${selectedPortfolio}/${selectedProduct}/${selectedYear},${selectedQuarter}`)
+        .get(`http://localhost:8083/viewdash_board/product_avg_ttv_view/${selectedLOB}/${selectedPortfolio}/${selectedProduct}/${selectedYear}/${selectedQuarter}`)
     }
 
 }

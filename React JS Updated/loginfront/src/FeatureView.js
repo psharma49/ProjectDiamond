@@ -12,11 +12,16 @@ class FeatureView extends Component {
       selectedProduct: this.props.match.params.selectedProduct,
       selectedYear: this.props.match.params.selectedYear,
       selectedQuarter: this.props.match.params.selectedQuarter,
+      AvgTtvDataForRep: [],
       Features: [],
       FeatureDataForRep: [],
     };
   }
   componentDidMount() {
+    this.loadData3();
+    this.loadData4();
+  }
+  loadData4() {
     DataService.OnFeatureViewButton(
       this.state.selectedLOB,
       this.state.selectedPortfolio,
@@ -33,20 +38,110 @@ class FeatureView extends Component {
         this.setState({ errorMsg: "Error retrieving Feature Data" });
       });
   }
+  loadData3() {
+    DataService.AvgTtvData(
+      this.state.selectedLOB,
+      this.state.selectedPortfolio,
+      this.state.selectedProduct,
+      this.state.selectedYear,
+      this.state.selectedQuarter
+    )
+      .then((response) => {
+        this.setState({ AvgTtvDataForRep: response.data });
+        console.log(this.state.AvgTtvDataForRep);
+      })
+      .catch((error) => {
+        console.log(error);
+        this.setState({ errorMsg: "Error retrieving Final Data" });
+      });
+  }
+
   render() {
     return (
       <div>
-        <ProductView1/>
-        <table>
-  <tr>
-    <th>Features</th>
-    <th>Commercial</th>
-    <th>Market</th>
-    <th>Efficiency</th>
-    <th>Customer</th>
-    <th>Future</th>
-  </tr>
-  {this.state.FeatureDataForRep.forEach(function(item){
+        <ProductView1 />
+        <div className="tableu">
+        <table className="table">
+          <thead>
+            <tr>
+              <th className="tableheadersgrey">Features</th>
+              <th className="tableheaders">Commercial</th>
+              <th className="tableheaders">Market</th>
+              <th className="tableheaders">Efficiency</th>
+              <th className="tableheaders">Customer</th>
+              <th className="tableheaders">Future</th>
+            </tr>
+          </thead>
+          <tbody className="scroll">
+            {this.state.FeatureDataForRep.map((item) => (
+              <tr>
+                <td className="tablegrey">{item.feature_name}</td>
+            <td className="tabledata">{(item.commercial===0) ? "NA" : item.commercial} {item.um_com}</td>
+            <td className="tabledata">{(item.market===0) ? "NA" : item.market} {item.um_markrt}</td>
+            <td className="tabledata">{(item.efficiency===0) ? "NA" : item.efficiency} {item.um_eff}</td>
+            <td className="tabledata">{(item.customer_value===0) ? "NA" : item.customer_value} {item.um_cv}</td>
+            <td className="tabledata">{(item.future_trends===0) ? "NA" : item.future_trends} {item.um_ft}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        </div>
+
+        <div className="ToggleView">
+          Toggle View
+          <button
+            className="Aggr"
+            name="Aggregate"
+            onClick={() =>
+              this.OnSubmit(
+                this.state.selectedLOB,
+                this.state.selectedPortfolio,
+                this.state.selectedProduct,
+                this.state.selectedYear,
+                this.state.selectedQuarter
+              )
+            }
+          >
+            Aggregate
+          </button>
+          <button
+            name="Feature"
+            className="FeatureLevel"
+            onClick={() =>
+              this.OntoFeatureView(
+                this.state.selectedLOB,
+                this.state.selectedPortfolio,
+                this.state.selectedProduct,
+                this.state.selectedYear,
+                this.state.selectedQuarter,
+                this.state.AvgTtvDataForRep
+              )
+            }
+          >
+            Feature level
+          </button>
+        </div>
+        <div className="Vel">
+          <ul>
+            <li className="velocityheader">
+              <strong>Avg Velocity</strong>
+            </li>
+            {this.state.AvgTtvDataForRep.map((item) => (
+              <li className="itemvel">{item.vel}</li>
+            ))}
+          </ul>
+        </div>
+        <div className="Ttv">
+          <ul>
+            <li className="ttvheader">
+              <strong>Avg TTV</strong>
+            </li>
+            {this.state.AvgTtvDataForRep.map((item) => (
+              <li className="itemttv">{item.ttv}</li>
+            ))}
+          </ul>
+        </div>
+        {/* {this.state.FeatureDataForRep.forEach(function(item){
     if(this.state.Features.length===0)
     {
       this.setState({Features: (item.feature_name)});
@@ -202,14 +297,8 @@ class FeatureView extends Component {
 
     
 
-  })}
-  <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-  </tr>
-  
-</table>
+  })} */}
+
         {/* <div class="colm">
           <ul class="feature">
             <li class="header">Features</li>

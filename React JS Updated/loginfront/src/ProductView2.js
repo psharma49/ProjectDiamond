@@ -55,20 +55,24 @@ class ProductView2 extends Component {
       .then((response) => {
         this.setState({ AvgTtvDataForRep: response.data });
         console.log(this.state.AvgTtvDataForRep);
+        console.log(this.state.AvgTtvDataForRep);
+        console.log(this.state.AvgTtvDataForRep);
+        console.log(this.state.AvgTtvDataForRep);
       })
       .catch((error) => {
         console.log(error);
         this.setState({ errorMsg: "Error retrieving Final Data" });
       });
+      
   }
   OnSubmit(selectedLOB, selectedPortfolio, selectedProduct,selectedYear,selectedQuarter) {
     this.props.history.push(
       `/ProductView2/${selectedLOB}/${selectedPortfolio}/${selectedProduct}/${selectedYear}/${selectedQuarter}`
     );
   }
-  OntoFeatureView(selectedLOB, selectedPortfolio, selectedProduct,selectedYear,selectedQuarter) {
+  OntoFeatureView(selectedLOB, selectedPortfolio, selectedProduct,selectedYear,selectedQuarter,AvgTtvDataForRep) {
     this.props.history.push(
-      `/FeatureView/${selectedLOB}/${selectedPortfolio}/${selectedProduct}/${selectedYear}/${selectedQuarter}`
+      `/FeatureView/${selectedLOB}/${selectedPortfolio}/${selectedProduct}/${selectedYear}/${selectedQuarter}/${AvgTtvDataForRep}`
     );
   }
 
@@ -250,7 +254,8 @@ class ProductView2 extends Component {
                 this.state.selectedPortfolio,
                 this.state.selectedProduct,
                 this.state.selectedYear,
-                this.state.selectedQuarter
+                this.state.selectedQuarter,
+                this.state.AvgTtvDataForRep
               )
             }
           >

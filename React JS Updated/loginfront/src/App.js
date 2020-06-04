@@ -3,11 +3,14 @@ import UserStore from "./stores/UserStore";
 import { observer } from "mobx-react";
 import LoginForm from "./LoginForm";
 import "./App.css";
+// import './bootstrap.css';
+
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import UploadData from "./UploadData";
 import ProductView1 from "./ProductView1";
 import ProductView2 from "./ProductView2";
 import FeatureView from "./FeatureView";
+
 
 class App extends React.Component {
   async componentDidMount() {
@@ -115,7 +118,7 @@ class App extends React.Component {
                  <Route exact path="/ProductView1" component={ProductView1}/>
                  <Route exact path="/UploadData" component={UploadData}/>
                  <Route exact path="/ProductView2/:selectedLOB/:selectedPortfolio/:selectedProduct/:selectedYear/:selectedQuarter" component={ProductView2}/>
-                 <Route exact path="/FeatureView/:selectedLOB/:selectedPortfolio/:selectedProduct/:selectedYear/:selectedQuarter" component={FeatureView}/>
+                 <Route exact path="/FeatureView/:selectedLOB/:selectedPortfolio/:selectedProduct/:selectedYear/:selectedQuarter/:AvgTtvDataForRep" component={FeatureView}/>
                 </Switch>
                 </>
               </Router>

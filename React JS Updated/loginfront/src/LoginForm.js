@@ -59,7 +59,8 @@ class LoginForm extends React.Component {
           }),
         }
       );
-      
+      console.log(res);
+      console.log(res);
       if (res.status===200) {
         UserStore.isLoggedIn = true;
         // UserStore.username = res.data.user_id;
