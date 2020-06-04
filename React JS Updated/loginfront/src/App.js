@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import UploadData from "./UploadData";
 import ProductView1 from "./ProductView1";
 import ProductView2 from "./ProductView2";
-import HeaderComponent from "./HeaderComponent";
+import FeatureView from "./FeatureView";
 
 class App extends React.Component {
   async componentDidMount() {
@@ -114,7 +114,8 @@ class App extends React.Component {
                  <Route path="/login" exact component = {LoginForm}/>
                  <Route exact path="/ProductView1" component={ProductView1}/>
                  <Route exact path="/UploadData" component={UploadData}/>
-                 <Route exact path="/ProductView2/:selectedLOB/:selectedPortfolio/:selectedProduct/yearid" component={ProductView2}/>
+                 <Route exact path="/ProductView2/:selectedLOB/:selectedPortfolio/:selectedProduct/:selectedYear/:selectedQuarter" component={ProductView2}/>
+                 <Route exact path="/FeatureView/:selectedLOB/:selectedPortfolio/:selectedProduct/:selectedYear/:selectedQuarter" component={FeatureView}/>
                 </Switch>
                 </>
               </Router>

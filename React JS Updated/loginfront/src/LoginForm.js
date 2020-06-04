@@ -10,6 +10,8 @@ class LoginForm extends React.Component {
     this.state = {
       username: "",
       password: "",
+      acusername: "",
+      acpassword: "",
       buttonDisabled: false,
     };
   }
@@ -57,13 +59,12 @@ class LoginForm extends React.Component {
           }),
         }
       );
-
-      let result = await res.json();
-      if (result!=null) {
+      
+      if (res.status===200) {
         UserStore.isLoggedIn = true;
-        UserStore.username = result.user_id;
+        // UserStore.username = res.data.user_id;
         this.props.history.push("/UploadData");
-      } else if (result.user_id.length===0) {
+      } else{
         this.resetForm();
         alert("Invalid username or password");
       }

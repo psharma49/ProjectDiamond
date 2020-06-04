@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import DataService from "./DataService";
+import HeaderComponent from "./HeaderComponent";
+import FeatureView from "./FeatureView";
+import ProductView2 from "./ProductView2";
 
 class ProductView1 extends Component {
   constructor(props) {
@@ -13,7 +16,7 @@ class ProductView1 extends Component {
       FinalDataForRep: [],
       errorMsg: "",
       selectedYear: "",
-      selectedQuarter: "",
+      selectedQuarter: "Q",
       selectedLOB: "",
       selectedPortfolio: "",
       selectedProduct: "",
@@ -28,6 +31,7 @@ class ProductView1 extends Component {
     this.Portfolio = this.Portfolio.bind(this);
     this.Product = this.Product.bind(this);
     this.OnSubmit = this.OnSubmit.bind(this);
+    this.OntoFeatureView = this.OntoFeatureView.bind(this);
   }
 
   componentDidMount() {
@@ -81,33 +85,21 @@ class ProductView1 extends Component {
       });
   }
 
-  //   OnSubmit(selectedLOB, selectedPortfolio, selectedProduct,selectedYear) {
-  //     DataService.Onsubmitting(selectedLOB,selectedPortfolio,selectedProduct,selectedYear)
-  //       .then((response) => {
-  //         console.log(response);
-  //         this.setState({ FinalDataForRep: response.data });
-  //       })
-  //       .catch((error) => {
-  //         console.log(error);
-  //         this.setState({ errorMsg: "Error retrieving Final Data" });
-  //       });
-  //       this.context.history.push('/PLDV2')
-  //   }
 
-  OnSubmit(selectedLOB, selectedPortfolio, selectedProduct) {
-    this.props.history.push(
-      `/ProductView2/${selectedLOB}/${selectedPortfolio}/${selectedProduct}/yearid`
-    );
+
+  OnSubmit(selectedLOB, selectedPortfolio, selectedProduct,selectedYear,selectedQuarter) {
+     this.props.history.push(
+       `/ProductView2/${selectedLOB}/${selectedPortfolio}/${selectedProduct}/${selectedYear}/${selectedQuarter}`
+     );
+  
+    
   }
-  OntoFeatureView(
-    selectedLOB,
-    selectedPortfolio,
-    selectedProduct,
-    selectedYear
-  ) {
-    this.props.history.push(
-      `/FeatureView/${selectedLOB}/${selectedPortfolio}/${selectedProduct}/${selectedYear}`
-    );
+  OntoFeatureView(selectedLOB, selectedPortfolio, selectedProduct,selectedYear,selectedQuarter) {
+     this.props.history.push(
+       `/FeatureView/${selectedLOB}/${selectedPortfolio}/${selectedProduct}/${selectedYear}/${selectedQuarter}`
+     );
+    
+
   }
   handleYearChange(e) {
     console.log(e.target.value);
@@ -144,8 +136,7 @@ class ProductView1 extends Component {
   render() {
     return (
       <div className="dropdowns">
-        <fieldset>
-
+        <HeaderComponent />
         <div className="viewby">
           View By
           <select
@@ -159,7 +150,7 @@ class ProductView1 extends Component {
               Year{"  "}
             </option>
             {this.state.years.map((item) => (
-              <option value={item.year_id}>{item.year_number}</option>
+              <option value={item.year_number}>{item.year_number}</option>
             ))}
           </select>
           <select
@@ -172,10 +163,10 @@ class ProductView1 extends Component {
               {"  "}
               Quarter{"  "}
             </option>
-            <option value="Quarter 1">Quarter 1</option>
-            <option value="Quarter 2">Quarter 2</option>
-            <option value="Quarter 3">Quarter 3</option>
-            <option value="Quarter 4">Quarter 4</option>
+            <option value="Q1">Quarter 1</option>
+            <option value="Q2">Quarter 2</option>
+            <option value="Q3">Quarter 3</option>
+            <option value="Q4">Quarter 4</option>
           </select>
         </div>
 
@@ -239,14 +230,15 @@ class ProductView1 extends Component {
                 this.state.selectedLOB,
                 this.state.selectedPortfolio,
                 this.state.selectedProduct,
+                this.state.selectedYear,
+                this.state.selectedQuarter
               )
             }
           >
             Submit
           </button>
         </div>
-        </fieldset>
-        <div className="ToggleView">
+        {/* <div className="ToggleView">
           Toggle View
           <button
             className="Aggr"
@@ -255,7 +247,7 @@ class ProductView1 extends Component {
               this.OnSubmit(
                 this.state.selectedLOB,
                 this.state.selectedPortfolio,
-                this.state.selectedProduct,
+                this.state.selectedProduct
               )
             }
           >
@@ -264,15 +256,24 @@ class ProductView1 extends Component {
           <button
             name="Feature"
             className="FeatureLevel"
-            onClick={() => this.OntoFeatureView()}
-            name="Feature Level"
+            onClick={() =>
+              this.OntoFeatureView(
+                this.state.selectedLOB,
+                this.state.selectedPortfolio,
+                this.state.selectedProduct
+              )
+            }
           >
             Feature level
           </button>
-        </div>
+        </div> */}
       </div>
     );
   }
 }
 
 export default ProductView1;
+
+
+
+

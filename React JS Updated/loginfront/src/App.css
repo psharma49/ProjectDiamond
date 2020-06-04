@@ -68,10 +68,10 @@ html,
 }
 
 .Welcome {
-    position: relative;
-    right: 550px;
-    bottom: 85px;
-    font-size: 20px;
+  position: relative;
+  right: 550px;
+  bottom: 85px;
+  font-size: 20px;
 }
 
 .logoutbutton {
@@ -89,12 +89,12 @@ html,
 
 .col {
   position: relative;
-    top: 50px;
-    left: 120px;
-    float: left;
-    width: 17%;
-    padding: 2px;
-    box-sizing: border-box;
+  top: -20px;
+  left: 150px;
+  float: left;
+  width: 17%;
+  padding: 2px;
+  box-sizing: content-box;
 }
 
 .comm {
@@ -126,7 +126,7 @@ html,
   padding: 15px;
   border-bottom: 1px solid #eee;
   text-align: center;
-  font-size: smaller;
+  font-size: 10px;
 }
 
 .comm .MRKPI {
@@ -170,7 +170,7 @@ html,
   padding: 15px;
   border-bottom: 1px solid #eee;
   text-align: center;
-  font-size: smaller;
+  font-size: 10px;
 }
 
 .mark .MRKPI {
@@ -208,7 +208,7 @@ html,
   padding: 15px;
   border-bottom: 1px solid #eee;
   text-align: center;
-  font-size: smaller;
+  font-size: 10px;
 }
 
 .effi .MRKPI {
@@ -246,7 +246,7 @@ html,
   padding: 15px;
   border-bottom: 1px solid #eee;
   text-align: center;
-  font-size: smaller;
+  font-size: 10px;
 }
 
 .cust .MRKPI {
@@ -284,7 +284,7 @@ html,
   padding: 15px;
   border-bottom: 1px solid #eee;
   text-align: center;
-  font-size: smaller;
+  font-size: 10px;
 }
 
 .futu .MRKPI {
@@ -295,9 +295,9 @@ html,
 
 .viewby {
   position: relative;
-  left: 100px;
+  left: 70px;
   padding: 15px;
-  top: 20px;
+  top: -5px;
 }
 
 .year {
@@ -322,7 +322,7 @@ html,
 .LOBs {
   position: relative;
   left: 400px;
-  bottom: 14px;
+  bottom: 40px;
 }
 
 .LOB {
@@ -338,7 +338,7 @@ html,
 .Portfolios {
   position: relative;
   left: 650px;
-  bottom: 38px;
+  bottom: 65px;
 }
 .portfolio {
   position: relative;
@@ -352,7 +352,7 @@ html,
 .Products {
   position: relative;
   left: 900px;
-  bottom: 60px;
+  bottom: 85px;
 }
 
 .product {
@@ -367,7 +367,7 @@ html,
 .dashboardsubmit {
   position: relative;
   left: 1100px;
-  bottom: 60px;
+  bottom: 80px;
   width: 80px;
   color: white;
   background-color: #e87722;
@@ -376,24 +376,144 @@ html,
 
 .ToggleView {
   position: relative;
-  top: 350px;
-  left: 580px;
+    top: 279px;
+    left: -380px;
+    float: right;
 }
 .Aggr {
   position: relative;
-  top: 30px;
-  right: 140px;
-  width: 90px;
-  color: white;
-  background-color: #e87722;
-  border-block-end-color: black;
+    top: 30px;
+    right: -30px;
+    width: 90px;
+    color: white;
+    background-color: #e87722;
+    border-block-end-color: black;
+    float: left;
 }
 .FeatureLevel {
   position: relative;
-  right: 110px;
-  top: 30px;
-  width: 110px;
-  color: white;
-  background-color: #e87722;
-  border-block-end-color: black;
+    right: 30px;
+    top: 30px;
+    width: 110px;
+    color: white;
+    background-color: #e87722;
+    border-block-end-color: black;
+    float: right;
 }
+
+.colm {
+  position: relative;
+  left: 300px;
+  top: -30px;
+  float: left;
+  width: 12%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.common {
+  background: rgb(234, 170, 0);
+  color: rgb(255, 255, 255);
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  transition: 0.3s;
+  font-size: smaller;
+}
+
+.common:hover,
+.common {
+  box-shadow: 0 10px 15px 0 rgb(219, 218, 214);
+}
+
+.common .header {
+  background-color: rgb(232, 119, 32);
+  color: rgb(250, 250, 250);
+  font-size: 20px;
+}
+
+.common .header.header-green {
+  background-color: rgb(255, 255, 254);
+}
+
+.common li {
+  padding: 12px;
+  border-bottom: 7px solid #eee;
+  text-align: center;
+}
+
+@media (max-width: 500px) {
+  .col {
+    width: 100%;
+  }
+}
+
+.feature {
+  background: rgb(85, 86, 90);
+  color: rgb(255, 255, 255);
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  transition: 0.3s;
+  font-size: smaller;
+}
+
+.feature:hover,
+.feature {
+  box-shadow: 0 10px 15px 0 rgb(219, 218, 214);
+}
+
+.feature .header {
+  background-color: rgb(85, 86, 90);
+  color: rgb(250, 250, 250);
+  font-size: 20px;
+}
+
+.feature .header.header-green {
+  background-color: rgb(255, 255, 254);
+}
+
+.feature li {
+  padding: 12px;
+  border-bottom: 7px solid #eee;
+  text-align: center;
+}
+
+
+.Vel{
+  position: relative;
+    top: 250px;
+    left: -720px;
+    box-sizing: content-box;
+    float: right;
+
+}
+.Ttv{
+  position: relative;
+    top: 250px;
+    right: 50px;
+    box-sizing: content-box;
+    float: right;
+
+}
+
+.velocityheader{
+  color: rgb(232, 119, 34);
+  font-size: 15px;
+  list-style-type: none;
+
+}
+.ttvheader{
+  color: rgb(232, 119, 34);
+  font-size: 15px;
+  list-style-type: none;
+
+  
+}
+.itemvel{
+  list-style-type: none;
+}
+.itemttv{
+  list-style-type: none;
+}
+

@@ -8,8 +8,6 @@ class HeaderComponent extends Component {
     const isUserLoggedin = UserStore.isLoggedIn;
     console.log(isUserLoggedin);
       return (
-     
-        
           <div className="app">
             <div className="container">
               <div className="Welcome">Welcome!</div>

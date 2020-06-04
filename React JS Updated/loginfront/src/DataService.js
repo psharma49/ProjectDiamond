@@ -17,12 +17,20 @@ class DataService {
     }
 
     retrieveProductList(selectedPortfolio){
-        return axios.get(`http://localhost:8083/viewdash_board/product/${selectedPortfolio}/yearid`)
+        return axios.get(`http://localhost:8083/viewdash_board/product/${selectedPortfolio}/yearid`);
     }
 
-    Onsubmitting(selectedLOB, selectedPortfolio, selectedProduct){
+    Onsubmitting(selectedLOB, selectedPortfolio, selectedProduct,selectedYear,selectedQuarter){
         return axios
-        .get(`http://localhost:8083/viewdash_board/product_aggregate_view/${selectedLOB}/${selectedPortfolio}/${selectedProduct}/yearid`)
+        .get(`http://localhost:8083/viewdash_board/product_aggregate_view/${selectedLOB}/${selectedPortfolio}/${selectedProduct}/${selectedYear}/${selectedQuarter}`)
+    }
+    OnFeatureViewButton(selectedLOB, selectedPortfolio, selectedProduct,selectedYear,selectedQuarter){
+        return axios
+        .get(`http://localhost:8083/viewdash_board/product_feature_view/${selectedLOB}/${selectedPortfolio}/${selectedProduct}/${selectedYear}/${selectedQuarter}`)
+    }
+    AvgTtvData(selectedLOB, selectedPortfolio, selectedProduct,selectedYear,selectedQuarter){
+        return axios
+        .get(`http://localhost:8083/viewdash_board/product_avg_ttv_view/${selectedLOB}/${selectedPortfolio}/${selectedProduct}/${selectedYear},${selectedQuarter}`)
     }
 
 }
