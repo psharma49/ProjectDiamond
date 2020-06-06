@@ -4,6 +4,7 @@ import HeaderComponent from "./HeaderComponent";
 import FeatureView from "./FeatureView";
 import ProductView2 from "./ProductView2";
 
+
 class ProductView1 extends Component {
   constructor(props) {
     super(props);
@@ -138,7 +139,7 @@ class ProductView1 extends Component {
       <div className="dropdowns">
         <HeaderComponent />
         <div className="viewby">
-          View By
+          <strong>View By</strong>
           <select
             className="year"
             name="Select Year"
@@ -171,7 +172,7 @@ class ProductView1 extends Component {
         </div>
 
         <div className="LOBs">
-          Select LOB
+        <strong>Select LOB</strong>
           <select
             className="LOB"
             name="Select LOB"
@@ -188,7 +189,7 @@ class ProductView1 extends Component {
         </div>
 
         <div className="Portfolios">
-          Select Portfolio
+        <strong>Select Portfolio</strong>
           <select
             className="portfolio"
             name="Select Portfolio"
@@ -205,7 +206,7 @@ class ProductView1 extends Component {
         </div>
 
         <div className="Products">
-          Select Product
+        <strong>Select Product</strong>
           <select
             className="product"
             name="Select Products"

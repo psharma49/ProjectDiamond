@@ -118,7 +118,7 @@ class App extends React.Component {
                  <Route exact path="/ProductView1" component={ProductView1}/>
                  <Route exact path="/UploadData" component={UploadData}/>
                  <Route exact path="/ProductView2/:selectedLOB/:selectedPortfolio/:selectedProduct/:selectedYear/:selectedQuarter" component={ProductView2}/>
-                 <Route exact path="/FeatureView/:selectedLOB/:selectedPortfolio/:selectedProduct/:selectedYear/:selectedQuarter/:AvgTtvDataForRep" component={FeatureView}/>
+                 <Route exact path="/FeatureView/:selectedLOB/:selectedPortfolio/:selectedProduct/:selectedYear/:selectedQuarter" component={FeatureView}/>
                 </Switch>
                 </>
               </Router>
