@@ -7,8 +7,8 @@ import "./App.css";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import UploadData from "./UploadData";
-import ProductView1 from "./ProductView1";
-import ProductView2 from "./ProductView2";
+import Dashboard from "./Dashboard";
+import ProductView from "./ProductView";
 import FeatureView from "./FeatureView";
 import imagess from "./imagess"; 
 
@@ -110,17 +110,18 @@ class App extends React.Component {
       //   //  );
       //   // }
         return (
+              
               <Router>
                 <>
           
                 <Switch>
                <Route path="/" exact component = {LoginForm}/>
                  <Route path="/login" exact component = {LoginForm}/>
-                 <Route exact path="/ProductView1" component={ProductView1}/>
+                 <Route exact path="/Dashboard" component={Dashboard}/>
                  <Route exact path="/UploadData" component={UploadData}/>
                  <Route exact path="/imagess" component={imagess}/>
-                 <Route exact path="/ProductView2/:selectedLOB/:selectedPortfolio/:selectedProduct/:selectedYear/:selectedQuarter" component={ProductView2}/>
-                 <Route exact path="/FeatureView/:selectedLOB/:selectedPortfolio/:selectedProduct/:selectedYear/:selectedQuarter" component={FeatureView}/>
+                 {/* <Route exact path="/ProductView2/:selectedLOB/:selectedPortfolio/:selectedProduct/:selectedYear/:selectedQuarter" component={ProductView2}/>
+                 <Route exact path="/FeatureView/:selectedLOB/:selectedPortfolio/:selectedProduct/:selectedYear/:selectedQuarter" component={FeatureView}/> */}
                 </Switch>
                 </>
               </Router>

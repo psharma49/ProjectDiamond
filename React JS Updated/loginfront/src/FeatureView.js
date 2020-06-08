@@ -1,88 +1,79 @@
 import React, { Component } from "react";
 import DataService from "./DataService";
-import ProductView1 from "./ProductView1";
-import ProductView2 from "./ProductView2";
+import Dashboard from "./Dashboard";
 
 class FeatureView extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      selectedLOB: this.props.match.params.selectedLOB,
-      selectedPortfolio: this.props.match.params.selectedPortfolio,
-      selectedProduct: this.props.match.params.selectedProduct,
-      selectedYear: this.props.match.params.selectedYear,
-      selectedQuarter: this.props.match.params.selectedQuarter,
-      AvgTtvDataForRep: [],
-      Features: [],
-      FeatureDataForRep: [],
+     
     };
   }
   componentDidMount() {
-    this.loadData3();
-    this.loadData4();
+    
   }
-  loadData4() {
-    DataService.OnFeatureViewButton(
-      this.state.selectedLOB,
-      this.state.selectedPortfolio,
-      this.state.selectedProduct,
-      this.state.selectedYear,
-      this.state.selectedQuarter
-    )
-      .then((response) => {
-        this.setState({ FeatureDataForRep: response.data });
-        console.log(this.state.FeatureDataForRep);
-      })
-      .catch((error) => {
-        console.log(error);
-        this.setState({ errorMsg: "Error retrieving Feature Data" });
-      });
-  }
-  loadData3() {
-    DataService.AvgTtvData(
-      this.state.selectedLOB,
-      this.state.selectedPortfolio,
-      this.state.selectedProduct,
-      this.state.selectedYear,
-      this.state.selectedQuarter
-    )
-      .then((response) => {
-        this.setState({ AvgTtvDataForRep: response.data });
-        console.log(this.state.AvgTtvDataForRep);
-      })
-      .catch((error) => {
-        console.log(error);
-        this.setState({ errorMsg: "Error retrieving Final Data" });
-      });
-  }
-  OnAggreView(
-    selectedLOB,
-    selectedPortfolio,
-    selectedProduct,
-    selectedYear,
-    selectedQuarter
-  ) {
-    this.props.history.push(
-      `/ProductView2/${selectedLOB}/${selectedPortfolio}/${selectedProduct}/${selectedYear}/${selectedQuarter}`
-    );
-  }
-  OnFeatureView(
-    selectedLOB,
-    selectedPortfolio,
-    selectedProduct,
-    selectedYear,
-    selectedQuarter
-  ) {
-    this.props.history.push(
-      `/FeatureView/${selectedLOB}/${selectedPortfolio}/${selectedProduct}/${selectedYear}/${selectedQuarter}`
-    );
-  }
+
+  // loadOnFeatureView() {
+  //   DataService.OnFeatureViewButton(
+  //     this.state.selectedLOB,
+  //     this.state.selectedPortfolio,
+  //     this.state.selectedProduct,
+  //     this.state.selectedYear,
+  //     this.state.selectedQuarter
+  //   )
+  //     .then((response) => {
+  //       this.setState({ FeatureDataForRep: response.data });
+  //       console.log(this.state.FeatureDataForRep);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //       this.setState({ errorMsg: "Error retrieving Feature Data" });
+  //     });
+  // }
+  // loadAvgTtvData() {
+  //   DataService.AvgTtvData(
+  //     this.state.selectedLOB,
+  //     this.state.selectedPortfolio,
+  //     this.state.selectedProduct,
+  //     this.state.selectedYear,
+  //     this.state.selectedQuarter
+  //   )
+  //     .then((response) => {
+  //       this.setState({ AvgTtvDataForRep: response.data });
+  //       console.log(this.state.AvgTtvDataForRep);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //       this.setState({ errorMsg: "Error retrieving Final Data" });
+  //     });
+  // }
+  // OnAggreView(
+  //   selectedLOB,
+  //   selectedPortfolio,
+  //   selectedProduct,
+  //   selectedYear,
+  //   selectedQuarter
+  // ) {
+  //   this.props.history.push(
+  //     `/ProductView2/${selectedLOB}/${selectedPortfolio}/${selectedProduct}/${selectedYear}/${selectedQuarter}`
+  //   );
+  // }
+  // OnFeatureView(
+  //   selectedLOB,
+  //   selectedPortfolio,
+  //   selectedProduct,
+  //   selectedYear,
+  //   selectedQuarter
+  // ) {
+  //   this.props.history.push(
+  //     `/FeatureView/${selectedLOB}/${selectedPortfolio}/${selectedProduct}/${selectedYear}/${selectedQuarter}`
+  //   );
+  // }
 
   render() {
     return (
       <div>
-        <ProductView1 />
         <div className="tableu">
           <table className="table">
             <thead>
@@ -96,7 +87,7 @@ class FeatureView extends Component {
               </tr>
             </thead>
             <tbody className="scroll">
-              {this.state.FeatureDataForRep.map((item) => (
+              {this.props.FeatureDataForRep.map((item) => (
                 <tr>
                   <td className="tablegrey">{item.feature_name}</td>
                   <td className="tabledata">
@@ -143,7 +134,7 @@ class FeatureView extends Component {
           </table>
         </div>
 
-        <div className="ToggleView">
+        {/* <div className="ToggleView">
         <strong>Toggle View</strong>
           <button
             className="Aggr"
@@ -198,7 +189,7 @@ class FeatureView extends Component {
               ))}
             </ul>
           </div>
-        </div>
+        </div> */}
       </div>
     );
   }

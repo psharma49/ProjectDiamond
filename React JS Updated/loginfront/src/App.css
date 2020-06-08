@@ -463,7 +463,7 @@ html,
   top: 50px;
 }
 .ToggleView {
-  position: relative;
+    position: relative;
     top: 70px;
     left: -450px;
     float: right;
