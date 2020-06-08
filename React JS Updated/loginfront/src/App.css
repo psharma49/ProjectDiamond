@@ -95,7 +95,7 @@ html,
 }
 
 .logoutbutton {
-  background: #e87722;
+  background: rgb(85, 86, 90);
   color: #fffefe;
   position: relative;
   text-align: center;
@@ -103,18 +103,28 @@ html,
   bottom: 105px;
   min-width: 70px;
   width: 5%;
-  font-size: 14px;
+  font-size: 10px;
   border-radius: 8px;
-  padding: px 17px;
-  text-align: left;
+  padding: 3px 5px;
+  text-align: center;
+  cursor:pointer;
+}
+.logout:hover {
+  background-color: #e87722;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.logout:active {
+  background-color: #e87722;
+  box-shadow: 0 2px #666;
+  transform: translateY(4px);
 }
 
 .col {
   position: relative;
   top: -20px;
-  left: 150px;
+  left: 80px;
   float: left;
-  width: 17%;
+  width: 19%;
   padding: 2px;
   box-sizing: content-box;
 }
@@ -138,6 +148,7 @@ html,
   background-color: rgb(255, 255, 255);
   color: rgb(232, 119, 34);
   font-size: 25px;
+  text-align: center;
 }
 
 .comm .header.header-green {
@@ -147,14 +158,15 @@ html,
 .comm li {
   padding: 15px;
   border-bottom: 1px solid #eee;
-  text-align: center;
-  font-size: 10px;
+  text-align: left;
+  font-size: 11px;
 }
 
 .comm .MRKPI {
-  background-color: #f4f4f4;
+  background-color:white;
   font-size: 20px;
-  color: #555;
+  color: rgb(85,86,90);
+  text-align: center;
 }
 
 @media (max-width: 500px) {
@@ -182,6 +194,7 @@ html,
   background-color: rgb(255, 255, 255);
   color: rgb(232, 119, 34);
   font-size: 25px;
+  text-align: center;
 }
 
 .mark .header.header-green {
@@ -191,14 +204,15 @@ html,
 .mark li {
   padding: 15px;
   border-bottom: 1px solid #eee;
-  text-align: center;
-  font-size: 10px;
+  text-align: left;
+  font-size: 11px;
 }
 
 .mark .MRKPI {
-  background-color: #f4f4f4;
+  background-color:white;
   font-size: 20px;
-  color: #555;
+  color: rgb(85,86,90);
+  text-align: center;
 }
 
 .effi {
@@ -220,6 +234,7 @@ html,
   background-color: rgb(255, 255, 255);
   color: rgb(232, 119, 34);
   font-size: 25px;
+  text-align: center;
 }
 
 .effi .header.header-green {
@@ -229,14 +244,15 @@ html,
 .effi li {
   padding: 15px;
   border-bottom: 1px solid #eee;
-  text-align: center;
-  font-size: 10px;
+  text-align: left;
+  font-size: 11px;
 }
 
 .effi .MRKPI {
-  background-color: #f4f4f4;
+  background-color:white;
   font-size: 20px;
-  color: #555;
+  color: rgb(85,86,90);
+  text-align: center;
 }
 
 .cust {
@@ -258,6 +274,7 @@ html,
   background-color: rgb(255, 255, 255);
   color: rgb(232, 119, 34);
   font-size: 25px;
+  text-align: center;
 }
 
 .cust .header.header-green {
@@ -267,14 +284,15 @@ html,
 .cust li {
   padding: 15px;
   border-bottom: 1px solid #eee;
-  text-align: center;
-  font-size: 10px;
+  text-align: left;
+  font-size: 11px;
 }
 
 .cust .MRKPI {
-  background-color: #f4f4f4;
+  background-color:white;
   font-size: 20px;
-  color: #555;
+  color: rgb(85,86,90);
+  text-align: center;
 }
 
 .futu {
@@ -296,6 +314,7 @@ html,
   background-color: rgb(255, 255, 255);
   color: rgb(232, 119, 34);
   font-size: 25px;
+  text-align: center;
 }
 
 .futu .header.header-green {
@@ -305,14 +324,15 @@ html,
 .futu li {
   padding: 15px;
   border-bottom: 1px solid #eee;
-  text-align: center;
-  font-size: 10px;
+  text-align: left;
+  font-size: 11px;
 }
 
 .futu .MRKPI {
-  background-color: #f4f4f4;
+  background-color:white;
   font-size: 20px;
-  color: #555;
+  color: rgb(85,86,90);
+  text-align: center;
 }
 
 .viewby {
@@ -321,7 +341,6 @@ html,
   padding: 15px;
   top: -5px;
   cursor:pointer;
-
 }
 
 
@@ -332,7 +351,7 @@ html,
   left: -110px;
   top: 30px;
   color: white;
-  background-color: #5c6664;
+  background-color: rgb(85,86,90);
   font-family: Arial;
   cursor:pointer;
   content: '\25BC';
@@ -341,7 +360,7 @@ html,
 .year:after {
   content: '\25BC';
   padding: 0 1em;
-  background: #2b2e2e;
+  background: rgb(85,86,90);
   cursor:pointer;
   pointer-events:none;
   transition:.25s all ease;
@@ -353,7 +372,7 @@ html,
   top: 30px;
   text-align-last: center;
   color: white;
-  background-color: #5c6664;
+  background-color: rgb(85,86,90);
   cursor:pointer;
   border-radius: .25em;
 }
@@ -372,7 +391,7 @@ html,
   text-align-last: center;
   width: 120px;
   color: white;
-  background-color: #5c6664;
+  background-color: rgb(85,86,90);
   cursor:pointer;
   border-radius: .25em;
 }
@@ -390,7 +409,7 @@ html,
   width: 140px;
   text-align-last: center;
   color: white;
-  background-color: #5c6664;
+  background-color: rgb(85,86,90);
   cursor:pointer;
   border-radius: .25em;
 }
@@ -408,7 +427,7 @@ html,
   width: 120px;
   text-align-last: center;
   color: white;
-  background-color: #5c6664;
+  background-color: rgb(85,86,90);
   cursor:pointer;
   border-radius: .25em;
 }
@@ -418,30 +437,37 @@ html,
   bottom: 80px;
   width: 80px;
   color: white;
-  background-color: #e87722;
+  background-color: rgb(85, 86, 90);
   border-block-end-color: black;
   border-radius: 8px;
-  padding: 12px 18px;
+  padding: 4px 16px;
   text-align: center;
   text-align: left;
   cursor:pointer;
 }
 .dashboardsubmit:hover {
-  background-color: #555;
+  background-color: #e87722;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 .dashboardsubmit:active {
   background-color: #e87722;
-  box-shadow: 0 5px #666;
+  box-shadow: 0 2px #666;
   transform: translateY(4px);
 }
 
+.ProductView2{
+  float: right;
+  position: relative;
+  right: 60px;
+  top: 50px;
+}
 .ToggleView {
   position: relative;
-    top: 249px;
-    left: -430px;
+    top: 70px;
+    left: -450px;
     float: right;
+
 }
 .Aggr {
   position: relative;
@@ -449,12 +475,14 @@ html,
     right: -30px;
     width: 90px;
     color: white;
-    background-color: #e87722;
+    background-color: rgb(85, 86, 90);
     border-block-end-color: black;
     float: left;
+    border-radius: 8px;
+    cursor: pointer;
 }
 .Aggr:hover {
-  background-color: #555;
+  background-color: #e87722;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
@@ -471,12 +499,14 @@ html,
     top: 30px;
     width: 110px;
     color: white;
-    background-color: #e87722;
+    background-color: rgb(85, 86, 90);
     border-block-end-color: black;
     float: right;
+    border-radius: 8px;
+    cursor: pointer;
 }
 .FeatureLevel:hover {
-  background-color: #555;
+  background-color: #e87722;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
@@ -652,15 +682,43 @@ html,
 }
 .tableu{
   position: relative;
-  left: 70px;
+  left: 50px;
   overflow-y:scroll; 
   height:500px;
   margin-top:20px;
+  float: left;
 }
 
 .avgttvviews{
   position: relative;
-  right: 350px;
+  right: 60px;
+  bottom: 180px;
+  float: right;
 }
 
-
+.Images{
+  position: relative;
+  float: right;
+  align-items: center;
+  
+}
+.commImage{
+  position: relative;
+  right: 860px;
+}
+.markImage{
+  position: relative;
+  right: 670px;
+}
+.effImage{
+  position: relative;
+  right: 490px;
+}
+.custImage{
+  position: relative;
+  right: 305px;
+}
+.futImage{
+  position: relative;
+  right: 115px;
+}

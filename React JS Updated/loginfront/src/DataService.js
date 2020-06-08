@@ -32,6 +32,10 @@ class DataService {
         return axios
         .get(`http://localhost:8083/viewdash_board/product_avg_ttv_view/${selectedLOB}/${selectedPortfolio}/${selectedProduct}/${selectedYear}/${selectedQuarter}`)
     }
+    HeaderData(selectedLOB, selectedPortfolio, selectedProduct,selectedYear,selectedQuarter){
+        return axios
+        .get(`http://localhost:8083/viewdash_board/product_aggregate_view/${selectedLOB}/${selectedPortfolio}/${selectedProduct}/${selectedYear}/${selectedQuarter}`)
+    }
 
 }
 

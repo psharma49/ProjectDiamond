@@ -90,7 +90,7 @@ class ProductView1 extends Component {
 
 
    OnSubmit(selectedLOB, selectedPortfolio, selectedProduct,selectedYear,selectedQuarter) {
-     
+
      this.props.history.push(
        `/ProductView2/${selectedLOB}/${selectedPortfolio}/${selectedProduct}/${selectedYear}/${selectedQuarter}`
      );
@@ -139,7 +139,7 @@ class ProductView1 extends Component {
   render() {
     return (
       <div className="dropdowns">
-        <HeaderComponent />
+        <HeaderComponent/>
         <div className="viewby">
           <strong>View By</strong>
           <select
@@ -162,10 +162,11 @@ class ProductView1 extends Component {
             value={this.state.value}
             onChange={this.handleQuarterChange}
           >
-            <option selected disabled>
+            <option >
               {"  "}
               Quarter{"  "}
             </option>
+            {/* <option value="Q">Quarter</option> */}
             <option value="Q1">Quarter 1</option>
             <option value="Q2">Quarter 2</option>
             <option value="Q3">Quarter 3</option>

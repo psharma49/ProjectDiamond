@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import DataService from "./DataService";
 import ProductView1 from "./ProductView1";
-import imagess from "./imagess";
+import Imagess from "./imagess";
 
 class ProductView2 extends Component {
   constructor(props) {
@@ -15,17 +15,39 @@ class ProductView2 extends Component {
       selectedQuarter: this.props.match.params.selectedQuarter,
       FinalDataForRep: [],
       AvgTtvDataForRep: [],
+      HeaderDataForRep: [],
     };
     this.getDataForRep = this.getDataForRep.bind(this);
     this.OnSubmit = this.OnSubmit.bind(this);
     this.OntoFeatureView = this.OntoFeatureView.bind(this);
     this.getDataForAvgVelTtv = this.getDataForAvgVelTtv.bind(this);
+    this.getDataForHeader = this.getDataForHeader.bind(this);
   }
 
   componentDidMount() {
     this.getDataForRep();
     this.getDataForAvgVelTtv();
+    this.getDataForHeader();
   }
+  getDataForHeader() {
+    DataService.HeaderData(
+      this.state.selectedLOB,
+      this.state.selectedPortfolio,
+      this.state.selectedProduct,
+      this.state.selectedYear,
+      this.state.selectedQuarter
+    )
+     .then((response) => {
+      this.setState({ HeaderDataForRep: response.data });
+      console.log(this.state.HeaderDataForRep);
+    })
+    .catch((error) => {
+      console.log(error);
+      this.setState({ errorMsg: "Error retrieving Final Data" });
+    });
+
+  }
+
   getDataForRep() {
     DataService.Onsubmitting(
       this.state.selectedLOB,
@@ -54,9 +76,6 @@ class ProductView2 extends Component {
     )
       .then((response) => {
         this.setState({ AvgTtvDataForRep: response.data });
-        console.log(this.state.AvgTtvDataForRep);
-        console.log(this.state.AvgTtvDataForRep);
-        console.log(this.state.AvgTtvDataForRep);
         console.log(this.state.AvgTtvDataForRep);
       })
       .catch((error) => {
@@ -91,18 +110,24 @@ class ProductView2 extends Component {
     return (
       <div>
         <ProductView1/>;
-        <imagess/>;
-        <div>
+        <Imagess/>;
+        <div className="ProductView2">
           <div class="col">
             <ul class="comm">
               <li class="header">
                 <strong>Commercial</strong>
               </li>
+              {this.state.HeaderDataForRep.map((item)=>
+                 item.kpi_name==="Commercial" ? (
+                  <li className="MRKPI">
+                  sda
+                  </li>
+                 ) : (" "))}
               {this.state.FinalDataForRep.map((item) =>
                 item.kpi_name === "Commercial" ? (
                   <li>
-                    {item.kpi_subcategory_name} - ${item.sum}
-                    {item.unit_of_measurement}/years{" "}
+                    {item.kpi_subcategory_name} - $ {item.sum}
+                    {item.unit_of_measurement} / year{" "}
                   </li>
                 ) : (
                     ""
@@ -128,11 +153,17 @@ class ProductView2 extends Component {
               <li class="header header-green">
                 <strong>Market</strong>
               </li>
+              {this.state.HeaderDataForRep.map((item)=>
+                 item.kpi_name==="Market" ? (
+                  <li className="MRKPI">
+                  sda
+                  </li>
+                 ) : (" "))}
               {this.state.FinalDataForRep.map((item) =>
                 item.kpi_name === "Market" &&
                   item.unit_of_measurement === "%" ? (
                     <li>
-                      {item.kpi_subcategory_name} - {item.avg}%/year
+                      {item.kpi_subcategory_name} - {item.avg}% / year
                     </li>
                   ) : (
                     ""
@@ -157,11 +188,17 @@ class ProductView2 extends Component {
               <li class="header">
                 <strong>Efficiency</strong>
               </li>
+              {this.state.HeaderDataForRep.map((item)=>
+                 item.kpi_name==="Efficiency" ? (
+                  <li className="MRKPI">
+                  sda
+                  </li>
+                 ) : (" "))}
               {this.state.FinalDataForRep.map((item) =>
                 item.kpi_name === "Efficiency" ? (
                   <li>
                     {item.kpi_subcategory_name} - {item.sum}
-                    {item.unit_of_measurement}/years{" "}
+                    {item.unit_of_measurement} / year{" "}
                   </li>
                 ) : (
                     ""
@@ -186,11 +223,16 @@ class ProductView2 extends Component {
               <li class="header">
                 <strong>Customer</strong>
               </li>
+              {this.state.HeaderDataForRep.map((item)=>
+                 item.kpi_name==="Customer Value" ? (
+                  <li className="MRKPI">
+                  sda
+                  </li>
+                 ) : (" "))}
               {this.state.FinalDataForRep.map((item) =>
                 item.kpi_name === "Customer Value" ? (
                   <li>
-                    {item.kpi_subcategory_name} - {item.avg}
-                    {item.unit_of_measurement}/years{" "}
+                    {item.kpi_subcategory_name} - {item.avg}  {item.unit_of_measurement} / year{" "}
                   </li>
                 ) : (
                     ""
@@ -215,10 +257,16 @@ class ProductView2 extends Component {
               <li class="header header-green">
                 <strong>Future</strong>
               </li>
+              {this.state.HeaderDataForRep.map((item)=>
+                 item.kpi_name==="Future Trends" ? (
+                  <li className="MRKPI">
+                  sda
+                  </li>
+                 ) : (" "))}
               {this.state.FinalDataForRep.map((item) =>
                 item.kpi_name === "Future Trends" ? (
                   <li>
-                    {item.kpi_subcategory_name} - {item.avg}Hours/years{" "}
+                    {item.kpi_subcategory_name} - {item.avg}  {item.unit_of_measurement} /year{" "}
                   </li>
                 ) : (
                     ""
@@ -240,7 +288,7 @@ class ProductView2 extends Component {
           </div>
         </div>
         <div className="ToggleView">
-          Toggle View
+          <strong>Toggle View</strong>
           <button
             className="Aggr"
             name="Aggregate"
