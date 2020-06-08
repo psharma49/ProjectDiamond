@@ -32,33 +32,38 @@ public List<Featureq> featureqLevelView(int lobid, int portfolioid, int producti
     params.addValue("QUARTER_ID", quarterid);
     String qsq = "";
     List<Featureq> lfq = new ArrayList<Featureq>();
-    String fqquery = "SELECT F.FEATURE_NAME, f1.Commercial, f1.um_com, f1.Market, f1.um_markrt,\r\n" +
-    	    "f1.Efficiency, f1.um_eff, f1.Customer_Value, f1.um_cv, f1.Future_Trends, f1.um_ft \r\n" +
-    	    "FROM LOB L, PORTFOLIO P, PRODUCT_MASTER PM, KPI_MASTER K, KPI_SUBCATEGORY SUB, FEATURE F\r\n" +
-    	    "LEFT JOIN \r\n" +
-    	    "(SELECT f.feature_name, COALESCE(SUM(f1.business_value),0::numeric) as Commercial, STRING_AGG(f1.unit_of_measurement, ',') as um_com, COALESCE(SUM(f2.business_value),0::numeric) as Market, STRING_AGG(f2.unit_of_measurement, '') as um_markrt,\r\n" +
-    	    "COALESCE(SUM(f3.business_value),0::numeric) as Efficiency, STRING_AGG(f3.unit_of_measurement, '') as um_eff, COALESCE(SUM(f4.business_value),0::numeric) as Customer_Value, \r\n" +
-    	    "STRING_AGG(f4.unit_of_measurement, '') as um_cv, COALESCE(SUM(f5.business_value),0::numeric) as Future_Trends, STRING_AGG(f5.unit_of_measurement, '') as um_ft\r\n" +
-    	    "FROM feature f\r\n" +
-    	    "LEFT JOIN feature f1 ON f.feature_id = f1.feature_id AND f1.kpi_id = 1\r\n" +
-    	    "LEFT JOIN feature f2 ON f.feature_id = f2.feature_id AND f2.kpi_id = 2\r\n" +
-    	    "LEFT JOIN feature f3 ON f.feature_id = f3.feature_id AND f3.kpi_id = 3\r\n" +
-    	    "LEFT JOIN feature f4 ON f.feature_id = f4.feature_id AND f4.kpi_id = 4\r\n" +
-    	    "LEFT JOIN feature f5 ON f.feature_id = f5.feature_id AND f5.kpi_id = 5\r\n" +
-    	    "GROUP BY f.feature_name) f1 ON f.feature_name = f1.feature_name\r\n" +
-    	    "WHERE\r\n" +
-    	    "F.KPI_SUBCATEGORY_ID = SUB.KPI_SUBCATEGORY_ID\r\n" +
-    	    "AND F.KPI_ID = K.KPI_ID\r\n" +
-    	    "AND F.PRODUCT_ID = PM.PRODUCT_ID\r\n" +
-    	    "AND PM.PORTFOLIO_ID= P.PORTFOLIO_ID\r\n" +
-    	    "AND P.LOB_ID = L.LOB_ID\r\n" +
-    	    "AND L.LOB_STATUS = 'Y'\r\n" +
-    	    "AND P.PORTFOLIO_STATUS='Y'\r\n" +
-    	    "AND PM.PRODUCT_STATUS='Y'\r\n" +
-    	    "AND F.LOB_ID= :LOB_ID\r\n" +
-    	    "AND F.PORTFOLIO_ID = :PORTFOLIO_ID\r\n" +
-    	    "AND F.PRODUCT_ID = :PRODUCT_ID\r\n" +
-    	    "AND F.YEAR = :YEAR_ID\r\n" ;
+    String fqquery = "SELECT F.FEATURE_NAME, f1.Commercial, f1.kps_commertial, f1.um_com, f1.Market, f1.kps_market, f1.um_markrt,\r\n" + 
+    		"f1.Efficiency, f1.kps_eff, f1.um_eff, f1.Customer_Value, f1.kps_cv, f1.um_cv, f1.Future_Trends, f1.kps_ft, f1.um_ft \r\n" + 
+    		"FROM LOB L, PORTFOLIO P, PRODUCT_MASTER PM, KPI_MASTER K, KPI_SUBCATEGORY SUB, FEATURE F\r\n" + 
+    		"LEFT JOIN \r\n" + 
+    		"(SELECT f.feature_name, COALESCE(SUM(f1.business_value),0::numeric) as Commercial, STRING_AGG(kps1.kpi_subcategory_name,'') as kps_commertial, STRING_AGG(f1.unit_of_measurement, '') as um_com, COALESCE(SUM(f2.business_value),0::numeric) as Market, STRING_AGG(kps2.kpi_subcategory_name, '') as kps_market, STRING_AGG(f2.unit_of_measurement, '') as um_markrt,\r\n" + 
+    		"COALESCE(SUM(f3.business_value),0::numeric) as Efficiency, STRING_AGG(kps3.kpi_subcategory_name, '') as kps_eff, STRING_AGG(f3.unit_of_measurement, '') as um_eff, COALESCE(SUM(f4.business_value),0::numeric) as Customer_Value, STRING_AGG(kps4.kpi_subcategory_name, '') as kps_cv,\r\n" + 
+    		"STRING_AGG(f4.unit_of_measurement, '') as um_cv, COALESCE(SUM(f5.business_value),0::numeric) as Future_Trends, STRING_AGG(kps5.kpi_subcategory_name, '') as kps_ft, STRING_AGG(f5.unit_of_measurement, '') as um_ft\r\n" + 
+    		"FROM feature f\r\n" + 
+    		"LEFT JOIN feature f1 ON f.feature_id = f1.feature_id AND f1.kpi_id = 1\r\n" + 
+    		"LEFT JOIN kpi_subcategory kps1 ON f1.kpi_subcategory_id = kps1.kpi_subcategory_id\r\n" + 
+    		"LEFT JOIN feature f2 ON f.feature_id = f2.feature_id AND f2.kpi_id = 2\r\n" + 
+    		"LEFT JOIN kpi_subcategory kps2 ON f2.kpi_subcategory_id = kps2.kpi_subcategory_id\r\n" + 
+    		"LEFT JOIN feature f3 ON f.feature_id = f3.feature_id AND f3.kpi_id = 3\r\n" + 
+    		"LEFT JOIN kpi_subcategory kps3 ON f3.kpi_subcategory_id = kps3.kpi_subcategory_id\r\n" + 
+    		"LEFT JOIN feature f4 ON f.feature_id = f4.feature_id AND f4.kpi_id = 4\r\n" + 
+    		"LEFT JOIN kpi_subcategory kps4 ON f4.kpi_subcategory_id = kps4.kpi_subcategory_id\r\n" + 
+    		"LEFT JOIN feature f5 ON f.feature_id = f5.feature_id AND f5.kpi_id = 5\r\n" + 
+    		"LEFT JOIN kpi_subcategory kps5 ON f5.kpi_subcategory_id = kps5.kpi_subcategory_id\r\n" + 
+    		"GROUP BY f.feature_name) f1 ON f.feature_name = f1.feature_name\r\n" + 
+    		"WHERE\r\n" + 
+    		"F.KPI_SUBCATEGORY_ID = SUB.KPI_SUBCATEGORY_ID\r\n" + 
+    		"AND F.KPI_ID = K.KPI_ID\r\n" + 
+    		"AND F.PRODUCT_ID = PM.PRODUCT_ID\r\n" + 
+    		"AND PM.PORTFOLIO_ID= P.PORTFOLIO_ID\r\n" + 
+    		"AND P.LOB_ID = L.LOB_ID\r\n" + 
+    		"AND L.LOB_STATUS = 'Y'\r\n" + 
+    		"AND P.PORTFOLIO_STATUS='Y'\r\n" + 
+    		"AND PM.PRODUCT_STATUS='Y'\r\n" + 
+    		"AND F.LOB_ID= :LOB_ID\r\n" + 
+    		"AND F.PORTFOLIO_ID = :PORTFOLIO_ID\r\n" + 
+    		"AND F.PRODUCT_ID = :PRODUCT_ID\r\n" + 
+    		"AND F.YEAR = :YEAR_ID\r\n" ;
     	    if(!quarterid.equals("Q")) {
     	    	 if(!quarterid.equals("YTD")) {
     	              fqquery = fqquery + "AND F.QUARTER  IN (:QUARTER_ID)\r\n";
@@ -83,7 +88,9 @@ public List<Featureq> featureqLevelView(int lobid, int portfolioid, int producti
     	       	   fqquery = fqquery + "AND F.QUARTER  IN " + qsq ;
     	    	 }
     	              }
-    	            fqquery = fqquery + " GROUP BY f.FEATURE_NAME, f1.Commercial, f1.um_com, f1.Market, f1.um_markrt,f1.Efficiency, f1.um_eff, f1.Customer_Value, f1.um_cv, f1.Future_Trends, f1.um_ft ORDER by F.FEATURE_NAME ";
+    	            fqquery = fqquery + " GROUP BY f.FEATURE_NAME, f1.Commercial, f1.kps_commertial, f1.um_com, f1.Market, f1.kps_market, f1.um_markrt,\r\n" + 
+    	            		"f1.Efficiency, f1.kps_eff, f1.um_eff, f1.Customer_Value, f1.kps_cv, f1.um_cv, f1.Future_Trends, f1.kps_ft, f1.um_ft \r\n" + 
+    	            		"ORDER by F.FEATURE_NAME ";
     		System.out.println(fqquery);
     lfq = template.query(fqquery,params,  new FeatureqRowMapper());	
     return lfq;
