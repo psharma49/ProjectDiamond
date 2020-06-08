@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import DataService from "./DataService";
 import ProductView1 from "./ProductView1";
+import imagess from "./imagess";
 
 class ProductView2 extends Component {
   constructor(props) {
@@ -15,18 +16,17 @@ class ProductView2 extends Component {
       FinalDataForRep: [],
       AvgTtvDataForRep: [],
     };
-    this.loadData1 = this.loadData1.bind(this);
+    this.getDataForRep = this.getDataForRep.bind(this);
     this.OnSubmit = this.OnSubmit.bind(this);
     this.OntoFeatureView = this.OntoFeatureView.bind(this);
-    this.loadData2 = this.loadData2.bind(this);
-    this.loadData1 = this.loadData1.bind(this);
+    this.getDataForAvgVelTtv = this.getDataForAvgVelTtv.bind(this);
   }
 
   componentDidMount() {
-    this.loadData1();
-    this.loadData2();
+    this.getDataForRep();
+    this.getDataForAvgVelTtv();
   }
-  loadData1() {
+  getDataForRep() {
     DataService.Onsubmitting(
       this.state.selectedLOB,
       this.state.selectedPortfolio,
@@ -44,7 +44,7 @@ class ProductView2 extends Component {
         this.setState({ errorMsg: "Error retrieving Final Data" });
       });
   }
-  loadData2() {
+  getDataForAvgVelTtv() {
     DataService.AvgTtvData(
       this.state.selectedLOB,
       this.state.selectedPortfolio,
@@ -90,7 +90,8 @@ class ProductView2 extends Component {
   render() {
     return (
       <div>
-        <ProductView1 />;
+        <ProductView1/>;
+        <imagess/>;
         <div>
           <div class="col">
             <ul class="comm">
