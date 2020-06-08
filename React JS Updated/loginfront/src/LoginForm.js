@@ -82,7 +82,7 @@ class LoginForm extends React.Component {
             {/* //Actual UI for the a login form  */}
             <div>
               <img
-                className="optummm"
+                className="optummmlogin"
                 src={process.env.PUBLIC_URL + "/optummm.png"}
                 alt="optum"
                 width="200px"

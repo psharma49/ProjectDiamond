@@ -37,6 +37,7 @@ class ProductView1 extends Component {
 
   componentDidMount() {
     this.CallYears();
+    this.LOB();
   }
   CallYears() {
     DataService.retrieveYearList()
@@ -88,7 +89,8 @@ class ProductView1 extends Component {
 
 
 
-  OnSubmit(selectedLOB, selectedPortfolio, selectedProduct,selectedYear,selectedQuarter) {
+   OnSubmit(selectedLOB, selectedPortfolio, selectedProduct,selectedYear,selectedQuarter) {
+     
      this.props.history.push(
        `/ProductView2/${selectedLOB}/${selectedPortfolio}/${selectedProduct}/${selectedYear}/${selectedQuarter}`
      );
@@ -168,6 +170,7 @@ class ProductView1 extends Component {
             <option value="Q2">Quarter 2</option>
             <option value="Q3">Quarter 3</option>
             <option value="Q4">Quarter 4</option>
+            <option value="YTD">YTD</option>
           </select>
         </div>
 

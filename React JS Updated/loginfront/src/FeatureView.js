@@ -77,6 +77,7 @@ class FeatureView extends Component {
     }
 
   render() {
+   
     return (
       <div>
         <ProductView1/>
@@ -96,11 +97,11 @@ class FeatureView extends Component {
             {this.state.FeatureDataForRep.map((item) => (
               <tr>
                 <td className="tablegrey">{item.feature_name}</td>
-            <td className="tabledata">{(item.commercial===0) ? "NA" : item.commercial} {item.um_comm}</td>
-            <td className="tabledata">{(item.market===0) ? "NA" : item.market} {item.um_markrt}</td>
-            <td className="tabledata">{(item.efficiency===0) ? "NA" : item.efficiency} {item.um_eff}</td>
-            <td className="tabledata">{(item.customer_value===0) ? "NA" : item.customer_value} {item.um_cv}</td>
-            <td className="tabledata">{(item.future_trends===0) ? "NA" : item.future_trends} {item.um_ft}</td>
+            <td className="tabledata">{(item.commercial===0) ? "NA" : <strong>{item.commercial}</strong>} {item.um_comm}</td>
+            <td className="tabledata">{(item.market===0) ? "NA" :<strong>{item.market}</strong>} {item.um_markrt}</td>
+            <td className="tabledata">{(item.efficiency===0) ? "NA" : <strong>{item.efficiency} </strong>}{item.um_eff}</td>
+            <td className="tabledata">{(item.customer_value===0 ) ? "NA" : <strong>{item.customer_value} </strong>}{(item.customer_value===0 || item.um_cv==="Number") ? "" : `${item.um_cv}`} </td>
+            <td className="tabledata">{(item.future_trends===0) ? "NA" : <strong>{item.future_trends}</strong>} {item.um_ft}</td>
               </tr>
             ))}
           </tbody>
