@@ -15,19 +15,35 @@ class ProductView extends Component {
         <div className="ProductView2">
           <div class="col">
             <ul class="comm">
-              <li class="header">
-                <strong>Commercial</strong>
-              </li>
-              {this.props.HeaderDataForRep.map((item) =>
-                item.kpi_name === "Commercial" ? (
-                  <li className="MRKPI">
-                  <strong>{item.display_name} - {item.sum.toFixed(2)} {" "}
-                    {item.unit_of_measurement} / {item.timeline}</strong>
-                  </li>
-                ) : (
-                  " "
-                )
-              )}
+              <table className="tablegrey">
+                <tr>
+                  <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <li class="header">
+                      <strong>Commercial</strong>
+                    </li>
+                    {this.props.HeaderDataForRep.map((item) =>
+                      item.kpi_name === "Commercial" ? (
+                        <li className="MRKPI">
+                          <strong>
+                            {item.sum.toFixed(2)} {item.unit_of_measurement}{" "}
+                            {item.timeline}
+                          </strong>
+                          - {item.display_name}
+                        </li>
+                      ) : (
+                        " "
+                      )
+                    )}
+                  
+                </tr>
+              </table>
               {this.props.FinalDataForRep.map((item) =>
                 item.kpi_name === "Commercial" ? (
                   <li>
@@ -48,8 +64,11 @@ class ProductView extends Component {
               {this.props.HeaderDataForRep.map((item) =>
                 item.kpi_name === "Market" ? (
                   <li className="MRKPI">
-                    <strong>{item.display_name} {item.avg.toFixed(2)}{" "}
-                    {item.unit_of_measurement} / {item.timeline}</strong>
+                    <strong>
+                      {item.avg.toFixed(2)} {item.unit_of_measurement}{" "}
+                      {item.timeline}
+                    </strong>
+                    - {item.display_name}
                   </li>
                 ) : (
                   " "
@@ -76,8 +95,11 @@ class ProductView extends Component {
               {this.props.HeaderDataForRep.map((item) =>
                 item.kpi_name === "Efficiency" ? (
                   <li className="MRKPI">
-                    <strong>{item.display_name} {item.avg.toFixed(2)}{" "}
-                    {item.unit_of_measurement} / {item.timeline}</strong>
+                    <strong>
+                      {item.avg.toFixed(2)} {item.unit_of_measurement}{" "}
+                      {item.timeline}
+                    </strong>
+                    - {item.display_name}
                   </li>
                 ) : (
                   " "
@@ -103,8 +125,11 @@ class ProductView extends Component {
               {this.props.HeaderDataForRep.map((item) =>
                 item.kpi_name === "Customer Value" ? (
                   <li className="MRKPI">
-                    <strong>{item.display_name} {item.avg.toFixed(2)}{" "}
-                    {item.unit_of_measurement} / {item.timeline}</strong>
+                    <strong>
+                      {item.avg.toFixed(2)} {item.unit_of_measurement}{" "}
+                      {item.timeline}
+                    </strong>
+                    - {item.display_name}
                   </li>
                 ) : (
                   " "
@@ -113,8 +138,8 @@ class ProductView extends Component {
               {this.props.FinalDataForRep.map((item) =>
                 item.kpi_name === "Customer Value" ? (
                   <li>
-                    <strong>{item.kpi_subcategory_name} - {item.avg.toFixed(2)}{" "}
-                    {item.unit_of_measurement} / year{" "}</strong>
+                    {item.kpi_subcategory_name} - {item.avg.toFixed(2)}{" "}
+                    {item.unit_of_measurement} / year{" "}
                   </li>
                 ) : (
                   ""
@@ -130,8 +155,11 @@ class ProductView extends Component {
               {this.props.HeaderDataForRep.map((item) =>
                 item.kpi_name === "Future Trends" ? (
                   <li className="MRKPI">
-                    <strong>{item.display_name} {item.avg.toFixed(2)}{" "}
-                    {item.unit_of_measurement} / {item.timeline}</strong>
+                    <strong>
+                      {item.avg.toFixed(2)} {item.unit_of_measurement}{" "}
+                      {item.timeline}
+                    </strong>
+                    - {item.display_name}
                   </li>
                 ) : (
                   " "

@@ -4,6 +4,7 @@ import HeaderComponent from "./HeaderComponent";
 import FeatureView from "./FeatureView";
 import ProductView from "./ProductView";
 import ToggleView from "./ToggleView";
+import PortfolioView from "./PortfolioView";
 
 
 class Dashboard extends Component {
@@ -20,14 +21,16 @@ class Dashboard extends Component {
       HeaderDataForRep: [],
       Features: [],
       FeatureDataForRep: [],
+      PortfolioHeaderDataForRep: [],
       errorMsg: "",
       selectedYear: "",
       selectedQuarter: "Q",
       selectedLOB: "",
-      selectedPortfolio: "",
+      selectedPortfolio: "Select",
       selectedProduct: "Select",
       displayProductView: false,
       displayFeatureView: false,
+      displayPortfolioView: false 
     };
     this.handleYearChange = this.handleYearChange.bind(this);
     this.handleQuarterChange = this.handleQuarterChange.bind(this);
@@ -99,7 +102,6 @@ class Dashboard extends Component {
 
   loadProductView() {
     if (this.state.displayProductView === true) {
-
       return (
         <div>
           <ProductView
@@ -124,6 +126,20 @@ class Dashboard extends Component {
        );
 
     }
+  }
+  loadPortfolioView(){
+    if(this.state.displayPortfolioView === true)
+    {
+      return (
+        <div>
+          <PortfolioView
+          PortfolioHeaderDataForRep = {this.state.PortfolioHeaderDataForRep}/>
+        </div>
+      );
+
+    }
+
+
   }
 
   loadToggleButtons() {
@@ -213,6 +229,9 @@ class Dashboard extends Component {
         this.setState({ errorMsg: "Error retrieving Final Data" });
       });
   }
+
+
+
   getDataForAvgVelTtv() {
     DataService.AvgTtvData(
       this.state.selectedLOB,
@@ -230,16 +249,46 @@ class Dashboard extends Component {
         this.setState({ errorMsg: "Error retrieving Final Data" });
       });
   }
+  getDataForPortfolio(){
+    DataService.PortfolioData(
+      this.state.selectedLOB,
+      this.state.selectedPortfolio,
+      this.state.selectedYear,
+      this.state.selectedQuarter
+    )
+      .then((response) => {
+        this.setState({ PortfolioHeaderDataForRep: response.data });
+        console.log(this.state.AvgTtvDataForRep);
+      })
+      .catch((error) => {
+        console.log(error);
+        this.setState({ errorMsg: "Error retrieving Final Data" });
+      });
+
+  }
   
 
   onSubmit() {
-    this.getDataForRep();
-    this.getDataForAvgVelTtv();
-    this.getDataForHeader();
-    this.setState({
-      displayProductView: true,
-      displayFeatureView: false
-    });
+
+    if(this.state.selectedProduct==="Select" && this.state.selectedPortfolio!=="Select")
+    {
+        this.getDataForPortfolio();
+        this.setState({
+          displayProductView: false,
+          displayFeatureView: false,
+          displayPortfolioView: true 
+        });
+    }
+    else
+    {
+        this.getDataForRep();
+        this.getDataForAvgVelTtv();
+        this.getDataForHeader();
+        this.setState({
+        displayProductView: true,
+        displayFeatureView: false
+        });
+    }
   }
   onFeatureViewClick(){
     this.getAvgTtvData();
@@ -339,7 +388,7 @@ class Dashboard extends Component {
             onChange={this.handleYearChange}
             onClick={this.LOB}
           >
-            <option selected disabled>
+            <option>
               {"  "}
               Year{"  "}
             </option>
@@ -371,9 +420,9 @@ class Dashboard extends Component {
             name="Select LOB"
             onChange={this.handleLOBChange}
           >
-            <option selected disabled>
+            <option>
               {"   "}
-              LOB{"    "}
+              Select{"    "}
             </option>
             {this.state.LOBs.map((item) => (
               <option value={item.lob_id}>{item.lob_name}</option>
@@ -387,9 +436,9 @@ class Dashboard extends Component {
             name="Select Portfolio"
             onChange={this.handlePortfolioChange}
           >
-            <option selected disabled>
+            <option>
               {" "}
-              Porfolio{" "}
+              Select{" "}
             </option>
             {this.state.Portfolios.map((item) => (
               <option value={item.portfolio_id}>{item.portfolio_name}</option>
@@ -405,7 +454,7 @@ class Dashboard extends Component {
           >
             <option>
               {" "}
-              Product{" "}
+              Select{" "}
             </option>
             {this.state.Products.map((item) => (
               <option value={item.product_id}>{item.product_name}</option>

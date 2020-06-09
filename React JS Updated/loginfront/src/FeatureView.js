@@ -94,39 +94,39 @@ class FeatureView extends Component {
                     {item.commercial === 0 ? (
                       "NA"
                     ) : (
-                      <strong>{item.commercial}</strong>
-                    )}{" "}
-                    {item.um_comm}
+                      <strong>{item.commercial} {item.um_comm}</strong>
+                    )}{"  "}
+                    {item.kps_commertial}
                   </td>
                   <td className="tabledata">
-                    {item.market === 0 ? "NA" : <strong>{item.market}</strong>}{" "}
-                    {item.um_markrt}
+                    {item.market === 0 ? "NA" : <strong>{item.market} {item.um_markrt}   </strong>}{" "}
+                    {item.kps_market}
                   </td>
                   <td className="tabledata">
                     {item.efficiency === 0 ? (
                       "NA"
                     ) : (
-                      <strong>{item.efficiency} </strong>
+                      <strong>{item.efficiency} {item.um_eff}      </strong>
                     )}
-                    {item.um_eff}
+                    {item.kps_eff}
                   </td>
                   <td className="tabledata">
                     {item.customer_value === 0 ? (
                       "NA"
                     ) : (
-                      <strong>{item.customer_value} </strong>
+                      <strong>{item.customer_value}     </strong>
                     )}
                     {item.customer_value === 0 || item.um_cv === "Number"
                       ? ""
-                      : `${item.um_cv}`}{" "}
+                    : (<strong>`${item.um_cv}`</strong>)} {item.kps_cv}{" "}
                   </td>
                   <td className="tabledata">
                     {item.future_trends === 0 ? (
                       "NA"
                     ) : (
-                      <strong>{item.future_trends}</strong>
+                      <strong>{item.future_trends} {item.um_ft}     </strong>
                     )}{" "}
-                    {item.um_ft}
+                    {item.kps_ft}
                   </td>
                 </tr>
               ))}
