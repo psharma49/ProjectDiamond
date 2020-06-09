@@ -14,6 +14,8 @@ import diamond.springboot.db.entity.User.Product;
 import diamond.springboot.db.entity.User.ProductAggre;
 import diamond.springboot.db.mapper.ProductAggreRowMapper;
 import diamond.springboot.db.mapper.ProductRowMapper;
+
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Locale;
@@ -94,6 +96,14 @@ public  List<ProductAggre> bvProductAggre(int lobid, int portfolioid, int produc
     		"ORDER BY  K.KPI_NAME, SUB.KPI_SUBCATEGORY_NAME ASC";
     		System.out.println(squery);
     li =  template.query(squery,params,  new ProductAggreRowMapper());	
+    /* for(int i = 0; i < li.size(); i++){
+     //ProductAggre paa = li.get(i);
+      if( li.get(i).getUnit_of_measurement() == "Percentage" || li.get(i).getUnit_of_measurement() == "Points"){
+      BigDecimal b = li.get(i).getAvg();
+      li.get(i).setSum(b);
+      }
+      }
+     */
     return li;
     /*  LinkedHashMap<String, List<ProductAggre>> product_map = new LinkedHashMap<>(); 
       String temp = "";

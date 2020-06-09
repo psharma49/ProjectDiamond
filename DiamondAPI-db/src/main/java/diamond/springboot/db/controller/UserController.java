@@ -24,6 +24,7 @@ import diamond.springboot.db.entity.User.Feature;
 import diamond.springboot.db.entity.User.Featureq;
 import diamond.springboot.db.entity.User.Lob;
 import diamond.springboot.db.entity.User.Portfolio;
+import diamond.springboot.db.entity.User.PortfolioIndi;
 import diamond.springboot.db.entity.User.Product;
 import diamond.springboot.db.entity.User.ProductAggre;
 import diamond.springboot.db.entity.User.User;
@@ -98,4 +99,9 @@ public List<Display> displayView(@PathVariable int lobid, @PathVariable int port
 	
 }
 
+@RequestMapping("/viewdash_board/indi_portfolio_view/{lobid}/{portfolioid}/{yearid}/{quarterid}")
+public List<PortfolioIndi> indiPortfolioView(@PathVariable int lobid, @PathVariable int portfolioid, @PathVariable int yearid, @PathVariable String quarterid){
+	return userService.indiPortfolioView(lobid, portfolioid, yearid, quarterid);
+	
+}
 }
