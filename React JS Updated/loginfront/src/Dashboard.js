@@ -25,7 +25,7 @@ class Dashboard extends Component {
       selectedQuarter: "Q",
       selectedLOB: "",
       selectedPortfolio: "",
-      selectedProduct: "",
+      selectedProduct: "Select",
       displayProductView: false,
       displayFeatureView: false,
     };
@@ -403,7 +403,7 @@ class Dashboard extends Component {
             name="Select Products"
             onChange={this.handleProductChange}
           >
-            <option selected disabled>
+            <option>
               {" "}
               Product{" "}
             </option>
