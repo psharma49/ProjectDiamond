@@ -404,7 +404,7 @@ class Dashboard extends Component {
             value={this.state.value}
             onChange={this.handleQuarterChange}
           >
-            <option>
+            <option value="Q">
               {"  "}
               Quarter{"  "}
             </option>
