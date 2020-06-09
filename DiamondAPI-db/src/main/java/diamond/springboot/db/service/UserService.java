@@ -16,6 +16,7 @@ import diamond.springboot.db.dao.FeatureDaoImpl;
 import diamond.springboot.db.dao.FeatureqDaoImpl;
 import diamond.springboot.db.dao.LobDaoImpl;
 import diamond.springboot.db.dao.PortfolioDaoImpl;
+import diamond.springboot.db.dao.PortfolioIndiDaoImpl;
 import diamond.springboot.db.dao.ProductAggreDaoImpl;
 import diamond.springboot.db.dao.ProductDaoImpl;
 import diamond.springboot.db.dao.UserDaoImpl;
@@ -26,6 +27,7 @@ import diamond.springboot.db.entity.User.Feature;
 import diamond.springboot.db.entity.User.Featureq;
 import diamond.springboot.db.entity.User.Lob;
 import diamond.springboot.db.entity.User.Portfolio;
+import diamond.springboot.db.entity.User.PortfolioIndi;
 import diamond.springboot.db.entity.User.Product;
 import diamond.springboot.db.entity.User.ProductAggre;
 import diamond.springboot.db.entity.User.User;
@@ -58,6 +60,9 @@ public class UserService {
 	
 	@Autowired
 	private DisplayDaoImpl displayDaoImpl;
+	
+	@Autowired
+	private PortfolioIndiDaoImpl portfolioIndiDaoImpl;
 	
 	public boolean checkUser(int userid, String pswd){
 		return userDaoImpl.checkUser(userid, pswd);
@@ -96,5 +101,8 @@ public class UserService {
 
 	public List<Display> displayView(int lobid, int portfolioid, int productid,int yearid, String quarterid) {
 		  return displayDaoImpl.displayView(lobid, portfolioid, productid,  yearid, quarterid);
+		}
+	public List<PortfolioIndi> indiPortfolioView(int lobid, int portfolioid, int yearid, String quarterid) {
+		  return portfolioIndiDaoImpl.indiPortfolioView(lobid, portfolioid, yearid, quarterid);
 		}
 }
