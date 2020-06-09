@@ -286,7 +286,8 @@ class Dashboard extends Component {
         this.getDataForHeader();
         this.setState({
         displayProductView: true,
-        displayFeatureView: false
+        displayFeatureView: false,
+        displayPortfolioView: false,
         });
     }
   }
@@ -295,7 +296,8 @@ class Dashboard extends Component {
     this.getFeatureViewData();
     this.setState({
       displayProductView: false,
-      displayFeatureView: true
+      displayFeatureView: true,
+      displayPortfolioView: false
     });
   }
   // OntoFeatureView(
@@ -470,10 +472,10 @@ class Dashboard extends Component {
             Submit
           </button>
         </div>
-        {this.loadProductView()};
-        {this.loadFeatureView()};
-        {this.loadToggleButtons()};
-
+        {this.loadPortfolioView()}
+        {this.loadProductView()}
+        {this.loadFeatureView()}
+        {this.loadToggleButtons()}
       </div>
     );
   }

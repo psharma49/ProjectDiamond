@@ -15,35 +15,24 @@ class ProductView extends Component {
         <div className="ProductView2">
           <div class="col">
             <ul class="comm">
-              <table className="tablegrey">
-                <tr>
-                  <td>
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                    <li class="header">
-                      <strong>Commercial</strong>
-                    </li>
-                    {this.props.HeaderDataForRep.map((item) =>
-                      item.kpi_name === "Commercial" ? (
-                        <li className="MRKPI">
-                          <strong>
-                            {item.sum.toFixed(2)} {item.unit_of_measurement}{" "}
-                            {item.timeline}
-                          </strong>
-                          - {item.display_name}
-                        </li>
-                      ) : (
-                        " "
-                      )
-                    )}
-                  
-                </tr>
-              </table>
+              <li class="header">
+                <strong>Commercial</strong>
+              </li>
+
+              {this.props.HeaderDataForRep.map((item) =>
+                item.kpi_name === "Commercial" ? (
+                  <li className="MRKPI">
+                    <strong>
+                      {item.sum.toFixed(2)} {item.unit_of_measurement}{" "}
+                      {item.timeline}
+                    </strong>
+                    - {item.display_name}
+                  </li>
+                ) : (
+                  " "
+                )
+              )}
+
               {this.props.FinalDataForRep.map((item) =>
                 item.kpi_name === "Commercial" ? (
                   <li>

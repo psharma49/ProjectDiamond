@@ -38,7 +38,7 @@ class DataService {
     }
     PortfolioData(selectedLOB, selectedPortfolio,selectedYear,selectedQuarter){
         return axios
-        .get(`http://localhost:8083/viewdash_board/product_display_view/${selectedLOB}/${selectedPortfolio}/${selectedYear}/${selectedQuarter}`)
+        .get(`http://localhost:8083/viewdash_board/indi_portfolio_view/${selectedLOB}/${selectedPortfolio}/${selectedYear}/${selectedQuarter}`)
     }
 
 }
