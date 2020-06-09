@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,6 +32,7 @@ import diamond.springboot.db.entity.User.User;
 import diamond.springboot.db.entity.User.Year;
 import diamond.springboot.db.service.UserService;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class UserController {
 	

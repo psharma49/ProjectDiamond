@@ -34,7 +34,7 @@ class DataService {
     }
     HeaderData(selectedLOB, selectedPortfolio, selectedProduct,selectedYear,selectedQuarter){
         return axios
-        .get(`http://localhost:8083/viewdash_board/product_aggregate_view/${selectedLOB}/${selectedPortfolio}/${selectedProduct}/${selectedYear}/${selectedQuarter}`)
+        .get(`http://localhost:8083/viewdash_board/product_display_view/${selectedLOB}/${selectedPortfolio}/${selectedProduct}/${selectedYear}/${selectedQuarter}`)
     }
 
 }

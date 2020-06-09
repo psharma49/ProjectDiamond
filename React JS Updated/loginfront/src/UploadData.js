@@ -4,7 +4,7 @@ import HeaderComponent from "./HeaderComponent";
 
 class UploadData extends Component {
   OntoProductView1() {
-    this.props.history.push("/ProductView1");
+    this.props.history.push("/Dashboard");
   }
   render() {
     return (
