@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,11 +27,11 @@ import diamond.springboot.db.entity.User.Portfolio;
 import diamond.springboot.db.entity.User.PortfolioIndi;
 import diamond.springboot.db.entity.User.Product;
 import diamond.springboot.db.entity.User.ProductAggre;
+import diamond.springboot.db.entity.User.ProductsGraph;
 import diamond.springboot.db.entity.User.User;
 import diamond.springboot.db.entity.User.Year;
 import diamond.springboot.db.service.UserService;
 
-@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class UserController {
 	
@@ -104,6 +103,11 @@ public List<Display> displayView(@PathVariable int lobid, @PathVariable int port
 @RequestMapping("/viewdash_board/indi_portfolio_view/{lobid}/{portfolioid}/{yearid}/{quarterid}")
 public List<PortfolioIndi> indiPortfolioView(@PathVariable int lobid, @PathVariable int portfolioid, @PathVariable int yearid, @PathVariable String quarterid){
 	return userService.indiPortfolioView(lobid, portfolioid, yearid, quarterid);
+	
+}
+@RequestMapping("/viewdash_board/portfolio_graph_view/{lobid}/{portfolioid}/{display_name}/{yearid}/{quarterid}")
+public List<ProductsGraph> portfolioGraphView(@PathVariable int lobid, @PathVariable int portfolioid,@PathVariable String display_name, @PathVariable int yearid, @PathVariable String quarterid){
+	return userService.portfolioGraphView(lobid, portfolioid, display_name, yearid, quarterid);
 	
 }
 }

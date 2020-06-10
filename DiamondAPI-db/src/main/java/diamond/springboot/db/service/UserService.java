@@ -19,6 +19,7 @@ import diamond.springboot.db.dao.PortfolioDaoImpl;
 import diamond.springboot.db.dao.PortfolioIndiDaoImpl;
 import diamond.springboot.db.dao.ProductAggreDaoImpl;
 import diamond.springboot.db.dao.ProductDaoImpl;
+import diamond.springboot.db.dao.ProductsGraphDaoImpl;
 import diamond.springboot.db.dao.UserDaoImpl;
 import diamond.springboot.db.dao.YearDaoImpl;
 import diamond.springboot.db.entity.User.Avg;
@@ -30,6 +31,7 @@ import diamond.springboot.db.entity.User.Portfolio;
 import diamond.springboot.db.entity.User.PortfolioIndi;
 import diamond.springboot.db.entity.User.Product;
 import diamond.springboot.db.entity.User.ProductAggre;
+import diamond.springboot.db.entity.User.ProductsGraph;
 import diamond.springboot.db.entity.User.User;
 import diamond.springboot.db.entity.User.Year;
 
@@ -63,6 +65,9 @@ public class UserService {
 	
 	@Autowired
 	private PortfolioIndiDaoImpl portfolioIndiDaoImpl;
+	
+	@Autowired
+	private ProductsGraphDaoImpl productsGraphDaoImpl;
 	
 	public boolean checkUser(int userid, String pswd){
 		return userDaoImpl.checkUser(userid, pswd);
@@ -104,5 +109,8 @@ public class UserService {
 		}
 	public List<PortfolioIndi> indiPortfolioView(int lobid, int portfolioid, int yearid, String quarterid) {
 		  return portfolioIndiDaoImpl.indiPortfolioView(lobid, portfolioid, yearid, quarterid);
+		}
+	public List<ProductsGraph> portfolioGraphView(int lobid, int portfolioid, String display_name, int yearid, String quarterid) {
+		  return productsGraphDaoImpl.portfolioGraphView(lobid, portfolioid, display_name, yearid, quarterid);
 		}
 }
