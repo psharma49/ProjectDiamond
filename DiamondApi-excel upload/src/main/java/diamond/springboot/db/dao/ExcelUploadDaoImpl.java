@@ -133,21 +133,21 @@ public void readExcel(MultipartFile file) throws IOException {
    	
    	final String insertsql = "INSERT INTO FEATURE(FEATURE_NAME, FEATURE_MONTH, TTV, VELOCITY, PROJECT_TYPE, BUSINESS_VALUE, UNIT_OF_MEASUREMENT, KPI_SUBCATEGORY_ID, KPI_ID,PRODUCT_ID, PORTFOLIO_ID, LOB_ID, YEAR, QUARTER) VALUES( :FEATURE_NAME, :FEATURE_MONTH, :TTV, :VELOCITY, :PROJECT_TYPE, :BUSINESS_VALUE, :UNIT_OF_MEASUREMENT, :KPI_SUBCATEGORY_ID, :KPI_ID, :PRODUCT_ID, :PORTFOLIO_ID, :LOB_ID, :YEAR, :QUARTER);";
    	KeyHolder holder = new GeneratedKeyHolder();
-    SqlParameterSource param = new MapSqlParameterSource();
-    ((MapSqlParameterSource) param).addValue("FEATURE_NAME", fup.getFeature_month());
-    ((MapSqlParameterSource) param).addValue("FEATURE_MONTH", fup.getFeature_month());
-    ((MapSqlParameterSource) param).addValue("TTV",fup.getTtv() );
-    ((MapSqlParameterSource) param).addValue("VELOCITY",fup.getVelocity() );
-    ((MapSqlParameterSource) param).addValue("PROJECT_TYPE", fup.getProject_type() );
-    ((MapSqlParameterSource) param).addValue("BUSINESS_VALUE", fup.getBusiness_value());
-    ((MapSqlParameterSource) param).addValue("UNIT_OF_MEASUREMENT", fup.getUnit_of_measurement() );
-    ((MapSqlParameterSource) param).addValue("KPI_SUBCATEGORY_ID",fup.getKpi_subcategory_id() );
-    ((MapSqlParameterSource) param).addValue("KPI_ID", fup.getKpi_id() );
-    ((MapSqlParameterSource) param).addValue("PRODUCT_ID", fup.getProduct_id() );
-    ((MapSqlParameterSource) param).addValue("PORTFOLIO_ID", fup.getPortfolio_id());
-    ((MapSqlParameterSource) param).addValue("LOB_ID", fup.getLob_id() );
-    ((MapSqlParameterSource) param).addValue("YEAR", fup.getYear() );
-    ((MapSqlParameterSource) param).addValue("QUARTER", fup.getQuarter());
+    MapSqlParameterSource param = new MapSqlParameterSource();
+     param.addValue("FEATURE_NAME", fup.getFeature_month());
+    param.addValue("FEATURE_MONTH", fup.getFeature_month());
+     param.addValue("TTV",fup.getTtv() );
+     param.addValue("VELOCITY",fup.getVelocity() );
+    param.addValue("PROJECT_TYPE", fup.getProject_type() );
+     param.addValue("BUSINESS_VALUE", fup.getBusiness_value());
+     param.addValue("UNIT_OF_MEASUREMENT", fup.getUnit_of_measurement() );
+     param.addValue("KPI_SUBCATEGORY_ID",fup.getKpi_subcategory_id() );
+    param.addValue("KPI_ID", fup.getKpi_id() );
+     param.addValue("PRODUCT_ID", fup.getProduct_id() );
+     param.addValue("PORTFOLIO_ID", fup.getPortfolio_id());
+     param.addValue("LOB_ID", fup.getLob_id() );
+     param.addValue("YEAR", fup.getYear() );
+     param.addValue("QUARTER", fup.getQuarter());
     template.update(insertsql,param, holder);
 
     
