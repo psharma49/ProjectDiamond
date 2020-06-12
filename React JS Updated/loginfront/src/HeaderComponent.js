@@ -14,6 +14,7 @@ class HeaderComponent extends Component {
               <button className="logoutbutton" onClick={() => this.doLogout()}>
                 Log out
               </button>
+              
             </div>
           </div>
   

@@ -96,18 +96,21 @@ class FeatureView extends Component {
                     ) : (
                       <strong>{item.commercial} {item.um_comm}</strong>
                     )}{"  "}
+                    <br/>
                     {item.kps_commertial}
                   </td>
                   <td className="tabledata">
-                    {item.market === 0 ? "NA" : <strong>{item.market} {item.um_markrt}   </strong>}{" "}
+                    {item.market === 0 ? "NA" : <strong>{item.market} {item.um_markrt} </strong>}{" "}
+                    <br/>
                     {item.kps_market}
                   </td>
                   <td className="tabledata">
                     {item.efficiency === 0 ? (
                       "NA"
                     ) : (
-                      <strong>{item.efficiency} {item.um_eff}      </strong>
+                      <strong>{item.efficiency} {item.um_eff} </strong>
                     )}
+                    <br/>
                     {item.kps_eff}
                   </td>
                   <td className="tabledata">
@@ -118,7 +121,7 @@ class FeatureView extends Component {
                     )}
                     {item.customer_value === 0 || item.um_cv === "Number"
                       ? ""
-                    : (<strong>`${item.um_cv}`</strong>)} {item.kps_cv}{" "}
+                    : (<strong>{item.um_cv}</strong>)}<br/> {item.kps_cv}{" "}
                   </td>
                   <td className="tabledata">
                     {item.future_trends === 0 ? (
@@ -126,6 +129,7 @@ class FeatureView extends Component {
                     ) : (
                       <strong>{item.future_trends} {item.um_ft}     </strong>
                     )}{" "}
+                    <br/>
                     {item.kps_ft}
                   </td>
                 </tr>

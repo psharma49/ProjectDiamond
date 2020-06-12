@@ -31,6 +31,9 @@ class LoginForm extends React.Component {
     });
   }
 
+
+
+  
   async doLogin() {
     if (!this.state.username) {
       alert("You forgot to type your username");

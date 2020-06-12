@@ -40,6 +40,14 @@ class DataService {
         return axios
         .get(`http://localhost:8083/viewdash_board/indi_portfolio_view/${selectedLOB}/${selectedPortfolio}/${selectedYear}/${selectedQuarter}`)
     }
+    PortfolioGraphData(selectedLOB,selectedPortfolio,displayName,selectedYear,selectedQuarter){
+        return axios
+        .get(`http://localhost:8083/viewdash_board/portfolio_graph_view/${selectedLOB}/${selectedPortfolio}/${displayName}/${selectedYear}/${selectedQuarter}`)
+
+    }
+    upload(data) {
+        return axios.post("http://localhost:8083/upload", data);
+    }
 
 }
 

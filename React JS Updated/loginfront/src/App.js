@@ -3,14 +3,12 @@ import UserStore from "./stores/UserStore";
 import { observer } from "mobx-react";
 import LoginForm from "./LoginForm";
 import "./App.css";
-// import './bootstrap.css';
-
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import UploadData from "./UploadData";
 import Dashboard from "./Dashboard";
-import ProductView from "./ProductView";
-import FeatureView from "./FeatureView";
 import imagess from "./imagess"; 
+import BVUpload from "./BVUpload";
+import BulkUpload from "./BulkUpload";
 
 
 class App extends React.Component {
@@ -113,15 +111,14 @@ class App extends React.Component {
               
               <Router>
                 <>
-          
                 <Switch>
                <Route path="/" exact component = {LoginForm}/>
                  <Route path="/login" exact component = {LoginForm}/>
                  <Route exact path="/Dashboard" component={Dashboard}/>
                  <Route exact path="/UploadData" component={UploadData}/>
                  <Route exact path="/imagess" component={imagess}/>
-                 {/* <Route exact path="/ProductView2/:selectedLOB/:selectedPortfolio/:selectedProduct/:selectedYear/:selectedQuarter" component={ProductView2}/>
-                 <Route exact path="/FeatureView/:selectedLOB/:selectedPortfolio/:selectedProduct/:selectedYear/:selectedQuarter" component={FeatureView}/> */}
+                 <Route exact path="/BVUpload" component={BVUpload}/>
+                 <Route exact path="/BulkUpload" component={BulkUpload}/>
                 </Switch>
                 </>
               </Router>

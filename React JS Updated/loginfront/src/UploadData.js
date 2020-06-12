@@ -1,11 +1,14 @@
 import React, { Component } from "react";
-import UserStore from "./stores/UserStore";
 import HeaderComponent from "./HeaderComponent";
 
 class UploadData extends Component {
-  OntoProductView1() {
+  OntoDashboard() {
     this.props.history.push("/Dashboard");
   }
+  OntoBVUpload(){
+    this.props.history.push("/BVUpload");
+  }
+
   render() {
     return (
       <div><HeaderComponent/>
@@ -19,10 +22,10 @@ class UploadData extends Component {
               width="200px"
             />
             <div className="upload">
-              <button className="btn">Upload KPI/Data</button>
+              <button className="btn"  onClick={() => this.OntoBVUpload()}>Upload KPI/Data</button>
             </div>
             <div className="dashboardbutton">
-              <button className="btn" onClick={() => this.OntoProductView1()}>
+              <button className="btn" onClick={() => this.OntoDashboard()}>
                 Dashboard View
               </button>
             </div>

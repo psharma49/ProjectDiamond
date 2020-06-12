@@ -104,7 +104,7 @@ html,
   min-width: 70px;
   width: 5%;
   font-size: 10px;
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 3px 5px;
   text-align: center;
   cursor:pointer;
@@ -297,7 +297,7 @@ html,
 }
 
 .futu {
-  background: rgb(208,208,206);;
+  background: rgb(208,208,206);
   color: rgb(85,86.,90);
   list-style-type: none;
   
@@ -431,7 +431,7 @@ html,
   color: white;
   background-color: rgb(85, 86, 90);
   border-block-end-color: black;
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 4px 16px;
   text-align: center;
   text-align: left;
@@ -452,7 +452,7 @@ html,
   float: right;
   position: relative;
   right: 0px;
-  top: 50px;
+  top: 5px;
 }
 .ToggleView {
     position: relative;
@@ -470,7 +470,7 @@ html,
     background-color: rgb(85, 86, 90);
     border-block-end-color: black;
     float: left;
-    border-radius: 8px;
+    border-radius: 4px;
     cursor: pointer;
 }
 .Aggr:hover {
@@ -494,7 +494,7 @@ html,
     background-color: rgb(85, 86, 90);
     border-block-end-color: black;
     float: right;
-    border-radius: 8px;
+    border-radius: 4px;
     cursor: pointer;
 }
 .FeatureLevel:hover {
@@ -698,6 +698,7 @@ html,
   position: relative;
   float: right;
   align-items: center;
+  bottom: 30px;
   
 }
 .commImage{
@@ -729,5 +730,93 @@ html,
   position: relative;
   vertical-align: text-top;
   width: 20%;
-  right: 50px;
+  right: -120px;
+  top: 70px;
+  float: none;
+}
+.PortfolioView{
+  vertical-align: text-top;
+  float: right;
+  position: relative;  
+  right: 180px;
+  top: -80px;
+}
+.screentext{
+  font-size: 15px;
+  font-family: Arial;
+  text-align: center;
+  position: relative;
+  bottom: 30px;
+}
+#portgraphs{
+  float: right;
+  position: relative;
+  top: 150px;
+  right: 150px;
+  width: 900px;
+  height: 700px
+}
+
+.uploadBulkDataButton{
+  position: relative;
+  left: -150px;
+  bottom:-120px;
+  width: 80px;
+  color: white;
+  background-color: #e87722;
+  border-block-end-color: black;
+  border-radius: 4px;
+  padding: 4px 16px;
+  text-align: center;
+  text-align: left;
+  cursor:pointer;
+}
+.uploadBulkDataButton:hover {
+  background-color: #555;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.uploadBulkDataButton:active {
+  background-color: #e87722;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.uploadText{
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif;
+  bottom: -45px;
+  font-size: 15px;
+  right: 2px;
+}
+.form-control{
+  position: relative;
+  top: 60px;
+  right: -40px;
+  width: 280px;
+  height: 20px;
+  padding: 2px 1px ;
+  border: 1px solid rgb(124, 124, 124);
+  background-color: rgb(226, 226, 224);
+  margin: 5;
+  align-items: center;
+  align-content: flex-start;
+  
+}
+.optummmBulk{
+  position: relative;
+  align-items: center;
+  width: 150px;
+  top: 20px;
+  right:10px
+}
+.uploadingForm{
+  border: 2px solid rgb(232, 119, 34);
+  padding: 2px 5px ;
+  width: 400px;
+  height: 300px;
+  text-align: center;
+  align-content: center;
+  position: relative;
+  top: 100px;
+  left: 420px
 }

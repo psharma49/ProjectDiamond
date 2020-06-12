@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^7.1.2",
     "bootstrap": "^4.5.0",
     "chart.js": "^2.9.3",
+    "chartjs-plugin-datalabels": "^0.7.0",
     "mobx": "^5.15.4",
     "mobx-react": "^6.2.2",
     "react": "^16.13.1",
@@ -16,7 +17,8 @@
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.1",
-    "reactjs-popup": "^1.5.0"
+    "reactjs-popup": "^1.5.0",
+    "scroll-into-view-if-needed": "^2.2.25"
   },
   "scripts": {
     "start": "react-scripts start",

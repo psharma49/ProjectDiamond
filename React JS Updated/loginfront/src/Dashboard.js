@@ -133,7 +133,11 @@ class Dashboard extends Component {
       return (
         <div>
           <PortfolioView
-          PortfolioHeaderDataForRep = {this.state.PortfolioHeaderDataForRep}/>
+          PortfolioHeaderDataForRep = {this.state.PortfolioHeaderDataForRep}
+          selectedLOB = {this.state.selectedLOB}
+          selectedPortfolio = {this.state.selectedPortfolio}
+          selectedYear = {this.state.selectedYear}
+          selectedQuarter = {this.state.selectedQuarter}/>
         </div>
       );
 
