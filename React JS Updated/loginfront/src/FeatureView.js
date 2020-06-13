@@ -90,48 +90,78 @@ class FeatureView extends Component {
               {this.props.FeatureDataForRep.map((item) => (
                 <tr>
                   <td className="tablegrey">{item.feature_name}</td>
+
+
                   <td className="tabledata">
                     {item.commercial === 0 ? (
                       "NA"
                     ) : (
-                      <strong>{item.commercial} {item.um_comm}</strong>
+                      <strong>{item.commercial} </strong>
                     )}{"  "}
+                    {item.commercial === 0 || item.um_comm === "Number"
+                      ? ""
+                    : (<strong>{item.um_comm}</strong>)}
                     <br/>
                     {item.kps_commertial}
                   </td>
+
+
+
                   <td className="tabledata">
-                    {item.market === 0 ? "NA" : <strong>{item.market} {item.um_markrt} </strong>}{" "}
+                    {item.market === 0 ? "NA" : <strong>{item.market} </strong>}{" "}
+                    {item.market === 0 || item.um_markrt === "Number"
+                      ? ""
+                    : (<strong>{item.um_markrt} </strong>)}
                     <br/>
                     {item.kps_market}
                   </td>
+
+
+
+
                   <td className="tabledata">
                     {item.efficiency === 0 ? (
                       "NA"
                     ) : (
-                      <strong>{item.efficiency} {item.um_eff} </strong>
+                      <strong>{item.efficiency}</strong>
                     )}
+                    {item.efficiency === 0 || item.um_eff === "Number"
+                      ? ""
+                    : (<strong> {item.um_eff} </strong>)}
                     <br/>
                     {item.kps_eff}
                   </td>
+
+
+
+
                   <td className="tabledata">
                     {item.customer_value === 0 ? (
                       "NA"
                     ) : (
-                      <strong>{item.customer_value}     </strong>
+                      <strong>{item.customer_value} </strong>
                     )}
                     {item.customer_value === 0 || item.um_cv === "Number"
                       ? ""
                     : (<strong>{item.um_cv}</strong>)}<br/> {item.kps_cv}{" "}
                   </td>
+
+
+
+
                   <td className="tabledata">
                     {item.future_trends === 0 ? (
                       "NA"
                     ) : (
-                      <strong>{item.future_trends} {item.um_ft}     </strong>
+                      <strong>{item.future_trends}</strong>
                     )}{" "}
+                    {item.customer_value === 0 || item.um_ft === "Number"
+                      ? ""
+                    : (<strong>{item.um_ft}</strong>)}
                     <br/>
-                    {item.kps_ft}
+                    {item.kps_ft}{" "}
                   </td>
+
                 </tr>
               ))}
             </tbody>

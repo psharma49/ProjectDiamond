@@ -56,7 +56,7 @@ public void readExcel(MultipartFile file) throws IOException {
         temp.setLob(row.getCell(1).getStringCellValue());
         temp.setPortfolio(row.getCell(2).getStringCellValue());
         temp.setProduct(row.getCell(3).getStringCellValue());
-        temp.setFeature_name(row.getCell(4).getStringCellValue());
+        temp.setFeature1_name(row.getCell(4).getStringCellValue());
         temp.setTtv(row.getCell(5).getNumericCellValue());
         temp.setVel(row.getCell(6).getNumericCellValue());
         temp.setProject_type(row.getCell(7).getStringCellValue());
@@ -70,16 +70,16 @@ public void readExcel(MultipartFile file) throws IOException {
        int yearint = Integer.parseInt(yearstr);
        String quarter = "";
        if(month.equals("Jan") || month.equals("Feb") || month.equals("Mar") ) {
-    	   quarter = quarter + "Q1";
+    	   quarter =  "Q1";
        }
        else if(month.equals("Apr") || month.equals("May") || month.equals("Jun") ) {
-    	   quarter = quarter + "Q2";
+    	   quarter = "Q2";
        } 
        else if(month.equals("Jul") || month.equals("Aug") || month.equals("Sep") ) {
-    	   quarter = quarter + "Q3";
+    	   quarter = "Q3";
        }
        else {
-    	   quarter = quarter + "Q4";
+    	   quarter = "Q4";
        }
        
        String product_name = temp.getProduct();
@@ -100,7 +100,7 @@ public void readExcel(MultipartFile file) throws IOException {
    			"FROM KPI_SUBCATEGORY \r\n" + 
    			"WHERE KPI_SUBCATEGORY_NAME = :KPI_SUBCATEGORY_NAME\r\n" + 
    			"", params, new ExcelUpload2RowMapper());
-   	String fname = temp.getFeature_name();
+   	String fname = temp.getFeature1_name();
    	double dttv = temp.getTtv();
    	BigDecimal fttv = BigDecimal.valueOf(dttv);
    	double dvel = temp.getVel();
@@ -131,10 +131,10 @@ public void readExcel(MultipartFile file) throws IOException {
    	fup.setYear(yearint);
    	fup.setQuarter(quarter);
    	
-   	final String insertsql = "INSERT INTO FEATURE(FEATURE_NAME, FEATURE_MONTH, TTV, VELOCITY, PROJECT_TYPE, BUSINESS_VALUE, UNIT_OF_MEASUREMENT, KPI_SUBCATEGORY_ID, KPI_ID,PRODUCT_ID, PORTFOLIO_ID, LOB_ID, YEAR, QUARTER) VALUES( :FEATURE_NAME, :FEATURE_MONTH, :TTV, :VELOCITY, :PROJECT_TYPE, :BUSINESS_VALUE, :UNIT_OF_MEASUREMENT, :KPI_SUBCATEGORY_ID, :KPI_ID, :PRODUCT_ID, :PORTFOLIO_ID, :LOB_ID, :YEAR, :QUARTER);";
+    String insertsql = "INSERT INTO FEATURE(FEATURE_NAME, FEATURE_MONTH, TTV, VELOCITY, PROJECT_TYPE, BUSINESS_VALUE, UNIT_OF_MEASUREMENT, KPI_SUBCATEGORY_ID, KPI_ID,PRODUCT_ID, PORTFOLIO_ID, LOB_ID, YEAR, QUARTER) VALUES(:FEATURE_NAME, :FEATURE_MONTH, :TTV, :VELOCITY, :PROJECT_TYPE, :BUSINESS_VALUE, :UNIT_OF_MEASUREMENT, :KPI_SUBCATEGORY_ID, :KPI_ID, :PRODUCT_ID, :PORTFOLIO_ID, :LOB_ID, :YEAR, :QUARTER);";
    	KeyHolder holder = new GeneratedKeyHolder();
     MapSqlParameterSource param = new MapSqlParameterSource();
-     param.addValue("FEATURE_NAME", fup.getFeature_month());
+     param.addValue("FEATURE_NAME", fup.getFeature_name());
     param.addValue("FEATURE_MONTH", fup.getFeature_month());
      param.addValue("TTV",fup.getTtv() );
      param.addValue("VELOCITY",fup.getVelocity() );

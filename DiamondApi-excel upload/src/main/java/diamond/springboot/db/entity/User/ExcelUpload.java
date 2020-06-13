@@ -6,14 +6,14 @@ public class ExcelUpload {
 	public ExcelUpload() {
 		
 	}
-public ExcelUpload(String date, String lob, String portfolio, String product, String feature_name, double ttv,
+public ExcelUpload(String date, String lob, String portfolio, String product, String feature1_name, double ttv,
 			double vel, String project_type, String kpi, String sub_kpi, double bv, String uom) {
 		super();
 		this.date = date;
 		this.lob = lob;
 		this.portfolio = portfolio;
 		this.product = product;
-		this.feature_name = feature_name;
+		this.feature1_name = feature1_name;
 		this.ttv = ttv;
 		this.vel = vel;
 		this.project_type = project_type;
@@ -47,11 +47,11 @@ public String getProduct() {
 public void setProduct(String product) {
 	this.product = product;
 }
-public String getFeature_name() {
-	return feature_name;
+public String getFeature1_name() {
+	return feature1_name;
 }
-public void setFeature_name(String feature_name) {
-	this.feature_name = feature_name;
+public void setFeature1_name(String feature_name) {
+	this.feature1_name = feature_name;
 }
 public double getTtv() {
 	return ttv;
@@ -98,7 +98,7 @@ public void setUom(String uom) {
 private String lob;
 private String portfolio;
 private String product;
-private String feature_name;
+private String feature1_name;
 private double ttv;
 private double vel;
 private String project_type;

@@ -55,13 +55,32 @@ class ProductView extends Component {
               <td className="productviewtable">
                 <ul class="comm">
                   {this.props.HeaderDataForRep.map((item) =>
-                    item.kpi_name === "Commercial" ? (
+                    item.kpi_name === "Commercial" &&
+                    (item.unit_of_measurement === "%" ||
+                      item.unit_of_measurement === "Points") ? (
+                      <li className="MRKPI">
+                        <strong>
+                          {item.avg.toFixed(2)} {item.unit_of_measurement}{" "}
+                          {item.timeline}
+                        </strong>
+                        <br />
+                        {item.display_name}
+                      </li>
+                    ) : (
+                      " "
+                    )
+                  )}
+                  {this.props.HeaderDataForRep.map((item) =>
+                    item.kpi_name === "Commercial" &&
+                    item.unit_of_measurement !== "%" &&
+                    item.unit_of_measurement !== "Points" ? (
                       <li className="MRKPI">
                         <strong>
                           {item.sum.toFixed(2)} {item.unit_of_measurement}{" "}
                           {item.timeline}
                         </strong>
-                        <br/>{item.display_name}
+                        <br />
+                        {item.display_name}
                       </li>
                     ) : (
                       " "
@@ -72,13 +91,32 @@ class ProductView extends Component {
               <td className="productviewtable">
                 <ul class="mark">
                   {this.props.HeaderDataForRep.map((item) =>
-                    item.kpi_name === "Market" ? (
+                    item.kpi_name === "Market" &&
+                    (item.unit_of_measurement === "%" ||
+                      item.unit_of_measurement === "Points") ? (
                       <li className="MRKPI">
                         <strong>
                           {item.avg.toFixed(2)} {item.unit_of_measurement}{" "}
                           {item.timeline}
                         </strong>
-                         <br/>{item.display_name}
+                        <br />
+                        {item.display_name}
+                      </li>
+                    ) : (
+                      " "
+                    )
+                  )}
+                  {this.props.HeaderDataForRep.map((item) =>
+                    item.kpi_name === "Market" &&
+                    item.unit_of_measurement !== "%" &&
+                    item.unit_of_measurement !== "Points" ? (
+                      <li className="MRKPI">
+                        <strong>
+                          {item.sum.toFixed(2)} {item.unit_of_measurement}{" "}
+                          {item.timeline}
+                        </strong>
+                        <br />
+                        {item.display_name}
                       </li>
                     ) : (
                       " "
@@ -89,13 +127,32 @@ class ProductView extends Component {
               <td className="productviewtable">
                 <ul class="effi">
                   {this.props.HeaderDataForRep.map((item) =>
-                    item.kpi_name === "Efficiency" ? (
+                    item.kpi_name === "Efficiency" &&
+                    (item.unit_of_measurement === "%" ||
+                      item.unit_of_measurement === "Points") ? (
                       <li className="MRKPI">
                         <strong>
                           {item.avg.toFixed(2)} {item.unit_of_measurement}{" "}
                           {item.timeline}
                         </strong>
-                        <br/>{item.display_name}
+                        <br />
+                        {item.display_name}
+                      </li>
+                    ) : (
+                      " "
+                    )
+                  )}
+                  {this.props.HeaderDataForRep.map((item) =>
+                    item.kpi_name === "Efficiency" &&
+                   ( item.unit_of_measurement !== "%" &&
+                    item.unit_of_measurement !== "Points") ? (
+                      <li className="MRKPI">
+                        <strong>
+                          {item.sum.toFixed(2)} {item.unit_of_measurement}{" "}
+                          {item.timeline}
+                        </strong>
+                        <br />
+                        {item.display_name}
                       </li>
                     ) : (
                       " "
@@ -106,13 +163,33 @@ class ProductView extends Component {
               <td className="productviewtable">
                 <ul class="cust">
                   {this.props.HeaderDataForRep.map((item) =>
-                    item.kpi_name === "Customer Value" ? (
+                    item.kpi_name === "Customer Value" &&
+                    (item.unit_of_measurement === "%" ||
+                      item.unit_of_measurement === "Points") ? (
                       <li className="MRKPI">
                         <strong>
                           {item.avg.toFixed(2)} {item.unit_of_measurement}{" "}
                           {item.timeline}
                         </strong>
-                        <br/>{item.display_name}
+                        <br />
+                        {item.display_name}
+                      </li>
+                    ) : (
+                      " "
+                    )
+                  )}
+
+                  {this.props.HeaderDataForRep.map((item) =>
+                    item.kpi_name === "Customer Value" &&
+                    (item.unit_of_measurement !== "%" &&
+                    item.unit_of_measurement !== "Points") ? (
+                      <li className="MRKPI">
+                        <strong>
+                          {item.sum.toFixed(2)} {item.unit_of_measurement}{" "}
+                          {item.timeline}
+                        </strong>
+                        <br />
+                        {item.display_name}
                       </li>
                     ) : (
                       " "
@@ -123,31 +200,65 @@ class ProductView extends Component {
               <td className="productviewtable">
                 <ul class="futu">
                   {this.props.HeaderDataForRep.map((item) =>
-                    item.kpi_name === "Future Trends" ? (
+                    item.kpi_name === "Future Trends"  &&
+                    (item.unit_of_measurement === "%" ||
+                      item.unit_of_measurement === "Points") ? (
                       <li className="MRKPI">
                         <strong>
                           {item.avg.toFixed(2)} {item.unit_of_measurement}{" "}
                           {item.timeline}
                         </strong>
-                        <br/>{item.display_name}
+                        <br />
+                        {item.display_name}
                       </li>
                     ) : (
                       " "
                     )
                   )}
+                  {this.props.HeaderDataForRep.map((item) =>
+                    item.kpi_name === "Future Trends" &&
+                    (item.unit_of_measurement !== "%" &&
+                    item.unit_of_measurement !== "Points") ? (
+                      <li className="MRKPI">
+                        <strong>
+                          {item.sum.toFixed(2)} {item.unit_of_measurement}{" "}
+                          {item.timeline}
+                        </strong>
+                        <br />
+                        {item.display_name}
+                      </li>
+                    ) : (
+                      " "
+                    )
+                  )}
+
+
                 </ul>
               </td>
             </tr>
-
 
             <tr>
               <td className="productviewtable">
                 <ul class="comm">
                   {this.props.FinalDataForRep.map((item) =>
-                    item.kpi_name === "Commercial" ? (
+                    item.kpi_name === "Commercial" &&
+                    (item.unit_of_measurement === "%" ||
+                      item.unit_of_measurement === "Points") ? (
                       <li>
-                        {item.kpi_subcategory_name} - $ {item.sum.toFixed(2)}
+                        {item.kpi_subcategory_name} - $ {item.avg.toFixed(2)}
                         {item.unit_of_measurement} / year{" "}
+                      </li>
+                    ) : (
+                      ""
+                    )
+                  )}
+                  {this.props.FinalDataForRep.map((item) =>
+                    item.kpi_name === "Commercial" &&
+                    item.unit_of_measurement !== "%" &&
+                    item.unit_of_measurement !== "Points" ? (
+                      <li>
+                        {item.kpi_subcategory_name} - {item.sum.toFixed(2)}{" "}
+                        {item.unit_of_measurement}
                       </li>
                     ) : (
                       ""
@@ -159,9 +270,23 @@ class ProductView extends Component {
                 <ul class="mark">
                   {this.props.FinalDataForRep.map((item) =>
                     item.kpi_name === "Market" &&
-                    item.unit_of_measurement === "Percentage" ? (
+                    (item.unit_of_measurement === "%" ||
+                      item.unit_of_measurement === "Points") ? (
                       <li>
                         {item.kpi_subcategory_name} - {item.avg.toFixed(2)}{" "}
+                        {item.unit_of_measurement}
+                      </li>
+                    ) : (
+                      ""
+                    )
+                  )}
+
+                  {this.props.FinalDataForRep.map((item) =>
+                    item.kpi_name === "Market" &&
+                    item.unit_of_measurement !== "%" &&
+                    item.unit_of_measurement !== "Points" ? (
+                      <li>
+                        {item.kpi_subcategory_name} - {item.sum.toFixed(2)}{" "}
                         {item.unit_of_measurement}
                       </li>
                     ) : (
@@ -173,10 +298,25 @@ class ProductView extends Component {
               <td className="productviewtable">
                 <ul class="effi">
                   {this.props.FinalDataForRep.map((item) =>
-                    item.kpi_name === "Efficiency" ? (
+                    item.kpi_name === "Efficiency" &&
+                    (item.unit_of_measurement === "%" ||
+                      item.unit_of_measurement === "Points") ? (
                       <li>
-                        {item.kpi_subcategory_name} - {item.sum.toFixed(2)}
+                        {item.kpi_subcategory_name} - {item.avg.toFixed(2)}
                         {item.unit_of_measurement} / year{" "}
+                      </li>
+                    ) : (
+                      ""
+                    )
+                  )}
+
+                  {this.props.FinalDataForRep.map((item) =>
+                    item.kpi_name === "Efficiency" &&
+                    item.unit_of_measurement !== "%" &&
+                    item.unit_of_measurement !== "Points" ? (
+                      <li>
+                        {item.kpi_subcategory_name} - {item.sum.toFixed(2)}{" "}
+                        {item.unit_of_measurement}
                       </li>
                     ) : (
                       ""
@@ -187,10 +327,25 @@ class ProductView extends Component {
               <td className="productviewtable">
                 <ul class="cust">
                   {this.props.FinalDataForRep.map((item) =>
-                    item.kpi_name === "Customer Value" ? (
+                    item.kpi_name === "Customer Value" &&
+                    (item.unit_of_measurement === "%" ||
+                      item.unit_of_measurement === "Points") ? (
                       <li>
                         {item.kpi_subcategory_name} - {item.avg.toFixed(2)}{" "}
                         {item.unit_of_measurement} / year{" "}
+                      </li>
+                    ) : (
+                      ""
+                    )
+                  )}
+
+                  {this.props.FinalDataForRep.map((item) =>
+                    item.kpi_name === "Customer Value" &&
+                    item.unit_of_measurement !== "%" &&
+                    item.unit_of_measurement !== "Points" ? (
+                      <li>
+                        {item.kpi_subcategory_name} - {item.sum.toFixed(2)}{" "}
+                        {item.unit_of_measurement}
                       </li>
                     ) : (
                       ""
@@ -201,10 +356,24 @@ class ProductView extends Component {
               <td className="productviewtable">
                 <ul class="futu">
                   {this.props.FinalDataForRep.map((item) =>
-                    item.kpi_name === "Future Trends" ? (
+                    item.kpi_name === "Future Trends" &&
+                    (item.unit_of_measurement === "%" ||
+                      item.unit_of_measurement === "Points") ? (
                       <li>
                         {item.kpi_subcategory_name} - {item.avg.toFixed(2)}{" "}
                         {item.unit_of_measurement} /year{" "}
+                      </li>
+                    ) : (
+                      ""
+                    )
+                  )}
+                  {this.props.FinalDataForRep.map((item) =>
+                    item.kpi_name === "Future Trends" &&
+                    item.unit_of_measurement !== "%" &&
+                    item.unit_of_measurement !== "Points" ? (
+                      <li>
+                        {item.kpi_subcategory_name} - {item.sum.toFixed(2)}{" "}
+                        {item.unit_of_measurement}
                       </li>
                     ) : (
                       ""
