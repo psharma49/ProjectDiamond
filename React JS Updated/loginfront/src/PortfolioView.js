@@ -125,44 +125,15 @@ render() {
             <tr>
               <td className="portfolioviewtable">
                 <ul class="comm">
-                  {this.props.PortfolioHeaderDataForRep.map((item) =>
-                    item.kpi_name === "Commercial" ? (
-                      <li className="MRKPI">
-                        <strong>
-                          {item.sum.toFixed(2)} {item.unit_of_measurement}{" "}
-                          {item.timeline}
-                        </strong>
-                        <br />
-                        <Link
-                          onClick={() =>
-                            this.getDataForPortfolioGraph(
-                              item.display_name,
-                              item.unit_of_measurement,
-                              item.timeline
-                            )
-                          }
-                        >
-                          {item.display_name}
-                        </Link>
 
-                        {/* <PortfolioGraphs
-                            productData={this.state.productData}
-                            productNameLabel={this.state.productNameLabel}
-                            displayName={item.display_name}
-                            timeline={item.timeline}
-                            unit_of_measurement={item.unit_of_measurement}
-                          /> */}
-                      </li>
-                    ) : (
-                      " "
-                    )
-                  )}
-                </ul>
-              </td>
-              <td className="portfolioviewtable">
-                <ul class="mark">
-                  {this.props.PortfolioHeaderDataForRep.map((item) =>
-                    item.kpi_name === "Market" ? (
+                  
+
+
+
+                {this.props.PortfolioHeaderDataForRep.map((item) =>
+                    item.kpi_name === "Commercial" &&
+                    (item.unit_of_measurement === "%" ||
+                      item.unit_of_measurement === "Points") ? (
                       <li className="MRKPI">
                         <strong>
                           {item.avg.toFixed(2)} {item.unit_of_measurement}{" "}
@@ -185,11 +156,206 @@ render() {
                       " "
                     )
                   )}
+                  {this.props.PortfolioHeaderDataForRep.map((item) =>
+                    item.kpi_name === "Commercial" &&
+                    item.unit_of_measurement !== "%" &&
+                    item.unit_of_measurement !== "Points" ? (
+                      <li className="MRKPI">
+                        <strong>
+                          {item.sum.toFixed(2)} {item.unit_of_measurement}{" "}
+                          {item.timeline}
+                        </strong>
+                        <br />
+                        <Link
+                          onClick={() =>
+                            this.getDataForPortfolioGraph(
+                              item.display_name,
+                              item.unit_of_measurement,
+                              item.timeline
+                            )
+                          }
+                        >
+                          {item.display_name}
+                        </Link>
+                      </li>
+                    ) : (
+                      " "
+                    )
+                  )}
+
+                  {/* {this.props.PortfolioHeaderDataForRep.map((item) =>
+                    item.kpi_name === "Commercial" ? (
+                      <li className="MRKPI">
+                        <strong>
+                          {item.sum.toFixed(2)} {item.unit_of_measurement}{" "}
+                          {item.timeline}
+                        </strong>
+                        <br />
+                        <Link
+                          onClick={() =>
+                            this.getDataForPortfolioGraph(
+                              item.display_name,
+                              item.unit_of_measurement,
+                              item.timeline
+                            )
+                          }
+                        >
+                          {item.display_name}
+                        </Link>
+                      </li>
+                    ) : (
+                      " "
+                    )
+                  )} */}
+                </ul>
+              </td>
+              <td className="portfolioviewtable">
+                <ul class="mark">
+
+                {this.props.PortfolioHeaderDataForRep.map((item) =>
+                    item.kpi_name === "Market" &&
+                    (item.unit_of_measurement === "%" ||
+                      item.unit_of_measurement === "Points") ? (
+                      <li className="MRKPI">
+                        <strong>
+                          {item.avg.toFixed(2)} {item.unit_of_measurement}{" "}
+                          {item.timeline}
+                        </strong>
+                        <br />
+                        <Link
+                          onClick={() =>
+                            this.getDataForPortfolioGraph(
+                              item.display_name,
+                              item.unit_of_measurement,
+                              item.timeline
+                            )
+                          }
+                        >
+                          {item.display_name}
+                        </Link>
+                      </li>
+                    ) : (
+                      " "
+                    )
+                  )}
+                  {this.props.PortfolioHeaderDataForRep.map((item) =>
+                    item.kpi_name === "Market" &&
+                    item.unit_of_measurement !== "%" &&
+                    item.unit_of_measurement !== "Points" ? (
+                      <li className="MRKPI">
+                        <strong>
+                          {item.sum.toFixed(2)} {item.unit_of_measurement}{" "}
+                          {item.timeline}
+                        </strong>
+                        <br />
+                        <Link
+                          onClick={() =>
+                            this.getDataForPortfolioGraph(
+                              item.display_name,
+                              item.unit_of_measurement,
+                              item.timeline
+                            )
+                          }
+                        >
+                          {item.display_name}
+                        </Link>
+                      </li>
+                    ) : (
+                      " "
+                    )
+                  )}
+
+
+
+
+                  {/* {this.props.PortfolioHeaderDataForRep.map((item) =>
+                    item.kpi_name === "Market" ? (
+                      <li className="MRKPI">
+                        <strong>
+                          {item.avg.toFixed(2)} {item.unit_of_measurement}{" "}
+                          {item.timeline}
+                        </strong>
+                        <br/>
+                        <Link
+                          onClick={() =>
+                            this.getDataForPortfolioGraph(
+                              item.display_name,
+                              item.unit_of_measurement,
+                              item.timeline
+                            )
+                          }
+                        >
+                          {item.display_name}
+                        </Link>
+                      </li>
+                    ) : (
+                      " "
+                    )
+                  )} */}
                 </ul>
               </td>
               <td className="portfolioviewtable">
                 <ul class="effi">
+
+
+                {this.props.PortfolioHeaderDataForRep.map((item) =>
+                    item.kpi_name === "Efficiency" &&
+                    (item.unit_of_measurement === "%" ||
+                      item.unit_of_measurement === "Points") ? (
+                      <li className="MRKPI">
+                        <strong>
+                          {item.avg.toFixed(2)} {item.unit_of_measurement}{" "}
+                          {item.timeline}
+                        </strong>
+                        <br />
+                        <Link
+                          onClick={() =>
+                            this.getDataForPortfolioGraph(
+                              item.display_name,
+                              item.unit_of_measurement,
+                              item.timeline
+                            )
+                          }
+                        >
+                          {item.display_name}
+                        </Link>
+                      </li>
+                    ) : (
+                      " "
+                    )
+                  )}
                   {this.props.PortfolioHeaderDataForRep.map((item) =>
+                    item.kpi_name === "Efficiency" &&
+                   ( item.unit_of_measurement !== "%" &&
+                    item.unit_of_measurement !== "Points") ? (
+                      <li className="MRKPI">
+                        <strong>
+                          {item.sum.toFixed(2)} {item.unit_of_measurement}{" "}
+                          {item.timeline}
+                        </strong>
+                        <br />
+                        <Link
+                          onClick={() =>
+                            this.getDataForPortfolioGraph(
+                              item.display_name,
+                              item.unit_of_measurement,
+                              item.timeline
+                            )
+                          }
+                        >
+                          {item.display_name}
+                        </Link>
+                      </li>
+                    ) : (
+                      " "
+                    )
+                  )}
+
+
+
+
+
+                  {/* {this.props.PortfolioHeaderDataForRep.map((item) =>
                     item.kpi_name === "Efficiency" ? (
                       <li className="MRKPI">
                         <strong>
@@ -212,12 +378,68 @@ render() {
                     ) : (
                       " "
                     )
-                  )}
+                  )} */}
                 </ul>
               </td>
               <td className="portfolioviewtable">
                 <ul class="cust">
+
+                {this.props.PortfolioHeaderDataForRep.map((item) =>
+                    item.kpi_name === "Customer Value" &&
+                    (item.unit_of_measurement === "%" ||
+                      item.unit_of_measurement === "Points") ? (
+                      <li className="MRKPI">
+                        <strong>
+                          {item.avg.toFixed(2)} {item.unit_of_measurement}{" "}
+                          {item.timeline}
+                        </strong>
+                        <br />
+                        <Link
+                          onClick={() =>
+                            this.getDataForPortfolioGraph(
+                              item.display_name,
+                              item.unit_of_measurement,
+                              item.timeline
+                            )
+                          }
+                        >
+                          {item.display_name}
+                        </Link>
+                      </li>
+                    ) : (
+                      " "
+                    )
+                  )}
+
                   {this.props.PortfolioHeaderDataForRep.map((item) =>
+                    item.kpi_name === "Customer Value" &&
+                    (item.unit_of_measurement !== "%" &&
+                    item.unit_of_measurement !== "Points") ? (
+                      <li className="MRKPI">
+                        <strong>
+                          {item.sum.toFixed(2)} {item.unit_of_measurement}{" "}
+                          {item.timeline}
+                        </strong>
+                        <br />
+                        <Link
+                          onClick={() =>
+                            this.getDataForPortfolioGraph(
+                              item.display_name,
+                              item.unit_of_measurement,
+                              item.timeline
+                            )
+                          }
+                        >
+                          {item.display_name}
+                        </Link>
+                      </li>
+                    ) : (
+                      " "
+                    )
+                  )}
+
+
+                  {/* {this.props.PortfolioHeaderDataForRep.map((item) =>
                     item.kpi_name === "Customer Value" ? (
                       <li className="MRKPI">
                         <strong>
@@ -240,13 +462,16 @@ render() {
                     ) : (
                       " "
                     )
-                  )}
+                  )} */}
                 </ul>
               </td>
               <td className="portfolioviewtable">
                 <ul class="futu">
-                  {this.props.PortfolioHeaderDataForRep.map((item) =>
-                    item.kpi_name === "Future Trends" ? (
+
+                {this.props.PortfolioHeaderDataForRep.map((item) =>
+                    item.kpi_name === "Future Trends"  &&
+                    (item.unit_of_measurement === "%" ||
+                      item.unit_of_measurement === "Points") ? (
                       <li className="MRKPI">
                         <strong>
                           {item.avg.toFixed(2)} {item.unit_of_measurement}{" "}
@@ -269,6 +494,58 @@ render() {
                       " "
                     )
                   )}
+                  {this.props.PortfolioHeaderDataForRep.map((item) =>
+                    item.kpi_name === "Future Trends" &&
+                    (item.unit_of_measurement !== "%" &&
+                    item.unit_of_measurement !== "Points") ? (
+                      <li className="MRKPI">
+                        <strong>
+                          {item.sum.toFixed(2)} {item.unit_of_measurement}{" "}
+                          {item.timeline}
+                        </strong>
+                        <br />
+                        <Link
+                          onClick={() =>
+                            this.getDataForPortfolioGraph(
+                              item.display_name,
+                              item.unit_of_measurement,
+                              item.timeline
+                            )
+                          }
+                        >
+                          {item.display_name}
+                        </Link>
+                      </li>
+                    ) : (
+                      " "
+                    )
+                  )}
+
+
+                  {/* {this.props.PortfolioHeaderDataForRep.map((item) =>
+                    item.kpi_name === "Future Trends" ? (
+                      <li className="MRKPI">
+                        <strong>
+                          {item.avg.toFixed(2)} {item.unit_of_measurement}{" "}
+                          {item.timeline}
+                        </strong>
+                        <br />
+                        <Link
+                          onClick={() =>
+                            this.getDataForPortfolioGraph(
+                              item.display_name,
+                              item.unit_of_measurement,
+                              item.timeline
+                            )
+                          }
+                        >
+                          {item.display_name}
+                        </Link>
+                      </li>
+                    ) : (
+                      " "
+                    )
+                  )} */}
                 </ul>
               </td>
             </tr>
