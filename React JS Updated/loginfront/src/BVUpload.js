@@ -29,6 +29,11 @@ class BVUpload extends Component {
                   Manual Upload
                 </button>
               </div>
+              <div className="dashboardbutton">
+                <button className="btn">
+                  Modify Business Values
+                </button>
+              </div>
             </div>
           </div>
         </div>

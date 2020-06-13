@@ -15,16 +15,24 @@ class BulkUpload extends Component {
   uploadBulkData() {
     const formData = new FormData();
     formData.append("file", this.state.selectedFile);
-    DataService.upload(formData)
-      .then((res) => {
-        console.log(res.data);
-        alert("File uploaded successfully.");
-      })
-      .catch((error) => {
-        console.log(error);
-        this.setState({ errorMsg: "Error uploading data" });
-        alert("Error uploading data");
-      });
+    if(this.state.selectedFile===null)
+    {
+      alert("You have not selected any file");
+    }
+    else
+    {
+      DataService.upload(formData)
+        .then((res) => {
+          console.log(res.data);
+          alert("File uploaded successfully.");
+          this.props.history.push("/UploadData");
+        })
+        .catch((error) => {
+          console.log(error);
+          this.setState({ errorMsg: "Error uploading data" });
+          alert("Error uploading data. Check data format: Excel only");
+        });
+    }
   }
   onFileChangeHandler = (e) => {
     e.preventDefault();
@@ -46,6 +54,7 @@ class BulkUpload extends Component {
         <div className="app">
           {/* <div className="uploadform" > */}
             <label className="uploadText"><strong>Bulk Upload for Business Value Data</strong></label>
+            <label className="excelonly">File format: excel only</label>
             <input
               type="file"
               className="form-control"

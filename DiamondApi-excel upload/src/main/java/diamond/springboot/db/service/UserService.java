@@ -123,12 +123,20 @@ public class UserService {
 		  return productsGraphDaoImpl.portfolioGraphView(lobid, portfolioid, display_name, yearid, quarterid);
 		}
 	public ResponseEntity<ResponseMessage> readExcel(MultipartFile file) throws IOException{
-	   excelUploadDaoImpl.readExcel(file);
-	   String message = "";
+		String TYPE = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+		if (TYPE.equals(file.getContentType())) {
+		System.out.println("file uploading");
+		excelUploadDaoImpl.readExcel(file);
+		  String message = "";
 
 		message = "Uploaded the file successfully: " + file.getOriginalFilename();
-	      return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message));
-	  }
+		     return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message));
+		}
+		else {
+		System.out.println("file not uploading");
+		String message1 = "Please upload an excel file!";
+		   return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseMessage(message1));
+		}
+		 }
 	  
-	 
 }
