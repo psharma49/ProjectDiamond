@@ -22,7 +22,8 @@ class BulkUpload extends Component {
       })
       .catch((error) => {
         console.log(error);
-        this.setState({ errorMsg: "Error retrieving Final Data" });
+        this.setState({ errorMsg: "Error uploading data" });
+        alert("Error uploading data");
       });
   }
   onFileChangeHandler = (e) => {
