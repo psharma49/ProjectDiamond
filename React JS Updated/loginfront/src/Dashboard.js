@@ -389,7 +389,7 @@ class Dashboard extends Component {
         <HeaderComponent/>
         <HomeButton/>
         <div className="viewby">
-          <strong>View By</strong>
+          <strong className="viewbytext">View By</strong>
           <select
             className="year"
             name="Select Year"
@@ -421,6 +421,7 @@ class Dashboard extends Component {
             <option value="YTD">YTD</option>
           </select>
         </div>
+        <div className="dropdownsLobPortfolioProduct">
         <div className="LOBs">
           <strong>Select LOB</strong>
           <select
@@ -468,6 +469,7 @@ class Dashboard extends Component {
               <option value={item.product_id}>{item.product_name}</option>
             ))}
           </select>
+        </div>
         </div>
         <div className="Finalsubmit">
           <button
