@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import HeaderComponent from "./HeaderComponent";
+import HomeButton from "./HomeButton";
 
 class BVUpload extends Component {
 
@@ -10,27 +11,28 @@ class BVUpload extends Component {
   render() {
     return (
       <div>
-        <HeaderComponent />
+        <HeaderComponent/>
+        <HomeButton/>
         <div className="app">
           <div className="container">
-            <div>
+            <div className="BVUpload">
               <img
-                className="optummm"
+                className="optummmBV"
                 src={process.env.PUBLIC_URL + "/optummm.png"}
                 alt="optum"
                 width="200px"
               />
-              <div className="screentext"><strong>Upload Business Value</strong></div>
+              <div className="screentext">Upload/Modify Business Value</div>
               <div className="upload">
-                <button className="btn" onClick={() => this.OntoBulkUpload()}>Bulk Upload</button>
+                <button className="btnBV" onClick={() => this.OntoBulkUpload()}>Bulk Upload</button>
               </div>
               <div className="dashboardbutton">
-                <button className="btn">
+                <button className="btnBV">
                   Manual Upload
                 </button>
               </div>
               <div className="dashboardbutton">
-                <button className="btn">
+                <button className="btnBV">
                   Modify Business Values
                 </button>
               </div>

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import HeaderComponent from "./HeaderComponent";
 import DataService from "./DataService";
+import HomeButton from "./HomeButton";
 
 class BulkUpload extends Component {
   constructor(props) {
@@ -44,6 +45,7 @@ class BulkUpload extends Component {
     return (
       <div>
         <HeaderComponent />
+        <HomeButton/>
         <div className="uploadingForm">
         <img
               className="optummmBulk"

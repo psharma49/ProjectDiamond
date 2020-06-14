@@ -5,6 +5,7 @@ import FeatureView from "./FeatureView";
 import ProductView from "./ProductView";
 import ToggleView from "./ToggleView";
 import PortfolioView from "./PortfolioView";
+import HomeButton from "./HomeButton";
 
 
 class Dashboard extends Component {
@@ -385,7 +386,8 @@ class Dashboard extends Component {
   render() {
     return (
       <div className="dropdowns">
-        <HeaderComponent />
+        <HeaderComponent/>
+        <HomeButton/>
         <div className="viewby">
           <strong>View By</strong>
           <select

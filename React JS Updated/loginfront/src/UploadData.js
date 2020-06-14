@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import HeaderComponent from "./HeaderComponent";
+import HomeButton from "./HomeButton";
 
 class UploadData extends Component {
   OntoDashboard() {
@@ -14,18 +15,19 @@ class UploadData extends Component {
       <div><HeaderComponent/>
       <div className="app">
         <div className="container">
-          <div>
+          <div className="uploaddataview">
             <img
               className="optummm"
               src={process.env.PUBLIC_URL + "/optummm.png"}
               alt="optum"
               width="200px"
             />
+            <label className="uploaddatatext">What you wish to do?</label>
             <div className="upload">
-              <button className="btn"  onClick={() => this.OntoBVUpload()}>Upload KPI/Data</button>
+              <button className="btnn"  onClick={() => this.OntoBVUpload()}>Upload KPI/Data</button>
             </div>
             <div className="dashboardbutton">
-              <button className="btn" onClick={() => this.OntoDashboard()}>
+              <button className="btnn" onClick={() => this.OntoDashboard()}>
                 Dashboard View
               </button>
             </div>
