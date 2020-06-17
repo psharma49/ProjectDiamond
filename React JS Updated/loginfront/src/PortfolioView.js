@@ -131,12 +131,10 @@ render() {
 
 
                 {this.props.PortfolioHeaderDataForRep.map((item) =>
-                    item.kpi_name === "Commercial" &&
-                    (item.unit_of_measurement === "%" ||
-                      item.unit_of_measurement === "Points") ? (
+                    item.kpi_name === "Commercial"  ? (
                       <li className="MRKPI">
                         <strong>
-                          {item.avg.toFixed(2)} {item.unit_of_measurement}{" "}
+                          {item.sum.toFixed(2)} {item.unit_of_measurement}{" "}
                           {item.timeline}
                         </strong>
                         <br />
@@ -156,7 +154,7 @@ render() {
                       " "
                     )
                   )}
-                  {this.props.PortfolioHeaderDataForRep.map((item) =>
+                  {/* {this.props.PortfolioHeaderDataForRep.map((item) =>
                     item.kpi_name === "Commercial" &&
                     item.unit_of_measurement !== "%" &&
                     item.unit_of_measurement !== "Points" ? (
@@ -181,7 +179,7 @@ render() {
                     ) : (
                       " "
                     )
-                  )}
+                  )} */}
 
                   {/* {this.props.PortfolioHeaderDataForRep.map((item) =>
                     item.kpi_name === "Commercial" ? (
@@ -213,12 +211,10 @@ render() {
                 <ul class="mark">
 
                 {this.props.PortfolioHeaderDataForRep.map((item) =>
-                    item.kpi_name === "Market" &&
-                    (item.unit_of_measurement === "%" ||
-                      item.unit_of_measurement === "Points") ? (
+                    item.kpi_name === "Market"  ? (
                       <li className="MRKPI">
                         <strong>
-                          {item.avg.toFixed(2)} {item.unit_of_measurement}{" "}
+                          {item.sum.toFixed(2)} {item.unit_of_measurement}{" "}
                           {item.timeline}
                         </strong>
                         <br />
@@ -238,7 +234,7 @@ render() {
                       " "
                     )
                   )}
-                  {this.props.PortfolioHeaderDataForRep.map((item) =>
+                  {/* {this.props.PortfolioHeaderDataForRep.map((item) =>
                     item.kpi_name === "Market" &&
                     item.unit_of_measurement !== "%" &&
                     item.unit_of_measurement !== "Points" ? (
@@ -263,7 +259,7 @@ render() {
                     ) : (
                       " "
                     )
-                  )}
+                  )} */}
 
 
 
@@ -299,12 +295,10 @@ render() {
 
 
                 {this.props.PortfolioHeaderDataForRep.map((item) =>
-                    item.kpi_name === "Efficiency" &&
-                    (item.unit_of_measurement === "%" ||
-                      item.unit_of_measurement === "Points") ? (
+                    item.kpi_name === "Efficiency" ? (
                       <li className="MRKPI">
                         <strong>
-                          {item.avg.toFixed(2)} {item.unit_of_measurement}{" "}
+                          {item.sum.toFixed(2)} {item.unit_of_measurement}{" "}
                           {item.timeline}
                         </strong>
                         <br />
@@ -324,7 +318,7 @@ render() {
                       " "
                     )
                   )}
-                  {this.props.PortfolioHeaderDataForRep.map((item) =>
+                  {/* {this.props.PortfolioHeaderDataForRep.map((item) =>
                     item.kpi_name === "Efficiency" &&
                    ( item.unit_of_measurement !== "%" &&
                     item.unit_of_measurement !== "Points") ? (
@@ -349,7 +343,7 @@ render() {
                     ) : (
                       " "
                     )
-                  )}
+                  )} */}
 
 
 
@@ -385,12 +379,10 @@ render() {
                 <ul class="cust">
 
                 {this.props.PortfolioHeaderDataForRep.map((item) =>
-                    item.kpi_name === "Customer Value" &&
-                    (item.unit_of_measurement === "%" ||
-                      item.unit_of_measurement === "Points") ? (
+                    item.kpi_name === "Customer Value"  ? (
                       <li className="MRKPI">
                         <strong>
-                          {item.avg.toFixed(2)} {item.unit_of_measurement}{" "}
+                          {item.sum.toFixed(2)} {item.unit_of_measurement}{" "}
                           {item.timeline}
                         </strong>
                         <br />
@@ -411,7 +403,7 @@ render() {
                     )
                   )}
 
-                  {this.props.PortfolioHeaderDataForRep.map((item) =>
+                  {/* {this.props.PortfolioHeaderDataForRep.map((item) =>
                     item.kpi_name === "Customer Value" &&
                     (item.unit_of_measurement !== "%" &&
                     item.unit_of_measurement !== "Points") ? (
@@ -436,7 +428,7 @@ render() {
                     ) : (
                       " "
                     )
-                  )}
+                  )} */}
 
 
                   {/* {this.props.PortfolioHeaderDataForRep.map((item) =>
@@ -469,12 +461,10 @@ render() {
                 <ul class="futu">
 
                 {this.props.PortfolioHeaderDataForRep.map((item) =>
-                    item.kpi_name === "Future Trends"  &&
-                    (item.unit_of_measurement === "%" ||
-                      item.unit_of_measurement === "Points") ? (
+                    item.kpi_name === "Future Trends"   ? (
                       <li className="MRKPI">
                         <strong>
-                          {item.avg.toFixed(2)} {item.unit_of_measurement}{" "}
+                          {item.sum.toFixed(2)} {item.unit_of_measurement}{" "}
                           {item.timeline}
                         </strong>
                         <br />
@@ -494,7 +484,7 @@ render() {
                       " "
                     )
                   )}
-                  {this.props.PortfolioHeaderDataForRep.map((item) =>
+                  {/* {this.props.PortfolioHeaderDataForRep.map((item) =>
                     item.kpi_name === "Future Trends" &&
                     (item.unit_of_measurement !== "%" &&
                     item.unit_of_measurement !== "Points") ? (
@@ -519,7 +509,7 @@ render() {
                     ) : (
                       " "
                     )
-                  )}
+                  )} */}
 
 
                   {/* {this.props.PortfolioHeaderDataForRep.map((item) =>

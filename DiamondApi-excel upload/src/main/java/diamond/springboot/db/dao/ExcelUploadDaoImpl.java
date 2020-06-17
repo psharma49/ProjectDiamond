@@ -52,6 +52,8 @@ public void readExcel(MultipartFile file) throws IOException {
         ExcelUpload temp = new ExcelUpload();
 
         XSSFRow row = worksheet.getRow(i);
+        if(row==null || row.getCell(0)==null)
+        	continue;
         temp.setDate(row.getCell(0).getStringCellValue());
         temp.setLob(row.getCell(1).getStringCellValue());
         temp.setPortfolio(row.getCell(2).getStringCellValue());
@@ -94,7 +96,8 @@ public void readExcel(MultipartFile file) throws IOException {
    			"PRODUCT_NAME = :PRODUCT_NAME\r\n" + 
    			"AND PRODUCT_STATUS = 'Y'", params, new ExcelUpload3RowMapper());
            
-   	
+   	System.out.println("Product Name:" + product_name);
+   	System.out.println("  sub_kpi_name: " + sub_kpi_name);
    	List<ExcelUpload2> e2 = new ArrayList<ExcelUpload2>();
    	e2 = template.query("SELECT KPI_ID, KPI_SUBCATEGORY_ID\r\n" + 
    			"FROM KPI_SUBCATEGORY \r\n" + 
@@ -109,6 +112,7 @@ public void readExcel(MultipartFile file) throws IOException {
    	double dbv = temp.getBv();
    	BigDecimal fbv = BigDecimal.valueOf(dbv);
    	String fuom = temp.getUom();
+ 
    	int f_subkpi_id = e2.get(0).getKpi_subcategory_id();
    	int f_kpi_id = e2.get(0).getKpi_id();
    	int f_lob_id = e3.get(0).getLobid();

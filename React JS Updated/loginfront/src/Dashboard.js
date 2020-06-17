@@ -103,16 +103,19 @@ class Dashboard extends Component {
 
   loadProductView() {
     if (this.state.displayProductView === true) {
-      return (
-        <div>
-          <ProductView
-            FinalDataForRep={this.state.FinalDataForRep}
-            HeaderDataForRep={this.state.HeaderDataForRep}
-          />
-          ;
-        </div>
-      );
+      
+        return (
+          <div>
+            <ProductView
+              FinalDataForRep={this.state.FinalDataForRep}
+              HeaderDataForRep={this.state.HeaderDataForRep}
+            />
+          </div>
+        );
+      
+     
     }
+    
   }
   loadFeatureView(){
     if(this.state.displayFeatureView === true)
@@ -149,54 +152,62 @@ class Dashboard extends Component {
 
   loadToggleButtons() {
     if (this.state.displayProductView === true || this.state.displayFeatureView === true )  {
-      return (
-        <div>
-          <div className="ToggleView">
-            <strong>Toggle View</strong>
-            <button
-              className="Aggr"
-              name="Aggregate"
-              onClick={() =>
-                this.onSubmit()
-              }
-            >
-              Aggregate
-            </button>
-            <button
-              name="Feature"
-              className="FeatureLevel"
-              onClick={() =>
-                this.onFeatureViewClick()
-              }
-            >
-              Feature level
-            </button>
-          </div>
-          <div className="avgttvviews">
-            <div className="Vel">
-              <ul>
-                <li className="velocityheader">
-                  <strong>Avg Velocity</strong>
-                </li>
-                {this.state.AvgTtvDataForRep.map((item) => (
-                  <li className="itemvel">{item.vel.toFixed(2)}</li>
-                ))}
-              </ul>
+        return (
+          <div>
+            <div className="ToggleView">
+              <strong>Toggle View</strong>
+              <button
+                className="Aggr"
+                name="Aggregate"
+                onClick={() =>
+                  this.onSubmit()
+                }
+              >
+                Aggregate
+              </button>
+              <button
+                name="Feature"
+                className="FeatureLevel"
+                onClick={() =>
+                  this.onFeatureViewClick()
+                }
+              >
+                Feature level
+              </button>
             </div>
-            <div className="Ttv">
-              <ul>
-                <li className="ttvheader">
-                  <strong>Avg TTV</strong>
-                </li>
-                {this.state.AvgTtvDataForRep.map((item) => (
-                  <li className="itemttv">{item.ttv.toFixed(2)}</li>
-                ))}
-              </ul>
+            <div className="avgttvviews">
+              <div className="Vel">
+                <ul>
+                  <li className="velocityheader">
+                    <strong>Avg Velocity</strong>
+                  </li>
+                  {this.state.AvgTtvDataForRep.map((item) => (
+                    <li className="itemvel">{item.vel.toFixed(2)}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="Ttv">
+                <ul>
+                  <li className="ttvheader">
+                    <strong>Avg TTV</strong>
+                  </li>
+                  {this.state.AvgTtvDataForRep.map((item) => (
+                    <li className="itemttv">{item.ttv.toFixed(2)}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-      );
-    }
+        );
+      
+      // else{
+      //   this.setState({
+      //     selectedProduct: "Select"
+      //   })
+      //   alert("No data available for this product")
+       
+      // }
+      }
   }
   getDataForHeader() {
     DataService.HeaderData(

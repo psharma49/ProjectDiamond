@@ -1,5 +1,6 @@
 package diamond.springboot.db.dao;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -69,7 +70,20 @@ public List<PortfolioIndi> indiPortfolioView(int lobid, int portfolioid, int yea
     		piquery = piquery + " AND SUB.DISPLAY_ORDER != 0 GROUP BY K.KPI_NAME, SUB. DISPLAY_NAME, SUB. DISPLAY_ORDER, F.UNIT_OF_MEASUREMENT, SUB.TIMELINE ORDER BY  K.KPI_NAME,SUB. DISPLAY_ORDER ASC, SUB. DISPLAY_NAME";
     		 List<PortfolioIndi> lpi = new ArrayList<PortfolioIndi>();
     		 System.out.println(piquery);
-    		 lpi = template.query(piquery,params,  new PortfolioIndiRowMapper());		
+    		 lpi = template.query(piquery,params,  new PortfolioIndiRowMapper());	
+    		 for(int j = 0; j < lpi.size(); j++){
+    		     PortfolioIndi pii = lpi.get(j);
+    		     if(pii.getUnit_of_measurement()==null) {
+    		        	continue;
+    		        }
+    		       String uom = pii.getUnit_of_measurement();
+    		      if( uom.equals("%") || uom.equals("Points")){
+    		      BigDecimal b = pii.getAvg();
+    		      pii.setSum(b);
+    		      }
+    		      }
+
+
 return lpi;
 
 

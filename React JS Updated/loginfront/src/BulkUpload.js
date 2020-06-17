@@ -31,7 +31,7 @@ class BulkUpload extends Component {
         .catch((error) => {
           console.log(error);
           this.setState({ errorMsg: "Error uploading data" });
-          alert("Error uploading data. Check data format: Excel only");
+          alert("Incorrect File Format. Only Excel files are allowed");
         });
     }
   }

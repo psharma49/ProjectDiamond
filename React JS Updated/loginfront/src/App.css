@@ -27,6 +27,7 @@ html,
   height: 400px;
   padding-left: 30px;
   padding-right: 30px;
+  box-shadow: 0 10px 15px 0 rgb(219, 218, 214);
 }
 
 .inputField {
@@ -102,7 +103,7 @@ html,
   color: rgb(85, 86, 90);
   position: relative;
   text-align: center;
-  left: 1080px;
+  left: 1150px;
   bottom: 5px;
   min-width: 70px;
   width: 5%;
@@ -134,7 +135,7 @@ html,
 
 .comm {
   background: rgb(208,208,206);
-  color: rgb(85,86,90);
+  color: black;
   list-style-type: none;
  
   margin: 0;
@@ -180,7 +181,7 @@ html,
 
 .mark {
   background: rgb(208,208,206);
-  color: rgb(85,86,90);
+  color: black;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -220,7 +221,7 @@ html,
 
 .effi {
   background: rgb(208,208,206);
-  color: rgb(85,86,90);
+  color: black;
   list-style-type: none;
  
   margin: 0;
@@ -260,7 +261,7 @@ html,
 
 .cust {
   background: rgb(208,208,206);
-  color: rgb(85,86,90);
+  color: black;
   list-style-type: none;
   
   margin: 0;
@@ -300,7 +301,7 @@ html,
 
 .futu {
   background: rgb(208,208,206);
-  color: rgb(85,86.,90);
+  color: black;
   list-style-type: none;
   
   margin: 0;
@@ -344,10 +345,11 @@ html,
   bottom: -25px;
   padding: 15px;
   cursor:pointer;
-  border: 3px solid rgb(85,86,90);
+  border: 2px solid rgb(85,86,90);
   width: 200px;
   height: 70px;
-  background-color: white;
+  background-color: rgb(163, 163, 163);
+  box-shadow: 0 10px 15px 0 rgb(219, 218, 214);
 }
 .viewbytext{
   position: relative;
@@ -468,9 +470,14 @@ html,
 }
 .ToggleView {
     position: relative;
-    top: 70px;
-    left: -450px;
+    top: 40px;
+    left: -500px;
     float: right;
+    border: 2px solid rgb(85,86,90);
+    width: 300px;
+    height: 70px;
+    box-shadow: 0 10px 15px 0 rgb(219, 218, 214);
+    background-color: rgb(219, 218, 214);
 
 }
 .Aggr {
@@ -603,16 +610,16 @@ html,
 
 .Vel{
   position: relative;
-    top: 240px;
-    left: -460px;
+    top: 230px;
+    left: -550px;
     box-sizing: content-box;
     float: right;
 
 }
 .Ttv{
   position: relative;
-    top: 240px;
-    right: -180px;
+    top: 230px;
+    right: -190px;
     box-sizing: content-box;
     float: right;
 
@@ -644,9 +651,8 @@ html,
   align-self: center;
 }
 
-
  .tableheaders{
-    background-color:rgb(232, 119, 34);
+  background-color:rgb(232, 119, 34);
   color: white;
   padding: 10px;
   text-align: center;
@@ -713,11 +719,12 @@ html,
   float: right;
   align-items: center;
   bottom: 30px;
+  right:60px;
   
 }
 .commImage{
   position: relative;
-  right: 860px;
+  right: 830px;
 }
 .markImage{
   position: relative;
@@ -729,25 +736,34 @@ html,
 }
 .custImage{
   position: relative;
-  right: 305px;
+  right: 325px;
 }
 .futImage{
   position: relative;
-  right: 115px;
+  right: 160px;
 }
 .productviewtable{
   position: relative;
   vertical-align: text-top;
   width: 20%;
+  
+}
+.productviewtable1{
+  position: relative;
+  vertical-align: text-top;
+  width: 20%;
+  border: 1px solid black;
 }
 .portfolioviewtable{
   position: relative;
   vertical-align: text-top;
   width: 20%;
-  right: -120px;
+  right: -50px;
   top: 70px;
   float: none;
+
 }
+
 .PortfolioView{
   vertical-align: text-top;
   float: right;
@@ -824,7 +840,8 @@ html,
   right:10px
 }
 .uploadingForm{
-  border: 2px solid rgb(232, 119, 34);
+  border: 3px solid rgb(232, 119, 34);
+  box-shadow: 0 10px 15px 0 rgb(219, 218, 214);
   padding: 2px 5px ;
   width: 400px;
   height: 300px;
@@ -832,7 +849,7 @@ html,
   align-content: center;
   position: relative;
   top: 100px;
-  left: 420px
+  left: 490px
 }
 .excelonly{
   position: relative;
@@ -844,7 +861,7 @@ html,
 
 .HomeButtonIcon{
   position: relative;
-  left: 130px;
+  left: 160px;
   width: 30px;
   bottom: 37px;
   color: white;
@@ -859,6 +876,7 @@ html,
   padding-right: 30px;
   position: relative;
   bottom: 10px;
+  box-shadow: 0 10px 15px 0 rgb(219, 218, 214);
 }
 .uploaddatatext{
   position: relative;
@@ -893,7 +911,6 @@ html,
   transform: translateY(4px);
 }
 .BVUpload {
-
   border: 3px solid rgb(232, 119, 34);
   box-sizing: border-box;
   width: 100%;
@@ -903,6 +920,7 @@ html,
   padding-right: 30px;
   position: relative;
   bottom: 60px;
+  box-shadow: 0 10px 15px 0 rgb(219, 218, 214);
 
 }
 .optummmBV {
@@ -940,17 +958,59 @@ html,
 
 .HeaderComponent{
   border: 3px solid rgb(85,86,90);
-  width: 1300px;
+  width: 1360px;
   height: 40px;
   position: relative;
   bottom: 90px;
   background-color: rgb(85,86,90);
 }
 .dropdownsLobPortfolioProduct{
-  border: 3px solid rgb(85,86,90);
+  border: 2px solid rgb(85,86,90);
+  box-shadow: 0 10px 15px 0 rgb(219, 218, 214);
   width: 700px;
   height: 101px;
   position: relative;
   left: 400px;
-  bottom: 82px;
+  bottom: 80px;
+}
+.commImageProduct{
+  position: relative;
+  right: 925px;
+}
+.markImageProduct{
+  position: relative;
+  right: 710px;
+}
+.effImageProduct{
+  position: relative;
+  right: 490px;
+}
+.custImageProduct{
+  position: relative;
+  right: 265px;
+}
+.futImageProduct{
+  position: relative;
+  right: 55px;
+}
+
+.commImageFeature{
+  position: relative;
+  right: 625px;
+}
+.markImageFeature{
+  position: relative;
+  right: 470px;
+}
+.effImageFeature{
+  position: relative;
+  right: 320px;
+}
+.custImageFeature{
+  position: relative;
+  right: 175px;
+}
+.futImageFeature{
+  position: relative;
+  right: 25px;
 }

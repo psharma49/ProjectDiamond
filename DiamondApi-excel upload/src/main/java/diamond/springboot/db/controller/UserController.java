@@ -37,7 +37,7 @@ import diamond.springboot.db.entity.User.User;
 import diamond.springboot.db.entity.User.Year;
 import diamond.springboot.db.service.UserService;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:3002")
 @RestController
 public class UserController {
 	
@@ -56,7 +56,7 @@ public ResponseEntity<Void>checkUser(@PathVariable int userid, @PathVariable Str
 	return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 	 }
 	}
- 
+
 @RequestMapping("/viewdash_board/year")
 public List<Year> findAllYear(){
 	return userService.findAllYear();

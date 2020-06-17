@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import DataService from "./DataService";
 import Dashboard from "./Dashboard";
+import FeatureImages from "./FeatureImages";
 
 class FeatureView extends Component {
   constructor(props) {
@@ -74,6 +75,7 @@ class FeatureView extends Component {
   render() {
     return (
       <div>
+        <FeatureImages/>
         <div className="tableu">
           <table className="table">
             <thead>

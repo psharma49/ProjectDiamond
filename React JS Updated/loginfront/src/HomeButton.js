@@ -10,7 +10,7 @@ class HomeButton extends Component {
     return (
       <div className="homebutton">
         <div>
-          <a href="http://localhost:3000/UploadData">
+          <a href="http://localhost:3002/UploadData">
             <img
               className="HomeButtonIcon"
               src={process.env.PUBLIC_URL + "/home1.png"}

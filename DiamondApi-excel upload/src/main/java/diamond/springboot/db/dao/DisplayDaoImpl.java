@@ -1,5 +1,6 @@
 package diamond.springboot.db.dao;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -75,6 +76,18 @@ public List<Display> displayView(int lobid, int portfolioid, int productid,int y
     		 List<Display> ld = new ArrayList<Display>();
     		 System.out.println(dquery);
     		 ld = template.query(dquery,params,  new DisplayRowMapper());		
+    		 for(int j = 0; j < ld.size(); j++){
+    		        Display dis = ld.get(j);
+    		        if(dis.getUnit_of_measurement()==null) {
+    		        	continue;
+    		        }
+    		          String uom = dis.getUnit_of_measurement();
+    		         if( uom.equals("%") || uom.equals("Points")){
+    		         BigDecimal b = dis.getAvg();
+    		         dis.setSum(b);
+    		         }
+    		         }
+
 return ld;
 
 }

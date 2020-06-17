@@ -61,15 +61,21 @@ class PortfolioGraphs extends Component {
         },
       ],
     };
-
     return (
       <div>
         <div>
-          <Bar
+          <Bar 
             data={chartData}
             options={{
-              xAxisID: "Products Name",
-              yAxisID: "Business Value",
+              scales: {
+                yAxes: [{
+                  label: 'Product names',
+                  ticks: {
+                    beginAtZero: true,
+                    min: 0
+                  }    
+                }]
+              },
               plugins:{
                   datalabels:{color:"white",
                   anchor: 'center',
@@ -87,14 +93,14 @@ class PortfolioGraphs extends Component {
               },
               legend: {
                 label: this.props.productNameLabel,
-                display: true,
+                display: false,
                 position: "right",
                 
               },
               layout:{
                   padding: {
                       left: 50,
-                      right: 0,
+                      right:0,
                       bottom: 0,
                       top: 10
                   }

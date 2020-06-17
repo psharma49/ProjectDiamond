@@ -96,14 +96,19 @@ public  List<ProductAggre> bvProductAggre(int lobid, int portfolioid, int produc
     		"ORDER BY  K.KPI_NAME, SUB.KPI_SUBCATEGORY_NAME ASC";
     		System.out.println(squery);
     li =  template.query(squery,params,  new ProductAggreRowMapper());	
-    /* for(int i = 0; i < li.size(); i++){
-     //ProductAggre paa = li.get(i);
-      if( li.get(i).getUnit_of_measurement() == "Percentage" || li.get(i).getUnit_of_measurement() == "Points"){
-      BigDecimal b = li.get(i).getAvg();
-      li.get(i).setSum(b);
-      }
-      }
-     */
+    
+    for(int y = 0; y < li.size(); y++){
+        ProductAggre pab = li.get(y);
+        if(pab.getUnit_of_measurement()==null) {
+        	continue;
+        }
+          String uom1 = pab.getUnit_of_measurement();
+         if( uom1.equals("%") || uom1.equals("Points")){
+         BigDecimal b1 = pab.getAvg();
+         pab.setSum(b1);
+         }
+         }
+
     return li;
     /*  LinkedHashMap<String, List<ProductAggre>> product_map = new LinkedHashMap<>(); 
       String temp = "";
