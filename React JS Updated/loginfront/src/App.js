@@ -37,6 +37,7 @@ class App extends React.Component {
       }
     } catch (e) {
       //If an error is called from API this will be called
+      // cc
       UserStore.loading = false;
     }
   }
