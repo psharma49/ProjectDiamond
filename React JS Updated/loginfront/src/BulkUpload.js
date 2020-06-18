@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import HeaderComponent from "./HeaderComponent";
 import DataService from "./DataService";
 import HomeButton from "./HomeButton";
+import AuthenticationService from './AuthenticationService'
 
 class BulkUpload extends Component {
   constructor(props) {
@@ -13,25 +14,41 @@ class BulkUpload extends Component {
     };
     this.uploadBulkData = this.uploadBulkData.bind(this);
   }
+  loadError()
+  {
+    if(this.state.errorMsg!=="")
+    {
+      return(<div className="errorbulkupload">{this.state.errorMsg}</div>);
+    }
+
+  }
   uploadBulkData() {
     const formData = new FormData();
     formData.append("file", this.state.selectedFile);
     if(this.state.selectedFile===null)
     {
-      alert("You have not selected any file");
+        this.setState({errorMsg: "You've not selected any file"})
     }
     else
     {
       DataService.upload(formData)
         .then((res) => {
           console.log(res.data);
-          alert("File uploaded successfully.");
-          this.props.history.push("/UploadData");
+          // alert("File uploaded successfully.");
+          if(res.data==="File Uploaded Successfully")
+          {
+            this.setState({errorMsg: ""});
+            this.props.history.push("/UploadSuccessful");
+          }
+          else
+          {
+            this.setState({errorMsg: res.data});
+          }
         })
         .catch((error) => {
           console.log(error);
           this.setState({ errorMsg: "Error uploading data" });
-          alert("Incorrect File Format. Only Excel files are allowed");
+          // alert("Incorrect File Format. Only Excel files are allowed");
         });
     }
   }
@@ -42,8 +59,11 @@ class BulkUpload extends Component {
     });
   };
   render() {
+    const isUserLoggedin = AuthenticationService.isUserLoggedin();
     return (
       <div>
+        {isUserLoggedin &&
+        <div>
         <HeaderComponent />
         <HomeButton/>
         <div className="uploadingForm">
@@ -67,6 +87,9 @@ class BulkUpload extends Component {
           {/* </div> */}
         </div>
         </div>
+        {this.loadError()}
+        </div>
+  }
       </div>
     );
   }

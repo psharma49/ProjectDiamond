@@ -26,8 +26,6 @@ class PortfolioGraphs extends Component {
 
   render() {
     chartData = {
-        
-      type: 'horizontalBar',
       labels: this.props.productNameLabel,
       fontSize: 20,
       datasets: [

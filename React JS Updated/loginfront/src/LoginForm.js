@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import InputField from "./InputField";
 import SubmitButton from "./SubmitButton";
-import UserStore from "./stores/UserStore";
-import UploadData from "./UploadData";
+import AuthenticationService from "./AuthenticationService"
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -31,17 +30,12 @@ class LoginForm extends React.Component {
     });
   }
 
-
-
-  
   async doLogin() {
     if (!this.state.username) {
-      alert("You forgot to type your username");
-      return;
+      return(<div>Please enter employee Id</div>);
     }
     if (!this.state.password) {
-      alert("You forgot to type your password");
-      return;
+      return(<label>Please enter password</label>);
     }
     this.setState({
       buttonDisabled: true,
@@ -62,15 +56,12 @@ class LoginForm extends React.Component {
           }),
         }
       );
-      console.log(res);
-      console.log(res);
       if (res.status===200) {
-        UserStore.isLoggedIn = true;
-        // UserStore.username = res.data.user_id;
+        AuthenticationService.registerSuccessfulLogin(this.state.username);
         this.props.history.push("/UploadData");
       } else{
         this.resetForm();
-        alert("Invalid username or password");
+        return(<label>Invalid username or password</label>);
       }
     } catch (e) {
       console.log(e);

@@ -6,6 +6,8 @@ import ProductView from "./ProductView";
 import ToggleView from "./ToggleView";
 import PortfolioView from "./PortfolioView";
 import HomeButton from "./HomeButton";
+import UserStore from "./stores/UserStore";
+import AuthenticationService from './AuthenticationService'
 
 
 class Dashboard extends Component {
@@ -31,7 +33,8 @@ class Dashboard extends Component {
       selectedProduct: "Select",
       displayProductView: false,
       displayFeatureView: false,
-      displayPortfolioView: false 
+      displayPortfolioView: false,
+      isSubmitClicked: false,
     };
     this.handleYearChange = this.handleYearChange.bind(this);
     this.handleQuarterChange = this.handleQuarterChange.bind(this);
@@ -52,6 +55,9 @@ class Dashboard extends Component {
   componentDidMount() {
     this.CallYears();
     this.LOB();
+  }
+  ontoLoginView(){
+    this.props.history.push("/login");
   }
   CallYears() {
     DataService.retrieveYearList()
@@ -102,7 +108,7 @@ class Dashboard extends Component {
   }
 
   loadProductView() {
-    if (this.state.displayProductView === true) {
+    if (this.state.displayProductView === true && this.state.FinalDataForRep.length!==0) {
       
         return (
           <div>
@@ -112,13 +118,16 @@ class Dashboard extends Component {
             />
           </div>
         );
-      
-     
+
+    }
+    else if(this.state.displayProductView === true && this.state.FinalDataForRep.length===0)
+    {
+      return (<div className="emptydata">No records found for this product</div> );
     }
     
   }
   loadFeatureView(){
-    if(this.state.displayFeatureView === true)
+    if(this.state.displayFeatureView === true && this.state.FeatureDataForRep.length!==0)
     {
        return (
          <div>
@@ -128,11 +137,14 @@ class Dashboard extends Component {
          </div>
 
        );
-
+    }
+    else if(this.state.displayFeatureView === true && this.state.FeatureDataForRep.length===0)
+    {
+      return (<div className="emptydata">No records found for this product</div> );
     }
   }
   loadPortfolioView(){
-    if(this.state.displayPortfolioView === true)
+    if(this.state.displayPortfolioView === true && this.state.PortfolioHeaderDataForRep.length!==0)
     {
       return (
         <div>
@@ -144,14 +156,15 @@ class Dashboard extends Component {
           selectedQuarter = {this.state.selectedQuarter}/>
         </div>
       );
-
     }
-
-
+    else if(this.state.displayPortfolioView === true && this.state.PortfolioHeaderDataForRep.length===0)
+    {
+      return(<div className="emptydata">No records found for this portfolio</div>);
+    }
   }
 
   loadToggleButtons() {
-    if (this.state.displayProductView === true || this.state.displayFeatureView === true )  {
+    if ((this.state.displayProductView === true || this.state.displayFeatureView === true) && this.state.AvgTtvDataForRep.length!==0)  {
         return (
           <div>
             <div className="ToggleView">
@@ -182,7 +195,9 @@ class Dashboard extends Component {
                     <strong>Avg Velocity</strong>
                   </li>
                   {this.state.AvgTtvDataForRep.map((item) => (
-                    <li className="itemvel">{item.vel.toFixed(2)}</li>
+                    item.vel !==null ?  (
+                    <li className="itemvel">{item.vel.toFixed(2)}</li>)
+                    : ("")
                   ))}
                 </ul>
               </div>
@@ -191,8 +206,11 @@ class Dashboard extends Component {
                   <li className="ttvheader">
                     <strong>Avg TTV</strong>
                   </li>
+                  
                   {this.state.AvgTtvDataForRep.map((item) => (
-                    <li className="itemttv">{item.ttv.toFixed(2)}</li>
+                    item.ttv !==null ? (
+                    <li className="itemttv">{item.ttv.toFixed(2)}</li>)
+                    :("")
                   ))}
                 </ul>
               </div>
@@ -208,6 +226,7 @@ class Dashboard extends Component {
        
       // }
       }
+
   }
   getDataForHeader() {
     DataService.HeaderData(
@@ -218,6 +237,7 @@ class Dashboard extends Component {
       this.state.selectedQuarter
     )
       .then((response) => {
+        console.log(response.data.length);
         this.setState({ HeaderDataForRep: response.data });
         console.log(this.state.HeaderDataForRep);
       })
@@ -236,14 +256,17 @@ class Dashboard extends Component {
       this.state.selectedQuarter
     )
       .then((response) => {
-        //  console.log(response);
+        console.log(response.data.length);
+        
         this.setState({ FinalDataForRep: response.data });
         console.log(this.state.FinalDataForRep);
+        
       })
       .catch((error) => {
         console.log(error);
         this.setState({ errorMsg: "Error retrieving Final Data" });
       });
+
   }
 
 
@@ -285,7 +308,6 @@ class Dashboard extends Component {
   
 
   onSubmit() {
-
     if(this.state.selectedProduct==="Select" && this.state.selectedPortfolio!=="Select")
     {
         this.getDataForPortfolio();
@@ -304,6 +326,7 @@ class Dashboard extends Component {
         displayProductView: true,
         displayFeatureView: false,
         displayPortfolioView: false,
+        isSubmitClicked: true,
         });
     }
   }
@@ -313,7 +336,8 @@ class Dashboard extends Component {
     this.setState({
       displayProductView: false,
       displayFeatureView: true,
-      displayPortfolioView: false
+      displayPortfolioView: false,
+     
     });
   }
   // OntoFeatureView(
@@ -395,108 +419,113 @@ class Dashboard extends Component {
     });
   }
   render() {
-    return (
-      <div className="dropdowns">
-        <HeaderComponent/>
-        <HomeButton/>
-        <div className="viewby">
-          <strong className="viewbytext">View By</strong>
-          <select
-            className="year"
-            name="Select Year"
-            onChange={this.handleYearChange}
-            onClick={this.LOB}
-          >
-            <option>
-              {"  "}
-              Year{"  "}
-            </option>
-            {this.state.years.map((item) => (
-              <option value={item.year_number}>{item.year_number}</option>
-            ))}
-          </select>
-          <select
-            className="quarter"
-            name="Select Quarter"
-            value={this.state.value}
-            onChange={this.handleQuarterChange}
-          >
-            <option value="Q">
-              {"  "}
-              Quarter{"  "}
-            </option>
-            <option value="Q1">Quarter 1</option>
-            <option value="Q2">Quarter 2</option>
-            <option value="Q3">Quarter 3</option>
-            <option value="Q4">Quarter 4</option>
-            <option value="YTD">YTD</option>
-          </select>
+    const isUserLoggedin = AuthenticationService.isUserLoggedin();
+      return (
+        <div>
+          {isUserLoggedin && 
+        <div className="dropdowns">
+          <HeaderComponent/>
+          <HomeButton/>
+          <div className="viewby">
+            <strong className="viewbytext">View By</strong>
+            <select
+              className="year"
+              name="Select Year"
+              onChange={this.handleYearChange}
+              onClick={this.LOB}
+            >
+              <option>
+                {"  "}
+                Year{"  "}
+              </option>
+              {this.state.years.map((item) => (
+                <option value={item.year_number}>{item.year_number}</option>
+              ))}
+            </select>
+            <select
+              className="quarter"
+              name="Select Quarter"
+              value={this.state.value}
+              onChange={this.handleQuarterChange}
+            >
+              <option value="Q">
+                {"  "}
+                Quarter{"  "}
+              </option>
+              <option value="Q1">Quarter 1</option>
+              <option value="Q2">Quarter 2</option>
+              <option value="Q3">Quarter 3</option>
+              <option value="Q4">Quarter 4</option>
+              <option value="YTD">YTD</option>
+            </select>
+          </div>
+          <div className="dropdownsLobPortfolioProduct">
+          <div className="LOBs">
+            <strong>Select LOB</strong>
+            <select
+              className="LOB"
+              name="Select LOB"
+              onChange={this.handleLOBChange}
+            >
+              <option>
+                {"   "}
+                Select{"    "}
+              </option>
+              {this.state.LOBs.map((item) => (
+                <option value={item.lob_id}>{item.lob_name}</option>
+              ))}
+            </select>
+          </div>
+          <div className="Portfolios">
+            <strong>Select Portfolio</strong>
+            <select
+              className="portfolio"
+              name="Select Portfolio"
+              onChange={this.handlePortfolioChange}
+            >
+              <option>
+                {" "}
+                Select{" "}
+              </option>
+              {this.state.Portfolios.map((item) => (
+                <option value={item.portfolio_id}>{item.portfolio_name}</option>
+              ))}
+            </select>
+          </div>
+          <div className="Products">
+            <strong>Select Product</strong>
+            <select
+              className="product"
+              name="Select Products"
+              onChange={this.handleProductChange}
+            >
+              <option>
+                {" "}
+                Select{" "}
+              </option>
+              {this.state.Products.map((item) => (
+                <option value={item.product_id}>{item.product_name}</option>
+              ))}
+            </select>
+          </div>
+          </div>
+          <div className="Finalsubmit">
+            <button
+              className="dashboardsubmit"
+              name="Submit"
+              onClick={() => this.onSubmit()}
+            >
+              Submit
+            </button>
+          </div>
+          {this.loadPortfolioView()}
+          {this.loadProductView()}
+          {this.loadFeatureView()}
+          {this.loadToggleButtons()}
+        </div>}
         </div>
-        <div className="dropdownsLobPortfolioProduct">
-        <div className="LOBs">
-          <strong>Select LOB</strong>
-          <select
-            className="LOB"
-            name="Select LOB"
-            onChange={this.handleLOBChange}
-          >
-            <option>
-              {"   "}
-              Select{"    "}
-            </option>
-            {this.state.LOBs.map((item) => (
-              <option value={item.lob_id}>{item.lob_name}</option>
-            ))}
-          </select>
-        </div>
-        <div className="Portfolios">
-          <strong>Select Portfolio</strong>
-          <select
-            className="portfolio"
-            name="Select Portfolio"
-            onChange={this.handlePortfolioChange}
-          >
-            <option>
-              {" "}
-              Select{" "}
-            </option>
-            {this.state.Portfolios.map((item) => (
-              <option value={item.portfolio_id}>{item.portfolio_name}</option>
-            ))}
-          </select>
-        </div>
-        <div className="Products">
-          <strong>Select Product</strong>
-          <select
-            className="product"
-            name="Select Products"
-            onChange={this.handleProductChange}
-          >
-            <option>
-              {" "}
-              Select{" "}
-            </option>
-            {this.state.Products.map((item) => (
-              <option value={item.product_id}>{item.product_name}</option>
-            ))}
-          </select>
-        </div>
-        </div>
-        <div className="Finalsubmit">
-          <button
-            className="dashboardsubmit"
-            name="Submit"
-            onClick={() => this.onSubmit()}
-          >
-            Submit
-          </button>
-        </div>
-        {this.loadPortfolioView()}
-        {this.loadProductView()}
-        {this.loadFeatureView()}
-        {this.loadToggleButtons()}
-      </div>
-    );
+      );
+
   }
 }
 

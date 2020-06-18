@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import HeaderComponent from "./HeaderComponent";
 import HomeButton from "./HomeButton";
+import AuthenticationService from './AuthenticationService'
+
 
 class BVUpload extends Component {
 
@@ -9,8 +11,11 @@ class BVUpload extends Component {
    } 
 
   render() {
+    const isUserLoggedin = AuthenticationService.isUserLoggedin();
     return (
       <div>
+        {isUserLoggedin &&
+        <div>
         <HeaderComponent/>
         <HomeButton/>
         <div className="app">
@@ -39,6 +44,8 @@ class BVUpload extends Component {
             </div>
           </div>
         </div>
+        </div>
+        }
       </div>
     );
   }

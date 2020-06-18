@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import HeaderComponent from "./HeaderComponent";
 import UserStore from "./stores/UserStore";
-import { extendObservable } from "mobx";
 import AuthenticationService from './AuthenticationService'
+import { extendObservable } from "mobx";
 
-class UploadData extends Component {
+class UploadSuccessful extends Component {
   OntoDashboard() {
     this.props.history.push("/Dashboard");
   }
@@ -18,8 +18,8 @@ class UploadData extends Component {
     console.log(UserStore.isLoggedIn);
     const isUserLoggedin = AuthenticationService.isUserLoggedin();
       return (
-        <div>
-        {isUserLoggedin &&
+          <div>
+              {isUserLoggedin &&
         <div><HeaderComponent/>
         <div className="app">
           <div className="container">
@@ -30,7 +30,7 @@ class UploadData extends Component {
                 alt="optum"
                 width="200px"
               />
-              <label className="uploaddatatext">What you wish to do?</label>
+              <label className="uploadsuccessful">File Uploaded Successfully!</label>
               <div className="upload">
                 <button className="btnn"  onClick={() => this.OntoBVUpload()}>Upload KPI/Data</button>
               </div>
@@ -43,11 +43,11 @@ class UploadData extends Component {
           </div>
         </div>
         </div>
-        }
+  }
         </div>
       );
     
   }
 }
 
-export default UploadData;
+export default UploadSuccessful;

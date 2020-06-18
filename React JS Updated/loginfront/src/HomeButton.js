@@ -2,10 +2,13 @@ import React, { Component } from "react";
 import UploadData from "./UploadData";
 
 class HomeButton extends Component {
+  
+  
   //   imageClick() {
   //     console.log("hey");
   //     this.props.history.push("/UploadData");
   //   }
+  
   render() {
     return (
       <div className="homebutton">

@@ -122,21 +122,36 @@ public class UserService {
 	public List<ProductsGraph> portfolioGraphView(int lobid, int portfolioid, String display_name, int yearid, String quarterid) {
 		  return productsGraphDaoImpl.portfolioGraphView(lobid, portfolioid, display_name, yearid, quarterid);
 		}
-	public ResponseEntity<ResponseMessage> readExcel(MultipartFile file) throws IOException{
+//	public ResponseEntity<ResponseMessage> readExcel(MultipartFile file) throws IOException{
+//		String TYPE = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+//		if (TYPE.equals(file.getContentType())) {
+//		System.out.println("file uploading");
+//		excelUploadDaoImpl.readExcel(file);
+//		  String message = "";
+//
+//		message = "Uploaded the file successfully: " + file.getOriginalFilename();
+//		     return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message));
+//		}
+//		else {
+//		System.out.println("file not uploading");
+//		String message1 = "Please upload an excel file!";
+//		   return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseMessage(message1));
+//		}
+//		 }
+	
+	public String readExcel(MultipartFile file) throws IOException{
 		String TYPE = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
 		if (TYPE.equals(file.getContentType())) {
-		System.out.println("file uploading");
-		excelUploadDaoImpl.readExcel(file);
-		  String message = "";
-
-		message = "Uploaded the file successfully: " + file.getOriginalFilename();
-		     return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message));
+		System.out.println("correct format");
+		return excelUploadDaoImpl.readExcel(file);
+		 
 		}
 		else {
-		System.out.println("file not uploading");
-		String message1 = "Please upload an excel file!";
-		   return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseMessage(message1));
+		System.out.println("incorrect format");
+		String message1 = "Incorrect File Format. Only Excel files are allowed.";
+		return message1;   
 		}
 		 }
+
 	  
 }

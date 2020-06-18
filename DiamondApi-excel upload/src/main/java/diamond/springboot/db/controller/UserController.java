@@ -134,11 +134,15 @@ if(userService.uploadexcel(file))
 	}
 	*/
 
+//@PostMapping("/upload")
+//public ResponseEntity<ResponseMessage> readExcel(@RequestParam("file") MultipartFile file) throws IOException  {
+//  return userService.readExcel(file);
+//}
+	
 @PostMapping("/upload")
-public ResponseEntity<ResponseMessage> readExcel(@RequestParam("file") MultipartFile file) throws IOException  {
+public String readExcel(@RequestParam("file") MultipartFile file) throws IOException  {
   return userService.readExcel(file);
 }
-	
 
 	
 
