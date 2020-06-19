@@ -12,6 +12,10 @@ class LoginForm extends React.Component {
       acusername: "",
       acpassword: "",
       buttonDisabled: false,
+      errorMsgLogin: "",
+      errorMsgLogin1: "",
+      errorMsgLogin2: "",
+      isClicked: false
     };
   }
 
@@ -28,14 +32,33 @@ class LoginForm extends React.Component {
       password: "",
       buttonDisabled: false,
     });
+    this.loadLoginError = this.loadLoginError.bind(this);
+  }
+  loadLoginError(){
+    if(this.state.errorMsgLogin!=="" && this.state.isClicked===true)
+    {
+      return(<label className="errorMsgLogin">{this.state.errorMsgLogin}</label>);
+    }
+    if(this.state.username==="" &&  this.state.isClicked===true)
+    {
+    return(<label className="errorMsgLogin1">{this.state.errorMsgLogin1}</label>)
+    }
+    if(this.state.password==="" && this.state.isClicked===true)
+    {
+    return(<label className="errorMsgLogin2">{this.state.errorMsgLogin2}</label>)
+    }
+  
   }
 
   async doLogin() {
+    this.setState({isClicked: true});
     if (!this.state.username) {
-      return(<div>Please enter employee Id</div>);
+      this.setState({errorMsgLogin1: 'Please enter username',
+    errorMsgLogin:""});
     }
     if (!this.state.password) {
-      return(<label>Please enter password</label>);
+      this.setState({errorMsgLogin2: 'Please enter password',
+    errorMsgLogin:""});
     }
     this.setState({
       buttonDisabled: true,
@@ -58,10 +81,12 @@ class LoginForm extends React.Component {
       );
       if (res.status===200) {
         AuthenticationService.registerSuccessfulLogin(this.state.username);
+        this.setState({errorMsgLogin: ""});
         this.props.history.push("/UploadData");
       } else{
         this.resetForm();
-        return(<label>Invalid username or password</label>);
+        this.setState({errorMsgLogin: "Invalid username or password"});
+        
       }
     } catch (e) {
       console.log(e);
@@ -101,6 +126,7 @@ class LoginForm extends React.Component {
               onClick={() => this.doLogin()}
             />
           </div>
+          {this.loadLoginError()}
         </div>
       </div>
     );

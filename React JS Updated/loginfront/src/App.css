@@ -1037,3 +1037,26 @@ html,
   font-size: 15px;
   right: 100px;
 }
+.errorMsgLogin{
+  color: red;
+  font-size: 15px;
+  word-wrap: break-word;
+  position: relative;
+  bottom: 300px;
+}
+.errorMsgLogin1{
+  color: red;
+  font-size: 14px;
+  word-wrap: break-word;
+  position: relative;
+  bottom: 252px;
+  right: 90px;
+}
+.errorMsgLogin2{
+  color: red;
+  font-size: 14px;
+  word-wrap: break-word;
+  position: relative;
+  bottom: 190px;
+  right: 90px;
+}
