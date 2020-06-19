@@ -291,38 +291,45 @@ String str = "";
         c1 = template.query("SELECT LOB_ID FROM LOB WHERE LOB_NAME = :LOB_NAME", param_check, new ExcelCheckRowMapper());
         c2 = template.query("SELECT PORTFOLIO_ID FROM PORTFOLIO WHERE PORTFOLIO_NAME = :PORTFOLIO_NAME", param_check, new ExcelCheck1RowMapper());
         c3 = template.query("SELECT PRODUCT_ID FROM PRODUCT_MASTER WHERE PRODUCT_NAME = :PRODUCT_NAME", param_check, new ExcelCheck2RowMapper());
-        if(c1.isEmpty() && !c2.isEmpty() && !c3.isEmpty() ) {
-            str = "Master Data not defined for " + lob_check;
-            System.out.println(str);
-            return str;
-            } else if(!c1.isEmpty() && c2.isEmpty() && !c3.isEmpty()) {
-            str = "Master Data not defined for " + portfolio_check;
-            System.out.println(str);
-            return str;
-            }else if (!c1.isEmpty() && !c2.isEmpty() && c3.isEmpty()) { 
-            str = "Master Data not defined for " + product_check;
-            System.out.println(str); 
-            return str;
-            }else if(c1.isEmpty() && c2.isEmpty() && !c3.isEmpty()) {
-            
-            str = "Master Data not defined for " + lob_check + " and " + portfolio_check;
-            System.out.println(str);
-            return str;
-            }else if(!c1.isEmpty() && c2.isEmpty() && c3.isEmpty()) {
-            str = "Master Data not defined for " + portfolio_check + " and " + product_check;
-            System.out.println(str);
-            return str;
-            }else if(c1.isEmpty() && !c2.isEmpty() && c3.isEmpty()) {
-            str = "Master Data not defined for " + lob_check + " and " + product_check;
-            System.out.println(str);
-            return str;
-            }else if(c1.isEmpty() && c2.isEmpty() && c3.isEmpty()){
-            str = "Master Data not defined for " + lob_check + " and " + portfolio_check + " and " + product_check;
-            System.out.println(str);
-            return str;
-            }
+//        if(c1.isEmpty() && !c2.isEmpty() && !c3.isEmpty() ) {
+////            str = "Master Data not defined for " + lob_check;
+//        	str = "Master Data not defined for Portfolio/LOB/Product" ;
+//            System.out.println(str);
+//            return str;
+//            } else if(!c1.isEmpty() && c2.isEmpty() && !c3.isEmpty()) {
+////            str = "Master Data not defined for " + portfolio_check;
+//            	str = "Master Data not defined for Portfolio" ;
+//            System.out.println(str);
+//            return str;
+//            }else if (!c1.isEmpty() && !c2.isEmpty() && c3.isEmpty()) { 
+////            str = "Master Data not defined for " + product_check;
+//            str = "Master Data not defined for Product";
+//            System.out.println(str); 
+//            return str;
+//            }else if(c1.isEmpty() && c2.isEmpty() && !c3.isEmpty()) {
+//            
+//            str = "Master Data not defined for " + lob_check + " and " + portfolio_check;
+//            System.out.println(str);
+//            return str;
+//            }else if(!c1.isEmpty() && c2.isEmpty() && c3.isEmpty()) {
+//            str = "Master Data not defined for " + portfolio_check + " and " + product_check;
+//            System.out.println(str);
+//            return str;
+//            }else if(c1.isEmpty() && !c2.isEmpty() && c3.isEmpty()) {
+//            str = "Master Data not defined for " + lob_check + " and " + product_check;
+//            System.out.println(str);
+//            return str;
+//            }else if(c1.isEmpty() && c2.isEmpty() && c3.isEmpty()){
+//            str = "Master Data not defined for " + lob_check + " and " + portfolio_check + " and " + product_check;
+//            System.out.println(str);
+//            return str;
+//            }
 
-        
+        if(c1.isEmpty() || c2.isEmpty() || c3.isEmpty())
+        {
+        	str = "Master Data not defined for Portfolio/LOB/Product ";
+        	return str;
+        }
     }
     
     

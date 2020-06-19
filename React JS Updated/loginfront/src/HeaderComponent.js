@@ -17,8 +17,8 @@ class HeaderComponent extends Component {
       <div className="app">
         <div className="container">
           <div className="HeaderComponent">
-            <label className="Welcome">Welcome!</label>
-            <label className="UserID">{UserId}</label>
+            <label className="Welcome">Welcome</label>
+            <label className="UserID">{UserId}!</label>
             <Link to='/login'>
             <button className="logoutbutton" onClick={() => this.doLogout()}>
               Log out
