@@ -10,6 +10,7 @@ class HeaderComponent extends Component {
 
   render() {
     const isUserLoggedin = AuthenticationService.isUserLoggedin();
+    const UserId = AuthenticationService.getLoggedinUser();
     return (
       <div>
       {isUserLoggedin && 
@@ -17,6 +18,7 @@ class HeaderComponent extends Component {
         <div className="container">
           <div className="HeaderComponent">
             <label className="Welcome">Welcome!</label>
+            <label className="UserID">{UserId}</label>
             <Link to='/login'>
             <button className="logoutbutton" onClick={() => this.doLogout()}>
               Log out

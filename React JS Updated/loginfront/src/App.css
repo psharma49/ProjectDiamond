@@ -91,11 +91,11 @@ html,
 
 .Welcome {
   position: relative;
-  right: -40px;
+  right: -960px;
   bottom: 2px;
   font-size: 25px;
   color: white;
-  font-family: auto;
+  font-family: Arial;
 }
 
 .logoutbutton {
@@ -103,7 +103,7 @@ html,
   color: rgb(85, 86, 90);
   position: relative;
   text-align: center;
-  left: 1150px;
+  left: 1050px;
   bottom: 5px;
   min-width: 70px;
   width: 5%;
@@ -958,12 +958,12 @@ html,
 }
 
 .HeaderComponent{
-  border: 3px solid rgb(85,86,90);
+  border: 3px solid #e87722;
   width: 1360px;
   height: 40px;
   position: relative;
   bottom: 90px;
-  background-color: rgb(85,86,90);
+  background-color: #e87722;
 }
 .dropdownsLobPortfolioProduct{
   border: 2px solid rgb(85,86,90);
@@ -1059,4 +1059,11 @@ html,
   position: relative;
   bottom: 190px;
   right: 90px;
+}
+.UserID{
+  color: white;
+  font-size:25px;
+  font-family: Arial;
+  position: relative;
+  left: 1000px;
 }
